@@ -1,0 +1,1418 @@
+/*
+  ==============================================================================
+  config_weapons.hpp
+
+  This file defines our custom weapons, including rifles, SMGs, machine guns,
+  launchers, etc. Each class typically inherits from a known parent mod/class
+  like OPTRE_MA5C or 19_UNSC_M6C. Then we override properties such as
+  displayName, magazines[], attachments, etc.
+
+  Key Points:
+    - `scope` and `scopeArsenal` control how the weapon appears in the editor/arsenal.
+    - `baseWeapon` is the "root" weapon that is recognized by the Arsenal.
+    - `magazines[]` sets which magazines the weapon can use.
+    - `class WeaponSlotsInfo` controls attachable items (muzzle, optics, etc.)
+    - The macros from config_macros.hpp (e.g. COMMON_SIGHTS) reduce repetition.
+  ==============================================================================
+*/
+// Predeclaring references for weapon states, attachments, etc.
+  class Mode_SemiAuto;
+  class Mode_Burst;
+  class Mode_FullAuto;
+  class WeaponSlotsInfo; // Base class for weapon slots
+  class MuzzleSlot;      // Base class for muzzle attachments
+  class CowsSlot;
+  class PointerSlot;     // Base class for pointer attachments
+  class UnderBarrelSlot; // Base class for underbarrel attachments
+  class FullAuto;        // Base class for full-auto fire mode
+  class Single;
+
+class CfgWeapons
+{
+  // Base classes from external mods or vanilla A3
+  class Launcher;        // Base class for launcher weapons
+  class OPTRE_MA37K;
+  class OPTRE_MA5C;
+  class OPTRE_MA5CGL;
+  class OPTRE_MA5K;
+  class OPTRE_BR45;
+  class OPTRE_Commando;
+  class OPTRE_M247;
+  class OPTRE_M247A1;
+  class OPTRE_M247A1_Stripped;
+  class OPTRE_M319;
+  class OPTRE_M319N;
+  class OPTRE_M301UGL; // Base class for our UGLs
+  class OPTRE_M73;
+  class GL_3GL_F;                   // Base class for grenade launchers
+  class UGL_F;
+  class InventoryOpticsItem_Base_F; // Base class for optics
+  class OPTRE_M6C;
+  class OPTRE_M7;
+  class OPTRE_M7_Folded;
+  class OPTRE_M90A;
+  class OPTRE_MA5B;
+  class launch_MRAWS_base_F;
+  class InventoryUnderItem_Base_F;
+  class dzn_MG_Tripod_Universal;
+  class dzn_MG_Tripod_Universal_Carry;
+  class ACE_SPIR;
+  class ACE_optic_Hamr_2D;
+  class optic_DMS;
+  class OPTRE_M739_SAW_Foregrip_Black_F;
+  class OPTRE_M247a1_Flashhider;
+  class EventHandlers;
+  class OPTRE_M250;
+  class OPTRE_M41_SSR;
+  class OPTRE_BR55HB;
+  class OPTRE_BR55;
+  class OPTRE_BR45GL_black;
+  class OPTRE_M392_DMR;
+  class TCP_optic_M43RCO;
+  class TCP_OpticsMode_Base_Irons;
+  class TCP_LMG_M731;
+
+  //TCP Class definitions
+  //Pistols
+  class TCP_hgun_Pistol_M6C2;
+  class TCP_hgun_Pistol_M6G;
+  class TCP_hgun_Pistol_M6G2;
+  /*
+    =============================================================================
+    MG Tripod Definitions
+    =============================================================================
+  */
+	
+  class mortar_82mm;
+	class NDS_W_M224_mortar: mortar_82mm
+	{
+		magazines[] = 
+		{
+			"NDS_M_6Rnd_60mm_HE",
+			"NDS_M_6Rnd_60mm_HE_0",
+			"NDS_M_6Rnd_60mm_ILLUM",
+			"avm224_M_6Rnd_60mm_ILLUM_IR",
+			"NDS_M_6Rnd_60mm_SMOKE",
+      "twelfth_M_6Rnd_60mm_HUNTIR"
+		};
+	};
+  class avm224_W_M224_mortar_proxy: NDS_W_M224_mortar {
+    magazines[] = 
+		{
+			"NDS_M_6Rnd_60mm_HE",
+			"NDS_M_6Rnd_60mm_HE_0",
+			"NDS_M_6Rnd_60mm_ILLUM",
+			"avm224_M_6Rnd_60mm_ILLUM_IR",
+			"NDS_M_6Rnd_60mm_SMOKE",
+      "twelfth_M_6Rnd_60mm_HUNTIR"
+		};
+	};
+
+  class twelfth_MG_Tripod_Carry: dzn_MG_Tripod_Universal_Carry{
+    displayName = "[12th] MG Tripod";
+    author = "10Dozen, Waylen";
+    scope = 2;
+    scopeArsenal = 2;
+    class WeaponSlotsInfo: WeaponSlotsInfo
+		{
+			allowedSlots[]={};
+			mass=100;
+		};
+		dzn_MG_Tripod_AttachItems[]=
+		{
+			"twelfth_MG_Tripod"
+		};
+  };
+
+  class twelfth_MG_Tripod: dzn_MG_Tripod_Universal{
+    displayName = "[12th] MG Tripod";
+    author = "10Dozen, Waylen";
+    scope = 2;
+    scopeArsenal = 2;
+    class ItemInfo: InventoryUnderItem_Base_F
+		{
+			allowedSlots[]={};
+			deployedPivot="bipod";
+			hasBipod="true";
+			mass=250;
+			soundBipodDeploy[]=
+			{
+				"A3\Sounds_F_Mark\arsenal\sfx\bipods\Bipod_generic_deploy",
+				0.70794576,
+				1,
+				20
+			};
+			soundBipodFold[]=
+			{
+				"A3\Sounds_F_Mark\arsenal\sfx\bipods\Bipod_generic_fold",
+				0.70794576,
+				1,
+				20
+			};
+			soundBipodDown[]=
+			{
+				"A3\Sounds_F_Mark\arsenal\sfx\bipods\Bipod_generic_down",
+				0.70794576,
+				1,
+				20
+			};
+			soundBipodUp[]=
+			{
+				"A3\Sounds_F_Mark\arsenal\sfx\bipods\Bipod_generic_up",
+				0.70794576,
+				1,
+				20
+			};
+		};
+    inertia=2;
+		dzn_MG_Tripod_CarryItem="twelfth_MG_Tripod_Carry";
+		dzn_MG_Tripod_CarryItemUniversal="twelfth_MG_Tripod_Carry";
+  };
+
+  /*
+    =============================================================================
+    MAAWS Config
+    =============================================================================
+  */
+
+    // ACE buddy loading compat
+
+	  class Weapon_launch_MRAWS_green_F
+	  {
+	  	ace_reloadlaunchers_enabled=1;
+	  };
+	  class Weapon_launch_MRAWS_olive_F
+	  {
+	  	ace_reloadlaunchers_enabled=1;
+	  };
+	  class Weapon_launch_MRAWS_sand_F
+	  {
+	  	ace_reloadlaunchers_enabled=1;
+	  };
+
+    // class definitions
+
+    class twelfth_MAAWS_base: launch_MRAWS_base_F
+    {
+	    author = "Waylen";
+	    displayName = "[12th] MAAWS (Green)";
+	    baseWeapon = "twelfth_MAAWS_base";
+	    scope = 2;
+	    hiddenSelectionsTextures[] =
+      {
+        "\A3\Weapons_F_Tank\Launchers\MRAWS\Data\launch_MRAWS_darkgreen_01_F_co",
+        "\A3\Weapons_F_Tank\Launchers\MRAWS\Data\launch_MRAWS_02_F_co"
+      };
+
+      class WeaponSlotsInfo: WeaponSlotsInfo
+      {
+        mass = 65;
+      };
+    };
+
+    class twelfth_MAAWS_olive: twelfth_MAAWS_base {
+	    author = "Waylen";
+	    displayName = "[12th] MAAWS (Olive)";
+	    baseWeapon = "twelfth_MAAWS_olive";
+	    scope = 2;
+	    hiddenSelectionsTextures[] =
+      {
+			  "\A3\Weapons_F_Tank\Launchers\MRAWS\Data\launch_MRAWS_olive_01_F_co",
+			  "\A3\Weapons_F_Tank\Launchers\MRAWS\Data\launch_MRAWS_02_F_co"
+      };
+    };
+
+    class twelfth_MAAWS_sand: twelfth_MAAWS_base {
+	    author = "Waylen";
+	    displayName = "[12th] MAAWS (Sand)";
+	    baseWeapon = "twelfth_MAAWS_sand";
+	    scope = 2;
+	    hiddenSelectionsTextures[] =
+      {
+			  "\A3\Weapons_F_Tank\Launchers\MRAWS\Data\launch_MRAWS_sand_01_F_co",
+			  "\A3\Weapons_F_Tank\Launchers\MRAWS\Data\launch_MRAWS_02_F_co"
+      };
+    };
+
+    class twelfth_M41_SSR_laserfix: OPTRE_M41_SSR {
+      ace_laser_canSelect = 1;
+      ace_laser_showHud = 1;
+      
+      displayName = "[12th] M41 SSR MAV/AW";
+      baseWeapon = "twelfth_M41_SSR_laserfix";
+    };
+
+    class twelfth_M41_SSR_G_laserfix: OPTRE_M41_SSR {
+      ace_laser_canSelect = 1;
+      ace_laser_showHud = 1;
+
+      displayName = "[12th] M41 SSR MAV/AW (Guided)";
+      baseWeapon = "twelfth_M41_SSR_laserfix";
+    };
+
+  /*
+    =============================================================================
+    Aircraft ordenances
+    =============================================================================
+  */
+    
+
+    class weapon_GBU12Launcher;
+    class twelfth_W_GBU_prototype_250_Launcher: weapon_GBU12Launcher {
+      ace_laser_canSelect = 1;
+      ace_laser_showHud = 1;
+      displayName = "GBU-139/P";
+      magazines[] = {"twelfth_W_P_GBU_prototype_250x1","twelfth_W_P_GBU_prototype_250x2","twelfth_W_P_GBU_prototype_250x4"};
+      scope = 2;
+    };
+
+    class twelfth_W_GBU_prototype_500_Launcher: weapon_GBU12Launcher {
+      ace_laser_canSelect = 1;
+      ace_laser_showHud = 1;
+      displayName = "GBU-140/P";
+      magazines[] = {"twelfth_W_P_GBU_prototype_500x1","twelfth_W_P_GBU_prototype_500x2"};
+      scope = 2;
+    };
+
+  /*
+    =============================================================================
+    Sidearms, SMGs, Shotguns, and other small arms
+    =============================================================================
+  */
+  // **ANY COMMON_MACRO_NAME CAN BE FOUND IN macros.hpp**
+
+
+    class twelfth_M6C2 : TCP_hgun_Pistol_M6C2
+  {
+    scope = 2;
+    scopeArsenal = 2;
+    author = "Sammy";
+    displayName = "[12th] M6C2";
+    baseWeapon = "twelfth_M6C2";
+    //magazines[] = COMMON_M6_MAGAZINES;
+  };  
+  class twelfth_M6G : TCP_hgun_Pistol_M6G
+  {
+    scope = 2;
+    scopeArsenal = 2;
+    author = "Sammy";
+    displayName = "[12th] M6G";
+    baseWeapon = "twelfth_M6G";
+    //magazines[] = COMMON_M6_MAGAZINES;
+  };
+  class twelfth_M6G2 : TCP_hgun_Pistol_M6G2
+  {
+    scope = 2;
+    scopeArsenal = 2;
+    author = "Sammy";
+    displayName = "[12th] M6G2";
+    baseWeapon = "twelfth_M6G2";
+    //magazines[] = COMMON_M6_MAGAZINES;
+  };
+  class twelfth_M6C : OPTRE_M6C
+  {
+    scope = 2;
+    scopeArsenal = 2;
+    author = "Weber";
+    displayName = "[12th] M6C";
+    baseWeapon = "twelfth_M6C";
+    magazines[] = COMMON_M6_MAGAZINES;
+  };
+
+  class twelfth_M7_Test : OPTRE_M7
+  {
+    model = "\TCP\Weapons\SMGs\M7\M7.p3d";
+    author = "Weber";
+    scope = 2;
+    scopeArsenal = 2;
+    displayName = "[12th] M7";
+    baseWeapon = "twelfth_M7_Test";
+    picture = "\TCP\Weapons\SMGs\M7\data\ui\icon_SMG_M7_X_ca.paa";
+		pictureWire = "\TCP\Weapons\SMGs\M7\data\ui\icon_SMG_M7_W_ca.paa";
+		hiddenSelections[] = {"camo"};
+		hiddenSelectionsTextures[] = {"\TCP\Weapons\SMGs\M7\data\camo\default\M7_CO.paa"};
+    handAnim[] = {"OFP2_ManSkeleton","\TCP\Weapons\SMGs\M7\data\anim\M7_handAnim.rtm"};
+    magazines[] = COMMON_SMG_MAGAZINES;
+    class WeaponSlotsInfo: WeaponSlotsInfo {
+			class MuzzleSlot: MuzzleSlot {
+			};
+			class CowsSlot: CowsSlot {
+
+      };
+			class PointerSlot: PointerSlot {
+				compatibleitems[] = {COMMON_RAIL_ATTACHMENTS,"TCP_acc_pointer_lam_M7"};
+			};
+			class UnderBarrelSlot: UnderBarrelSlot {
+				compatibleitems[] = {};
+			};
+		};
+  };
+
+  class twelfth_M7_Test_Folded : OPTRE_M7_Folded
+  {
+    author = "Weber";
+    scope = 2;
+    scopeArsenal = 2;
+    displayName = "[12th] M7 Folded";
+    baseWeapon = "twelfth_M7_Test_Folded";
+    magazines[] = {};
+  };
+
+  class twelfth_M90 : OPTRE_M90A
+  {
+    model = "\TCP\Weapons\Shotguns\M45\M45.p3d";
+    author = "Weber";
+    scope = 2;
+    scopeArsenal = 2;
+    displayName = "[12th] M45";
+    baseWeapon = "twelfth_M90";
+    picture = "\TCP\Weapons\Shotguns\M45\data\ui\icon_srifle_M45_X_ca.paa";
+		pictureWire = "\TCP\Weapons\Shotguns\M45\data\ui\icon_srifle_M45_W_ca.paa";
+		hiddenSelections[] = {"camo","camo1"};
+		hiddenSelectionsTextures[] = {"\TCP\Weapons\Shotguns\M45\data\camo\default\M45_01_CO.paa","\TCP\Weapons\Shotguns\M45\data\camo\default\M45_02_CO.paa"};
+    magazines[] = {"twelfth_12rnd_8ga_b", "twelfth_12rnd_8ga_s", "twelfth_6rnd_8ga_b", "twelfth_6rnd_8ga_s"};
+    class WeaponSlotsInfo: WeaponSlotsInfo {
+      class PointerSlot: PointerSlot {
+				compatibleitems[] = {"TCP_acc_flashlight_M45"};
+			};
+			class UnderBarrelSlot: UnderBarrelSlot {
+				compatibleitems[] = {"TCP_bipod_sideSaddle_M45_Mixed","TCP_bipod_sideSaddle_M45_Pellets","TCP_bipod_sideSaddle_M45_Slugs"};
+			};
+      class MuzzleSlot: MuzzleSlot {
+        compatibleitems[] = {};
+			};
+		};
+  };
+  /*
+    =============================================================================
+    Assault Rifles
+    =============================================================================
+  */
+
+	class twelfth_MA5C: OPTRE_MA5C {
+	author = "Waylen";
+	scope = 2;
+	scopeArsenal = 2;
+	displayName = "[12th] MA5C Assault Rifle";
+	baseWeapon = "twelfth_MA5C";
+	canShootInWater = 1;
+	magazines[] = COMMON_MA5C_MAGAZINES;
+
+		class WeaponSlotsInfo: WeaponSlotsInfo {
+			class MuzzleSlot: MuzzleSlot {
+				compatibleitems[] = { "OPTRE_MA5Suppressor" };
+			};
+			class CowsSlot: CowsSlot {
+        compatibleitems[] = COMMON_SIGHTS;
+      };
+			class PointerSlot: PointerSlot {
+        compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
+			};
+			class UnderBarrelSlot: UnderBarrelSlot {
+				compatibleitems[] = {};
+			};
+		};
+	};
+
+	class twelfth_MA5CGL: OPTRE_MA5CGL {
+		author = "Waylen";
+		scope = 2;
+		scopeArsenal = 2;
+		canShootInWater = 1;
+		displayName = "[12th] MA5CGL Assault Rifle";
+		muzzles[] = { "this", "twelfth_M301UGL" };
+		class twelfth_M301UGL: OPTRE_M301UGL {
+			displayName = "M301 Grenade Launcher";
+			descriptionShort = "M301 GL";
+			magazines[] = COMMON_GL_MAGS;
+		};
+		baseWeapon = "twelfth_MA5CGL";
+		magazines[] = COMMON_MA5C_MAGAZINES;
+
+		class WeaponSlotsInfo: WeaponSlotsInfo {
+			class MuzzleSlot: MuzzleSlot {
+			compatibleitems[] = { "OPTRE_MA5Suppressor" };
+			};
+			class CowsSlot: CowsSlot {
+      compatibleitems[] = COMMON_SIGHTS;
+      };
+			class PointerSlot: PointerSlot {
+			compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
+			};
+			class UnderBarrelSlot: UnderBarrelSlot {
+			compatibleitems[] = {};
+			};
+		};
+	};
+
+  class twelfth_MA37K: OPTRE_MA37K {
+    author = "Waylen";
+    scope = 2;
+    scopeArsenal = 2;
+    canShootInWater = 1;
+    mass = 30;
+    displayName = "[12th] MA37K Carbine";
+    baseWeapon = "twelfth_MA37K";
+    magazines[] = COMMON_MA5C_MAGAZINES;
+    class WeaponSlotsInfo: WeaponSlotsInfo {
+      mass = 30;
+      class MuzzleSlot: MuzzleSlot {
+          compatibleitems[] = { "OPTRE_MA37KSuppressor" };
+      };
+      class CowsSlot: CowsSlot {
+        compatibleitems[] = COMMON_SIGHTS;
+      };
+      class PointerSlot: PointerSlot {
+          compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
+      };
+      class UnderBarrelSlot: UnderBarrelSlot {
+          compatibleitems[] = {};
+      };
+    };
+  };
+
+    class twelfth_MA5K: OPTRE_MA5K {
+    author = "Waylen";
+    scope = 2;
+    scopeArsenal = 2;
+    canShootInWater = 1;
+    mass = 30;
+    handAnim[] = {"OFP2_ManSkeleton","\TCP\Weapons\Rifles\MA5K\data\anim\MA5K_handAnim.rtm"};
+    displayName = "[12th] MA5K Carbine";
+    baseWeapon = "twelfth_MA5K";
+    model = "\TCP\Weapons\Rifles\MA5K\MA5K.p3d";
+		picture = "\TCP\Weapons\Rifles\MA5K\data\ui\icon_arifle_MA5K_X_ca.paa";
+		pictureWire = "\TCP\Weapons\Rifles\MA5K\data\ui\icon_arifle_MA5K_W_ca.paa";
+    hiddenSelections[] = {"camo","camo1"};
+		hiddenSelectionsTextures[] = {"TCP\Weapons\Rifles\MA5B\data\camo\default\MA5_CO.paa","\TCP\Weapons\Rifles\MA5K\data\camo\default\MA5K_CO.paa"};
+    magazines[] = COMMON_MA5C_MAGAZINES;
+    class WeaponSlotsInfo: WeaponSlotsInfo {
+      mass = 30;
+      class MuzzleSlot: MuzzleSlot {
+          compatibleitems[] = {"TCP_muzzle_brake_762_01","TCP_muzzle_brake_762_03","TCP_muzzle_snds_762_01","TCP_muzzle_snds_95_01"};
+      };
+      class CowsSlot: CowsSlot {
+        compatibleitems[] = COMMON_SIGHTS;
+        };
+      class PointerSlot: PointerSlot {
+          compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
+      };
+      class UnderBarrelSlot: UnderBarrelSlot {
+          compatibleitems[] = {};
+      };
+    };
+    //--- Ammocounter config & hiddenSelections
+    TCP_weaponDisplayFont = "SquareFont";
+    TCP_weaponDisplayColor[] = {0.152,0.547,0.930,1};
+    TCP_weaponDisplayTexture = "TCP\Weapons\Rifles\MA5B\data\ui\weaponDisplay_CA.paa";
+
+    class Eventhandlers
+    {
+        fired = "[""RscDisplayTCPCounterMA5K"", _this] call TCP_fnc_weaponDisplayCounterFired;";
+        reloaded = "[""RscDisplayTCPCounterMA5K"", _this] call TCP_fnc_weaponDisplayCounterReloaded;";
+        weaponChanged = "[""RscDisplayTCPCounterMA5K"", _this] call TCP_fnc_weaponDisplayCounterWeaponChanged;";
+        magazineUnloaded = "[""RscDisplayTCPCounterMA5K"", _this] call TCP_fnc_weaponDisplayCounterUnloaded;";
+    };
+  };
+
+ // Training MA5A configuration
+
+    class twelfth_MA5C_BB : OPTRE_MA5C
+  {
+    author = "Weber";
+    scope = 2;
+    scopeArsenal = 2;
+    canShootInWater = 1;
+    displayName = "[12th] Training MA5C";
+    baseWeapon = "twelfth_MA5C_BB";
+    magazines[] = {"twelfth_20g_mag"}; // Training ammunition magazine
+  };
+
+  class twelfth_MA5B : OPTRE_MA5B
+  {
+    author = "Weber";
+    scope = 2;
+    scopeArsenal = 2;
+    canShootInWater = 1;
+    displayName = "[12th] MA5B";
+    baseWeapon = "twelfth_MA5B";
+    magazines[] = {"OPTRE_60Rnd_762x51_Mag","twelfth_60Rnd_762x51_Mag_T", "OPTRE_32Rnd_762x51_Mag", "OPTRE_32Rnd_762x51_Mag_Tracer","OPTRE_32Rnd_762x51_Mag_UW"};
+    modes[] = {"FullAuto", "Single"};
+    class manual: Single {
+      displayName = "Semi-Auto";
+      burst = 1;
+      
+    };
+  };
+  /*
+    =============================================================================
+    BR and DMR
+    =============================================================================
+  */
+
+    class twelfth_br55 : OPTRE_BR55
+    {
+      author = "Weber";
+      scope = 2;
+      scopeArsenal = 2;
+      canShootInWater = 1;
+      displayName = "[12th] BR55";
+      baseWeapon = "twelfth_BR55";
+      magazines[] = COMMON_BR_MAGAZINES;
+      ace_overheating_barrelMass = 5;
+      model = "\TCP\Weapons_Ins\Rifles\BR55\BR55.p3d";
+      picture = "\TCP\Weapons_Ins\Rifles\BR55\data\ui\icon_arifle_BR55_X_ca.paa";
+      pictureWire = "\TCP\Weapons_Ins\Rifles\BR55\data\ui\icon_arifle_BR55_W_ca.paa";
+      hiddenSelections[] = {"camo","camo1"};
+      hiddenSelectionsTextures[] = {"\TCP\Weapons_Ins\Rifles\BR55\data\camo\default\BR55_01_CO.paa","\TCP\Weapons_Ins\Rifles\BR55\data\camo\default\BR55_02_CO.paa"};
+      handAnim[] = {"OFP2_ManSkeleton","\TCP\Weapons_Ins\Rifles\BR55\data\anim\BR55_handAnim.rtm"};
+        class WeaponSlotsInfo : WeaponSlotsInfo
+        {
+          class MuzzleSlot : MuzzleSlot
+          {
+        compatibleitems[] = {"TCP_muzzle_comp_95_01","TCP_muzzle_flash_95_01","TCP_muzzle_flash_95_02","TCP_muzzle_flash_95_03","TCP_muzzle_brake_95_01","TCP_muzzle_comp_95_01","TCP_muzzle_snds_95_01","TCP_muzzle_snds_95_02","TCP_muzzle_snds_523_01","TCP_muzzle_snds_523_02"};
+          };
+          class CowsSlot : CowsSlot
+          {
+            compatibleitems[] = COMMON_SIGHTS;
+          };
+          class PointerSlot : PointerSlot
+          {
+            compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
+          };
+          class UnderBarrelSlot : UnderBarrelSlot
+          {
+          };
+        };
+    class LinkedItems
+      {
+        class LinkedItemsMuzzle
+        {
+          item = "TCP_muzzle_flash_95_02";
+          slot = "MuzzleSlot";
+        };
+      };
+      //--- Weapon Display Settings
+        TCP_weaponDisplayFont = "SquareFont";
+        TCP_weaponDisplayColor[] = {0.309,0.625,0.836,1};
+        TCP_weaponDisplayTexture = "\TCP\Weapons_Ins\Rifles\BR55\data\ui\weaponDisplay_CA.paa";
+
+        class Eventhandlers
+        {
+            fired = "[""RscDisplayTCPCounterBR55"", _this] call TCP_fnc_weaponDisplayCounterFired;";
+            reloaded = "[""RscDisplayTCPCounterBR55"", _this] call TCP_fnc_weaponDisplayCounterReloaded;";
+            weaponChanged = "[""RscDisplayTCPCounterBR55"", _this] call TCP_fnc_weaponDisplayCounterWeaponChanged;";
+            magazineUnloaded = "[""RscDisplayTCPCounterBR55"", _this] call TCP_fnc_weaponDisplayCounterUnloaded;";
+        };
+    };
+
+    // Additional BR55 variants with grenade launchers
+
+   /* class twelfth_br55_gl : OPTRE_BR45GL_black
+    {
+      author = "Weber";
+      scope = 2;
+      scopeArsenal = 2;
+      canShootInWater = 1;
+      displayName = "[12th] BR45 UGL";
+      baseWeapon = "twelfth_BR55_gl";
+      magazines[] = COMMON_BR_MAGAZINES;
+      ace_overheating_barrelMass = 10;
+      class WeaponSlotsInfo : WeaponSlotsInfo
+      {
+        class MuzzleSlot : MuzzleSlot
+        {
+        };
+        class CowsSlot : CowsSlot
+        {
+          compatibleitems[] = COMMON_BR_SIGHTS;
+        };
+        class PointerSlot : PointerSlot
+        {
+          compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
+        };
+        class UnderBarrelSlot : UnderBarrelSlot
+        {
+        };
+      };
+    }; */
+
+    class twelfth_BR55_HB : OPTRE_BR55HB
+    {
+      author = "Rex";
+      scope = 2;
+      scopeArsenal = 2;
+      canShootInWater = 1;
+      displayName = "[12th] BR55HB";
+      baseWeapon = "twelfth_BR55_HB";
+      magazines[] = {"twelfth_br_36Rnd_AP", "twelfth_br_36Rnd", "twelfth_br_36Rnd_T", "twelfth_br_36Rnd_UW", "twelfth_br_36Rnd_AP_T"};
+      ace_overheating_barrelMass = 10;
+      model = "\TCP\Weapons_Ins\LongRangeRifles\BR55HB\BR55HB.p3d";
+      picture = "\TCP\Weapons_Ins\LongRangeRifles\BR55HB\data\ui\icon_srifle_BR55HB_X_ca.paa";
+      pictureWire = "\TCP\Weapons_Ins\LongRangeRifles\BR55HB\data\ui\icon_srifle_BR55HB_W_ca.paa";
+      hiddenSelections[] = {"camo","camo1"};
+      hiddenSelectionsTextures[] = {"\TCP\Weapons_Ins\LongRangeRifles\BR55HB\data\camo\default\BR55HB_01_CO.paa","\TCP\Weapons_Ins\LongRangeRifles\BR55HB\data\camo\default\BR55HB_02_CO.paa"};
+      handAnim[] = {"OFP2_ManSkeleton","\TCP\Weapons_Ins\LongRangeRifles\BR55HB\data\anim\BR55HB_handAnim.rtm"};
+      class WeaponSlotsInfo : WeaponSlotsInfo
+      {
+        class MuzzleSlot : MuzzleSlot
+        {
+			compatibleitems[] = {"TCP_muzzle_comp_95_01","TCP_muzzle_flash_95_01","TCP_muzzle_flash_95_02","TCP_muzzle_flash_95_03","TCP_muzzle_brake_95_01","TCP_muzzle_comp_95_01","TCP_muzzle_snds_95_01","TCP_muzzle_snds_95_02","TCP_muzzle_snds_523_01","TCP_muzzle_snds_523_02"};
+        };
+        class CowsSlot : CowsSlot
+        {
+          compatibleitems[] = COMMON_SIGHTS;
+        };
+        class PointerSlot : PointerSlot
+        {
+          compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
+        };
+        class UnderBarrelSlot : UnderBarrelSlot
+        {
+          compatibleitems[] = COMMON_MEDIUM_BIPOD;
+        };
+      };
+      class LinkedItems
+      {
+        class LinkedItemsMuzzle
+        {
+          item = "TCP_muzzle_flash_95_02";
+          slot = "MuzzleSlot";
+        };
+      };
+      //--- Weapon Display Settings
+        TCP_weaponDisplayFont = "SquareFont";
+        TCP_weaponDisplayColor[] = {0.309,0.625,0.836,1};
+        TCP_weaponDisplayTexture = "\TCP\Weapons_Ins\LongRangeRifles\BR55HB\data\ui\weaponDisplay_CA.paa";
+        class Eventhandlers
+        {
+            fired = "[""RscDisplayTCPCounterBR55HB"", _this] call TCP_fnc_weaponDisplayCounterFired;";
+            reloaded = "[""RscDisplayTCPCounterBR55HB"", _this] call TCP_fnc_weaponDisplayCounterReloaded;";
+            weaponChanged = "[""RscDisplayTCPCounterBR55HB"", _this] call TCP_fnc_weaponDisplayCounterWeaponChanged;";
+            magazineUnloaded = "[""RscDisplayTCPCounterBR55HB"", _this] call TCP_fnc_weaponDisplayCounterUnloaded;";
+        };
+    };
+/*
+    =============================================================================
+    Machine Guns
+    =============================================================================
+*/
+    class twelfth_M392 : OPTRE_M392_DMR
+    {
+      model = "\TCP\Weapons\LongRangeRifles\M392\M392.p3d";
+      author = "Rex";
+      scope = 2;
+      scopeArsenal = 2;
+      canShootInWater = 1;
+      displayName = "[12th] M392 DMR";
+      baseWeapon = "twelfth_M392";
+      picture = "\TCP\Weapons\LongRangeRifles\M392\data\ui\icon_srifle_M392_X_ca.paa";
+		  pictureWire = "\TCP\Weapons\LongRangeRifles\M392\data\ui\icon_srifle_M392_W_ca.paa";
+      hiddenSelections[] = {"camo","camo1"};
+		  hiddenSelectionsTextures[] = {"\TCP\Weapons\LongRangeRifles\M392\data\camo\default\M392_01_CO.paa","\TCP\Weapons\LongRangeRifles\M392\data\camo\default\M392_02_CO.paa"};
+      handAnim[] = {"OFP2_ManSkeleton","\TCP\Weapons\LongRangeRifles\M392\data\anim\M392_handAnim.rtm"};
+      HUD_TotalPosibleBullet = 32; // Total possible bullets displayed in HUD
+      magazines[] = {"OPTRE_32Rnd_762x51_Mag", "OPTRE_32Rnd_762x51_Mag_Tracer", "OPTRE_32Rnd_762x51_Mag_UW", "twelfth_762x51_32Rnd_AP", "twelfth_762x51_32Rnd_AP_T" };
+      class WeaponSlotsInfo : WeaponSlotsInfo
+      {
+        class MuzzleSlot : MuzzleSlot
+        {
+          
+        };
+        class CowsSlot : CowsSlot
+        {
+          compatibleItems[] = COMMON_SIGHTS;
+        };
+        class PointerSlot : PointerSlot
+        {
+          compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
+        };
+        class UnderBarrelSlot : UnderBarrelSlot
+        {
+          compatibleitems[] = COMMON_MEDIUM_BIPOD;
+        };
+      };
+      class LinkedItems
+      {
+        class LinkedItemsMuzzle
+        {
+          item = "TCP_muzzle_flash_762_01";
+          slot = "MuzzleSlot";
+        };
+      };
+              //--- Weapon Display Settings
+        TCP_weaponDisplayFont = "AgencyFBBold";
+        TCP_weaponDisplayColor[] = {0.309,0.625,0.836,1};
+        TCP_weaponDisplayTexture = "\TCP\Weapons\LongRangeRifles\M392\data\ui\weaponDisplay_CA.paa";
+
+        class Eventhandlers
+        {
+            fired = "[""RscDisplayTCPCounterM392"", _this] call TCP_fnc_weaponDisplayCounterFired;";
+            reloaded = "[""RscDisplayTCPCounterM392"", _this] call TCP_fnc_weaponDisplayCounterReloaded;";
+            weaponChanged = "[""RscDisplayTCPCounterM392"", _this] call TCP_fnc_weaponDisplayCounterWeaponChanged;";
+            magazineUnloaded = "[""RscDisplayTCPCounterM392"", _this] call TCP_fnc_weaponDisplayCounterUnloaded;";
+        };
+    };
+
+	class twelfth_M739B: OPTRE_M739_SAW_Foregrip_Black_F
+	{
+	  author = "Sammy";
+      scope = 2;
+      scopeArsenal = 2;
+      displayName = "[12th] M739B SAW";
+      baseWeapon = "twelfth_M739B";
+	magazines[] = {"twelfth_M739_SAW_200rnd_Box", "twelfth_M739_SAW_200rnd_Drum", "OPTRE_32Rnd_762x51_Mag_UW", "OPTRE_60Rnd_762x51_Mag", "twelfth_60Rnd_762x51_Mag_T"};
+	  class WeaponSlotsInfo : WeaponSlotsInfo
+      {
+        class MuzzleSlot : MuzzleSlot
+        {
+          compatibleitems[] = {"OPTRE_M7_silencer"};
+        };
+        class CowsSlot : CowsSlot
+        {
+          compatibleItems[] = COMMON_SIGHTS;
+        };
+        class PointerSlot : PointerSlot
+        {
+          compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
+        };
+        class UnderBarrelSlot : UnderBarrelSlot
+        {
+          compatibleitems[] = COMMON_MEDIUM_BIPOD;
+        };
+      };
+	};
+
+    // VK78 Commando configuration
+    
+    class twelfth_Commando : OPTRE_Commando
+    {
+      author = "Weber";
+      scope = 2;
+      scopeArsenal = 2;
+      displayName = "[12th] VK78 Commando";
+      baseWeapon = "twelfth_Commando";
+      hiddenSelections[] = {"camo1", "camo2"};
+      /*hiddenSelectionsTextures[] = {
+          "\x\12thMEU\addons\12th_weapons\data\Commando\Commando_co.paa",
+          "\x\12thMEU\addons\12th_weapons\data\Commando\Commando2_co.paa"};*/ // Commented out until texture is made.
+      class WeaponSlotsInfo : WeaponSlotsInfo
+      {
+        class MuzzleSlot : MuzzleSlot
+        {
+          compatibleitems[] = {"OPTRE_M7_silencer"};
+        };
+        class CowsSlot : CowsSlot
+        {
+          compatibleItems[] = COMMON_SIGHTS;
+        };
+        class PointerSlot : PointerSlot
+        {
+          compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
+        };
+        class UnderBarrelSlot : UnderBarrelSlot
+        {
+          compatibleitems[] = COMMON_LIGHT_BIPOD;
+        };
+      };
+    };
+
+
+    class twelfth_M73H : OPTRE_M73
+    {
+      author = "Jack"; // Thank you!
+      scope = 2;
+      scopeArsenal = 2;
+      displayName = "[12th] M73H";
+      baseWeapon = "twelfth_M73H";
+      magazines[] = {
+          "twelfth_100Rnd_95x40_Box", "twelfth_100Rnd_95x40_Box_T",
+          "twelfth_br_36Rnd", "twelfth_br_36Rnd_T","twelfth_56Rnd_95x40_Mag","twelfth_56Rnd_95x40_Mag_T","twelfth_br_36Rnd_UW"
+          };
+	    distanceZoomMin=100;
+	    distanceZoomMax=700;
+      maxZeroing=700;
+      dispersion = 0.01;
+
+
+
+
+      class WeaponSlotsInfo : WeaponSlotsInfo
+      {
+        class MuzzleSlot : MuzzleSlot
+        {
+          compatibleitems[] = {"OPTRE_MA5Suppressor"};
+        };
+        class CowsSlot : CowsSlot
+        {
+          compatibleItems[] = COMMON_SIGHTS;
+        };
+        class PointerSlot : PointerSlot
+        {
+          compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
+        };
+        class UnderBarrelSlot : UnderBarrelSlot
+        {
+          compatibleitems[] = COMMON_HEAVY_BIPOD;
+        };
+      };
+    };
+
+    class twelfth_M731 : TCP_LMG_M731
+    {
+      model = "\TCP\Weapons\Machineguns\M731\M731.p3d";
+      author = "Rex"; 
+      scope = 2;
+      scopeArsenal = 2;
+      displayName = "[12th] M731";
+      baseWeapon = "twelfth_M731";
+      handAnim[] = {"OFP2_ManSkeleton","\TCP\Weapons\Machineguns\M731\data\anim\M731_handAnim.rtm"};
+      picture = "\TCP\Weapons\Machineguns\M731\data\ui\icon_lmg_M731_X_ca.paa";
+		  pictureWire = "\TCP\Weapons\Machineguns\M731\data\ui\icon_lmg_M731_W_ca.paa";
+      hiddenSelections[] = {"camo","camo1","camo2"};
+		  hiddenSelectionsTextures[] = {"\TCP\Weapons\Machineguns\M731\data\camo\black\M731_01_CO.paa","\TCP\Weapons\Machineguns\M731\data\camo\black\M731_02_CO.paa","\TCP\Weapons\Machineguns\M731\data\camo\black\M731_03_CO.paa"};
+      magazines[] = {"OPTRE_32Rnd_762x51_Mag", "OPTRE_32Rnd_762x51_Mag_Tracer", "OPTRE_32Rnd_762x51_Mag_UW", "twelfth_100Rnd_762x51_Box_T", "twelfth_200Rnd_762x51_Box_T", "twelfth_60Rnd_762x51_Mag_T", "OPTRE_60Rnd_762x51_Mag"};
+	    distanceZoomMin=100;
+	    distanceZoomMax=700;
+      maxZeroing=700;
+      ace_overheating_allowSwapBarrel = 1;
+
+
+
+
+      class WeaponSlotsInfo : WeaponSlotsInfo
+      {
+        class MuzzleSlot : MuzzleSlot
+        {
+          
+        };
+        class CowsSlot : CowsSlot
+        {
+          compatibleItems[] = COMMON_SIGHTS;
+        };
+        class PointerSlot : PointerSlot
+        {
+          compatibleitems[] = {COMMON_RAIL_ATTACHMENTS,"TCP_acc_carryHandle_M731"};
+        };
+        class UnderBarrelSlot : UnderBarrelSlot
+        {
+          compatibleitems[] = COMMON_HEAVY_BIPOD;
+        };
+      };
+        class LinkedItems
+		{
+			class LinkedItemsMuzzle
+			{
+				item = "TCP_muzzle_brake_762_02";
+				slot = "MuzzleSlot";
+			};
+		};
+    };
+
+    // M247 GPMG configuration
+
+    class twelfth_M247 : OPTRE_M247
+    {
+      author = "Weber";
+      scope = 2;
+      scopeArsenal = 2;
+      displayName = "[12th] M247 GPMG";
+      baseWeapon = "twelfth_M247";
+      DEPLOYED_GESTURE_GPMG;
+      RELOAD_EH;
+      magazines[] = COMMON_LMG_MAGAZINES;
+      modes[] = {"FullAuto", "FullAutoFast"};
+      class FullAuto : FullAuto
+      {
+        dispersion = 0.00116;
+        minRange = 0;
+        minRangeProbab = 0.9;
+        midRange = 15;
+        midRangeProbab = 0.7;
+        maxRange = 30;
+        maxRangeProbab = 0.1;
+        aiRateOfFire = 1e-06;
+        reloadTime = 0.09;
+      };
+      class FullAutoFast : FullAuto
+      {
+        reloadTime = 0.07;
+        textureType = "fastAuto";
+      };
+      class WeaponSlotsInfo : WeaponSlotsInfo
+      {
+        class MuzzleSlot : MuzzleSlot
+        {
+          compatibleitems[] = {"OPTRE_MA5Suppressor"};
+        };
+        class CowsSlot : CowsSlot
+        {
+          compatibleItems[] = COMMON_SIGHTS;
+        };
+        class PointerSlot : PointerSlot
+        {
+          compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
+        };
+        class UnderBarrelSlot : UnderBarrelSlot
+        {
+          compatibleitems[] = COMMON_HEAVY_BIPOD;
+        };
+      };
+    };
+	class twelfth_M247A1 : OPTRE_M247A1
+    {
+      author = "Sammy";
+      scope = 2;
+      scopeArsenal = 2;
+      displayName = "[12th] M247A1 GPMG";
+      baseWeapon = "twelfth_M247A1";
+      DEPLOYED_GESTURE_GPMG;
+      RELOAD_EH;
+      modes[] = {"FullAuto", "FullAutoFast"};
+      class FullAuto : FullAuto
+      {
+        dispersion = 0.00116;
+        minRange = 0;
+        minRangeProbab = 0.9;
+        midRange = 15;
+        midRangeProbab = 0.7;
+        maxRange = 30;
+        maxRangeProbab = 0.1;
+        aiRateOfFire = 1e-06;
+        reloadTime = 0.09;
+      };
+      class FullAutoFast : FullAuto
+      {
+        reloadTime = 0.07;
+        textureType = "fastAuto";
+      };
+      class WeaponSlotsInfo : WeaponSlotsInfo
+      {
+        class MuzzleSlot : MuzzleSlot
+        {
+          compatibleitems[] = {"OPTRE_MA5Suppressor", "OPTRE_M247a1_Flashhider"};
+        };
+        class CowsSlot : CowsSlot
+        {
+          compatibleItems[] = COMMON_SIGHTS;
+        };
+        class PointerSlot : PointerSlot
+        {
+          compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
+        };
+        class UnderBarrelSlot : UnderBarrelSlot
+        {
+          compatibleitems[] = COMMON_HEAVY_BIPOD;
+        };
+      };
+	  class LinkedItems
+		{
+			class LinkedItemsMuzzle
+			{
+				item = "OPTRE_M247a1_Flashhider";
+				slot = "MuzzleSlot";
+			};
+		};
+    };
+	class twelfth_M247A1_Stripped : OPTRE_M247A1_Stripped
+    {
+      author = "Sammy";
+      scope = 2;
+      scopeArsenal = 2;
+      displayName = "[12th] M247A1-L GPMG";
+      baseWeapon = "twelfth_M247A1_Stripped";
+      DEPLOYED_GESTURE_GPMG;
+      RELOAD_EH;
+      modes[] = {"FullAuto", "FullAutoFast"};
+      class FullAuto : FullAuto
+      {
+        dispersion = 0.00116;
+        minRange = 0;
+        minRangeProbab = 0.9;
+        midRange = 15;
+        midRangeProbab = 0.7;
+        maxRange = 30;
+        maxRangeProbab = 0.1;
+        aiRateOfFire = 1e-06;
+        reloadTime = 0.09;
+      };
+      class FullAutoFast : FullAuto
+      {
+        reloadTime = 0.07;
+        textureType = "fastAuto";
+      };
+      class WeaponSlotsInfo : WeaponSlotsInfo
+      {
+        class MuzzleSlot : MuzzleSlot
+        {
+          compatibleitems[] = {"OPTRE_MA5Suppressor", "OPTRE_M247a1_Flashhider"};
+        };
+        class CowsSlot : CowsSlot
+        {
+          compatibleItems[] = COMMON_SIGHTS;
+        };
+        class PointerSlot : PointerSlot
+        {
+          compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
+        };
+        class UnderBarrelSlot : UnderBarrelSlot
+        {
+          compatibleitems[] = COMMON_HEAVY_BIPOD;
+        };
+      };
+	  class LinkedItems
+		{
+			class LinkedItemsMuzzle
+			{
+				item = "OPTRE_M247a1_Flashhider";
+				slot = "MuzzleSlot";
+			};
+		};
+    };
+
+    class twelfth_M250 : OPTRE_M250 
+    {
+      author = "Rex";
+      scope = 2;
+      scopeArsenal = 2;
+      displayName = "[12th] M250";
+      baseWeapon = "twelfth_M250";
+     
+      class WeaponSlotsInfo : WeaponSlotsInfo
+      {
+        class MuzzleSlot : MuzzleSlot
+        {
+          compatibleitems[] = {};
+        };
+        class CowsSlot : CowsSlot
+        {
+          compatibleItems[] = COMMON_SIGHTS;
+        };
+        class PointerSlot : PointerSlot
+        {
+          compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
+        };
+        class UnderBarrelSlot : UnderBarrelSlot
+        {
+          compatibleitems[] = COMMON_HEAVY_BIPOD;
+        };
+      };
+    };
+
+  /*
+    =============================================================================
+    Grenade Launchers
+    =============================================================================
+  */
+
+    class twelfth_M319 : OPTRE_M319
+    {
+      author = "Weber";
+      scope = 2;
+      scopeArsenal = 2;
+      displayName = "[12th] M319 Individual Grenade Launcher";
+      baseWeapon = "twelfth_M319";
+      magazines[] = COMMON_GL_MAGS;
+    };
+
+    class twelfth_M319N : OPTRE_M319N
+    {
+      author = "Weber";
+      scope = 2;
+      scopeArsenal = 2;
+      displayName = "[12th] M319N Individual Grenade Launcher";
+      baseWeapon = "twelfth_M319N";
+      magazines[] = COMMON_GL_MAGS;
+    };
+  /*
+    =============================================================================
+    MA6 Variants
+    =============================================================================
+  */
+	//Base MA6
+	class twelfth_MA6: twelfth_MA5C {
+		model="x\12thMEU\addons\12th_weapons\data\MA6\MA6.p3d";
+		author = "Sammy";
+		scope = 2;
+		scopeArsenal = 2;
+		displayName = "[12th] MA6 Assault Rifle";
+		baseWeapon = "twelfth_MA6";
+		canShootInWater = 1;
+		magazines[] = COMMON_MA5C_MAGAZINES;
+		handAnim[] = {"OFP2_ManSkeleton","x\12thMEU\addons\12th_weapons\data\MA6\animations\MA6.rtm"};
+		class WeaponSlotsInfo: WeaponSlotsInfo {
+			class MuzzleSlot: MuzzleSlot {
+				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
+				compatibleitems[] = { "OPTRE_MA5Suppressor" };
+			};
+			class CowsSlot: CowsSlot {
+				linkProxy = "\A3\data_f\proxies\weapon_slots\TOP";
+				compatibleitems[] = COMMON_SIGHTS;
+			};
+			class PointerSlot: PointerSlot {
+				linkProxy = "\A3\data_f\proxies\weapon_slots\SIDE";
+				compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
+			};
+			class UnderBarrelSlot: UnderBarrelSlot {
+				linkProxy = "\A3\Data_f_Mark\proxies\weapon_slots\UNDERBARREL";
+				compatibleitems[] = COMMON_LIGHT_BIPOD;
+			};
+		};
+	};
+
+	//Carbine
+	class twelfth_MA6_K: twelfth_MA37K {
+		model="x\12thMEU\addons\12th_weapons\data\MA6_K\MA6_K.p3d";
+		author = "Sammy";
+		scope = 2;
+		scopeArsenal = 2;
+		displayName = "[12th] MA6-K Carbine";
+		baseWeapon = "twelfth_MA6_K";
+		canShootInWater = 1;
+		magazines[] = COMMON_MA5C_MAGAZINES;
+		handAnim[] = {"OFP2_ManSkeleton","x\12thMEU\addons\12th_weapons\data\MA6_K\animations\MA6_K.rtm"};
+		class WeaponSlotsInfo: WeaponSlotsInfo {
+			class MuzzleSlot: MuzzleSlot {
+				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
+				compatibleitems[] = { "OPTRE_MA5Suppressor" };
+			};
+			class CowsSlot: CowsSlot {
+				linkProxy = "\A3\data_f\proxies\weapon_slots\TOP";
+				compatibleitems[] = COMMON_SIGHTS;
+			};
+			class PointerSlot: PointerSlot {
+				linkProxy = "\A3\data_f\proxies\weapon_slots\SIDE";
+				compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
+			};
+			class UnderBarrelSlot: UnderBarrelSlot {
+				linkProxy = "\A3\Data_f_Mark\proxies\weapon_slots\UNDERBARREL";
+				compatibleitems[] = COMMON_LIGHT_BIPOD;
+			};
+		};
+	};
+
+	//DM Rifle
+	class twelfth_MA6_D: twelfth_M392 {
+		model="x\12thMEU\addons\12th_weapons\data\MA6_D\MA6_D.p3d";
+		author = "Sammy";
+		scope = 2;
+		scopeArsenal = 2;
+		displayName = "[12th] MA6-D Marksman Rifle";
+		baseWeapon = "twelfth_MA6_D";
+		canShootInWater = 1;
+		magazines[] = COMMON_MA5C_MAGAZINES;
+		handAnim[] = {"OFP2_ManSkeleton","x\12thMEU\addons\12th_weapons\data\MA6\animations\MA6.rtm"};
+		class WeaponSlotsInfo: WeaponSlotsInfo {
+			class MuzzleSlot: MuzzleSlot {
+				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
+				compatibleitems[] = { "OPTRE_MA5Suppressor" };
+			};
+			class CowsSlot: CowsSlot {
+				linkProxy = "\A3\data_f\proxies\weapon_slots\TOP";
+				compatibleitems[] = COMMON_SIGHTS;
+			};
+			class PointerSlot: PointerSlot {
+				linkProxy = "\A3\data_f\proxies\weapon_slots\SIDE";
+				compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
+			};
+			class UnderBarrelSlot: UnderBarrelSlot {
+				linkProxy = "\A3\Data_f_Mark\proxies\weapon_slots\UNDERBARREL";
+				compatibleitems[] = COMMON_MEDIUM_BIPOD;
+			};
+		};
+	};
+
+	// AR Rifle
+	class twelfth_MA6_A_BOX: twelfth_M73H{
+		model="x\12thMEU\addons\12th_weapons\data\MA6_A\MA6_A_BOX.p3d";
+		author = "Sammy";
+    mass = 160;
+		displayName = "[12th] MA6-A Box";
+		baseWeapon = "twelfth_MA6_A_BOX";
+		class WeaponSlotsInfo: WeaponSlotsInfo {
+			class MuzzleSlot: MuzzleSlot {
+				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
+				compatibleitems[] = { "OPTRE_MA5Suppressor" };
+			};
+			class CowsSlot: CowsSlot {
+				linkProxy = "\A3\data_f\proxies\weapon_slots\TOP";
+				compatibleitems[] = COMMON_SIGHTS;
+			};
+			class PointerSlot: PointerSlot {
+				linkProxy = "\A3\data_f\proxies\weapon_slots\SIDE";
+				compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
+			};
+			class UnderBarrelSlot: UnderBarrelSlot {
+				linkProxy = "\A3\Data_f_Mark\proxies\weapon_slots\UNDERBARREL";
+				compatibleitems[] = COMMON_MEDIUM_BIPOD;
+			};
+		};
+	};
+	class twelfth_MA6_A_DRUM: twelfth_M73H{
+		model="x\12thMEU\addons\12th_weapons\data\MA6_A\MA6_A_DRUM.p3d";
+		author = "Sammy";
+    mass = 160;
+		displayName = "[12th] MA6-A Drum";
+		baseWeapon = "twelfth_MA6_A_DRUM";
+		class WeaponSlotsInfo: WeaponSlotsInfo {
+			class MuzzleSlot: MuzzleSlot {
+				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
+				compatibleitems[] = { "OPTRE_MA5Suppressor" };
+			};
+			class CowsSlot: CowsSlot {
+				linkProxy = "\A3\data_f\proxies\weapon_slots\TOP";
+				compatibleitems[] = COMMON_SIGHTS;
+			};
+			class PointerSlot: PointerSlot {
+				linkProxy = "\A3\data_f\proxies\weapon_slots\SIDE";
+				compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
+			};
+			class UnderBarrelSlot: UnderBarrelSlot {
+				linkProxy = "\A3\Data_f_Mark\proxies\weapon_slots\UNDERBARREL";
+				compatibleitems[] = COMMON_MEDIUM_BIPOD;
+			};
+		};
+	};
+
+  // IAR Rifle
+  class twelfth_MA6_B: twelfth_MA5B {
+		model="x\12thMEU\addons\12th_weapons\data\MA6_B\MA6_B.p3d";
+		author = "Rex";
+		scope = 2;
+		scopeArsenal = 2;
+		displayName = "[12th] MA6-B IAR";
+		baseWeapon = "twelfth_MA6_B";
+    hiddenSelections[] = {"camo"};
+    hiddenSelectionsTextures[] = {"addons\12th_weapons\data\MA6_B\MA6_B_CO.paa"};
+		canShootInWater = 1;
+		magazines[] = {"OPTRE_60Rnd_762x51_Mag", "twelfth_60Rnd_762x51_Mag_T", "OPTRE_32Rnd_762x51_Mag", "OPTRE_32Rnd_762x51_Mag_Tracer", "OPTRE_32Rnd_762x51_Mag_UW" };
+		handAnim[] = {"OFP2_ManSkeleton","x\12thMEU\addons\12th_weapons\data\MA6\animations\MA6.rtm"};
+		class WeaponSlotsInfo: WeaponSlotsInfo {
+			class MuzzleSlot: MuzzleSlot {
+				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
+				compatibleitems[] = { "OPTRE_MA5Suppressor" };
+			};
+			class CowsSlot: CowsSlot {
+				linkProxy = "\A3\data_f\proxies\weapon_slots\TOP";
+				compatibleitems[] = COMMON_SIGHTS;
+			};
+			class PointerSlot: PointerSlot {
+				linkProxy = "\A3\data_f\proxies\weapon_slots\SIDE";
+				compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
+			};
+			class UnderBarrelSlot: UnderBarrelSlot {
+				linkProxy = "\A3\Data_f_Mark\proxies\weapon_slots\UNDERBARREL";
+				compatibleitems[] = COMMON_MEDIUM_BIPOD;
+			};
+		};
+	};
+
+  class twelfth_MA6_AL: twelfth_br55 {
+		model="x\12thMEU\addons\12th_weapons\data\MA6_B\MA6_B.p3d";
+		author = "Rex";
+		mass = 60;
+		scope = 2;
+		scopeArsenal = 2;
+		displayName = "[12th] MA6-B H-IAR";
+		baseWeapon = "twelfth_MA6_AL";
+    texture[] = {"addons\12th_weapons\data\MA6_B\MA6_B_CO.paa"};
+		canShootInWater = 1;
+		magazines[] = {"twelfth_56Rnd_95x40_Mag", "twelfth_56Rnd_95x40_Mag_T", "twelfth_br_36Rnd", "twelfth_br_36Rnd_T","twelfth_br_36Rnd_UW" };
+		handAnim[] = {"OFP2_ManSkeleton","x\12thMEU\addons\12th_weapons\data\MA6\animations\MA6.rtm"};
+		class WeaponSlotsInfo: WeaponSlotsInfo {
+			class MuzzleSlot: MuzzleSlot {
+				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
+				compatibleitems[] = { "OPTRE_MA5Suppressor" };
+			};
+			class CowsSlot: CowsSlot {
+				linkProxy = "\A3\data_f\proxies\weapon_slots\TOP";
+				compatibleitems[] = COMMON_SIGHTS;
+			};
+			class PointerSlot: PointerSlot {
+				linkProxy = "\A3\data_f\proxies\weapon_slots\SIDE";
+				compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
+			};
+			class UnderBarrelSlot: UnderBarrelSlot {
+				linkProxy = "\A3\Data_f_Mark\proxies\weapon_slots\UNDERBARREL";
+				compatibleitems[] = COMMON_MEDIUM_BIPOD;
+			};
+		};
+	};
+  /*
+    =============================================================================
+    Custom Attachments
+    =============================================================================
+  */
+	class MA6_K_SmartLink: ACE_optic_Hamr_2D{
+		author = "Sammy";
+		displayName = "[12th] MA6-K Smartlink";
+		descriptionShort = "MA6-K Smartlink";
+		model = "x\12thMEU\addons\12th_weapons\data\MA6_Smartlink\MA6_K_SmartLink.p3d";
+	};
+	class MA6_SmartLink: optic_DMS{
+		author = "Sammy";
+		displayName = "[12th] MA6 Smartlink";
+		descriptionShort = "MA6 Smartlink";
+		model = "x\12thMEU\addons\12th_weapons\data\MA6_Smartlink\MA6_SmartLink.p3d";
+	};
+	class twelfth_m43rco : TCP_optic_M43RCO{
+		author = "rex";
+		displayName = "[12th] M43 RCO";
+		class ItemInfo: InventoryOpticsItem_Base_F{
+			mass = 10;
+			modelOptics = "\A3\Weapons_F\empty";
+			optics = 1;
+			opticType = 2;
+			class OpticsModes
+			{
+				class Irons: TCP_OpticsMode_Base_Irons{};
+				class EVOSD
+				{
+					opticsID = 1;
+					useModelOptics = 1;
+					opticsPPEffects[] = {"OpticsCHAbera1","OpticsBlur1"};
+					opticsZoomMin = 0.083333336;
+					opticsZoomMax = 0.25;
+					opticsZoomInit = 0.25;
+					discreteDistance[] = {100,200,300,400,500,600,700,800,900,1000};
+					discreteDistanceInitIndex = 1;
+					distanceZoomMin = 100;
+					distanceZoomMax = 1000;
+					discreteFOV[] = {0.25,0.125,0.083333336};
+					discreteInitIndex = 0;
+					modelOptics[] = {"\TCP\Weapons_ins\Acc\Optic\M43RCO\reticle_M43RCO_1x.p3d","\TCP\Weapons_ins\Acc\Optic\M43RCO\reticle_M43RCO_2x.p3d","\TCP\Weapons_ins\Acc\Optic\M43RCO\reticle_M43RCO_3x.p3d"};
+					memoryPointCamera = "opticView";
+					visionMode[] = {};
+					opticsFlare = 1;
+					opticsDisablePeripherialVision = 1;
+					cameraDir = "";
+				};
+			};
+		};
+	};
+	class twelfth_m43rco_crs : twelfth_m43rco {
+		author = "rex";
+		displayName = "[12th] M43 RCO (CRS)";
+		picture = "\TCP\Weapons_ins\Acc\Optic\M43RCO\data\ui\icon_optic_M43RCO_CRS_CA.paa";
+		model = "\TCP\Weapons_ins\Acc\Optic\M43RCO\acco_M43RCO_CRS.p3d";
+	};
+	class twelfth_m43rco_crs_cup : twelfth_m43rco {
+		author = "rex";
+		displayName = "[12th] M43 RCO (CRS, Eyecup)";
+		picture = "\TCP\Weapons_ins\Acc\Optic\M43RCO\data\ui\icon_optic_M43RCO_CRS_CUP_CA.paa";
+		model = "\TCP\Weapons_ins\Acc\Optic\M43RCO\acco_M43RCO_CRS_CUP.p3d";
+	};
+	class twelfth_m43rco_cup : twelfth_m43rco {
+		author = "rex";
+		displayName = "[12th] M43 RCO (Eyecup)";
+		picture = "\TCP\Weapons_ins\Acc\Optic\M43RCO\data\ui\icon_optic_M43RCO_CUP_CA.paa";
+		model = "\TCP\Weapons_ins\Acc\Optic\M43RCO\acco_M43RCO_CUP.p3d";
+	};
+/* 	class MA6_Flashlight: ACE_SPIR{
+		author = "Sammy";
+		class ItemInfo: InventoryUnderItem_Base_F
+		{
+			allowedSlots[]={};
+		};
+	}; */
+};

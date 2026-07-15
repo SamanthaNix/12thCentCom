@@ -1,0 +1,11 @@
+name = "12th CentCom Mod";
+author = "12thMEU S-4 Team";
+picture = "logo.paa";
+actionName = "Website";
+action = "https://discord.gg/12thmd";
+description = "12th MEU CentCom Aux mod";
+tooltip = "12thMEU CentCom Aux";
+overview = "An aux mod for CentCom";
+logo = "logo.paa";
+logoOver = "logo.paa";
+logoSmall = "logo.paa";
