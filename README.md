@@ -2,10 +2,9 @@
 
 ## About
 
-This is a mod that contains any and all relevant assets that are actively
-used by the 12th Marine division in their ArmA 3 campaigns.
+This is a mod that contains any and all relevant assets that are in use by the CentCom Units during joint ops.
+Specifically 12th custom content.
 
-Originally found here: https://github.com/nojusr/12thMD_Assets
 ## Contents
 
 The `./addons/` folder contains all of the folders that are to be used in
