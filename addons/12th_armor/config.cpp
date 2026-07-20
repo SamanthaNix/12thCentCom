@@ -80,7 +80,6 @@ class CfgVehicles {
   TCP_VEH_CLASS_DEF
   VEH_UNI_CLASS(std)
   VEH_UNI_CLASS(winter)
-  VEH_UNI_CLASS(opfor)
   VEH_UNI_CLASS(desert)
   VEH_UNI_TSHIRT_CLASS(instructor)
   VEH_UNI_TSHIRT_CLASS(aic)
@@ -136,8 +135,6 @@ class CfgWeapons {
     };
   };
 
-  //Recon cloaks, duh
-  #include "reconCloaks.hpp"
 
 
   //TCP UNIFORM Weapon definitions
@@ -145,14 +142,12 @@ class CfgWeapons {
   WEP_UNI_CLASS(std)
   WEP_UNI_CLASS(winter)
   WEP_UNI_CLASS(desert)
-  WEP_UNI_CLASS(opfor)
   WEP_UNI_TSHIRT_CLASS(instructor)
   WEP_UNI_TSHIRT_CLASS(aic)
   WEP_UNI_TSHIRT_CLASS(unscmc)
   BOONIE(std)
   BOONIE(desert)
   BOONIE(snow)
-  BOONIE(opfor)
 
   // Example ODST uniform item referencing twelfth_odst_uniform_veh
   class twelfth_odst_uniform_wep: Uniform_Base {
@@ -246,12 +241,10 @@ class CfgWeapons {
   PATROLCAP_WEP(std)
   PATROLCAP_WEP(desert)
   PATROLCAP_WEP(snow)
-  PATROLCAP_WEP(opfor)
 
   UTILITYCOVER_WEP(std)
   UTILITYCOVER_WEP(desert)
   UTILITYCOVER_WEP(snow)
-  UTILITYCOVER_WEP(opfor)
   //-HELMETS----------------------------------------------------------
 
   /*class twelfth_odst_helm: H_HelmetB {
@@ -330,16 +323,6 @@ class CfgWeapons {
 	  model = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_ECH43A\h_helmet_ECH43A_Black.p3d";
     class ItemInfo: HeadgearItem {
 	  uniformModel = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_ECH43A\h_helmet_ECH43A_Black.p3d";
-      mass=40;
-      modelSides[]={6};
-      passThrough=0.1;
-      class HitpointsProtectionInfo {
-        class Head {
-          hitpointName="HitHead";
-          armor=20;
-          passThrough=0.1;
-        };
-      };
     };
   };
     class twelfth_helmECH43A_base_DP: TCP_H_Helmet_ECH43A_Base_DP {
@@ -358,16 +341,6 @@ class CfgWeapons {
 	  model = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_ECH43A\h_helmet_ECH43A_DP.p3d";
     class ItemInfo: HeadgearItem {
 	  uniformModel = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_ECH43A\h_helmet_ECH43A_DP.p3d";
-      mass=40;
-      modelSides[]={6};
-      passThrough=0.1;
-      class HitpointsProtectionInfo {
-        class Head {
-          hitpointName="HitHead";
-          armor=20;
-          passThrough=0.1;
-        };
-      };
     };
   };
   class twelfth_pilot_helm_base: H_PilotHelmetHeli_B {
@@ -383,25 +356,6 @@ class CfgWeapons {
     class ItemInfo : ItemInfo {
       hiddenSelections[] = {"camo"};
       hiddenSelectionsTextures[]={"\x\12thMEU\addons\12th_custom_helms\data\pilots\default\PilotHelmet_co.paa"};  
-      mass = 25;       
-      modelSides[]={6};
-      class HitpointsProtectionInfo {
-        class Head {   
-          hitpointName = "HitHead"; 
-          armor = 20;  
-          passThrough = 0.2;       
-        }; 
-        class Face {   
-          hitpointName = "HitFace";
-          armor = 8;   
-          passThrough = 0.3;       
-        }; 
-        class Neck {   
-          hitpointName = "HitNeck";
-          armor = 15;  
-          passThrough = 0.1;       
-        }; 
-      };   
     };     
   };
 
@@ -416,16 +370,6 @@ class CfgWeapons {
 	  model = "\TCP\Characters\BLUFOR\UNSC\Marines\Headgear\helmet_ECH55D\h_helmet_ECH55D_Blue.p3d";
     class ItemInfo: HeadgearItem {
 	  uniformModel = "\TCP\Characters\BLUFOR\UNSC\Marines\Headgear\helmet_ECH55D\h_helmet_ECH55D_Blue.p3d";
-      mass=40;
-      modelSides[]={6};
-      passThrough=0.1;
-      class HitpointsProtectionInfo {
-        class Head {
-          hitpointName="HitHead";
-          armor=20;
-          passThrough=0.1;
-        };
-      };
     };
   };
 
@@ -450,16 +394,6 @@ class CfgWeapons {
 	  model = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_CH43A\h_helmet_CH43A.p3d";
     class ItemInfo: HeadgearItem {
 	  uniformModel = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_CH43A\h_helmet_CH43A.p3d";
-      mass=40;
-      modelSides[]={6};
-      passThrough=0.1;
-      class HitpointsProtectionInfo {
-        class Head {
-          hitpointName="HitHead";
-          armor=20;
-          passThrough=0.1;
-        };
-      };
       hiddenSelections[] = { "camo","decals" };  
       hiddenSelectionsTextures[] = { 
         "\x\12thMeu\addons\12th_armor\helmets\army\Helm_CO.paa",   
@@ -502,11 +436,10 @@ class XtdGearModels {
       class camo {
         alwaysSelectable = 1;
         label = "Camoflauge";
-        values[] = {"std", "desert", "snow", "opfor"};
+        values[] = {"std", "desert", "snow"};
         class std {label = "Forest";};
         class desert {label = "Desert";};
         class snow {label = "Winter";};
-        class opfor {label = "OPFOR";};
       };
     };
 
@@ -516,11 +449,10 @@ class XtdGearModels {
       class camo {
         alwaysSelectable = 1;
         label = "Camoflauge";
-        values[] = {"std", "desert", "snow", "opfor"};
+        values[] = {"std", "desert", "snow"};
         class std {label="Forest";};
         class desert {label="Desert";};
         class snow {label="Winter";};
-        class opfor {label="OPFOR";};
       };
     };
 
@@ -600,49 +532,6 @@ class XtdGearModels {
       };
     };
 
-    //Recon Hoods
-    class twelfth_reconhoods {
-      label="12th Recon Hoods";
-      options[] = {"camo", "type"};
-      class camo {
-        alwaysSelectable = 1;
-        label="Camouflage";
-        values[]={"forest","winter","desert","black"};
-        class forest {label="Forest";     image=XTP(forest);};
-        class winter {label="Winter"; /* image=XTP(winter); */};
-        class desert {label="Desert"; image=XTP(desert);};
-        class black {label="Black";/* image=XTP(desert);*/};
-      };
-      class type {
-        alwaysSelectable = 1;
-        label="Hood type";
-        values[]={"Hood","SniperHood"};
-        class Hood  {label="Recon";};
-        class SniperHood  {label="Sniper";};
-      };
-    };
-    //Recon Hoods Down
-    class twelfth_reconhoods_down {
-      label="12th Recon Hoods";
-      options[] = {"camo", "type"};
-      class camo {
-        alwaysSelectable = 1;
-        label="Camouflage";
-        values[]={"forest","winter","desert","black"};
-        class forest {label="Forest"; image=XTP(forest);};
-        class winter {label="Winter"; /* image=XTP(winter); */};
-        class desert {label="Desert"; image=XTP(desert);};
-        class black {label="Black";/* image=XTP(desert);*/};
-      };
-      class type {
-        alwaysSelectable = 1;
-        label="NVG type";
-        values[]={"WHOT","RHOT"};
-        class WHOT  {label="WHOT";};
-        class RHOT  {label="RHOT";};
-      };
-    };
-
 
     // Uniforms
     class twelfth_new_uniforms {
@@ -651,11 +540,10 @@ class XtdGearModels {
       class camo {
         alwaysSelectable = 1;
         label="Camouflage";
-        values[]={"std","winter","opfor","desert"};
+        values[]={"std","winter","desert"};
         class std {label="Standard";     image=XTP(forest);};
         class winter {label="Winter"; /* image=XTP(winter); */};
         class desert {label="Desert"; image=XTP(desert);};
-        class opfor {label="OPFOR";};
       };
       class sleeve {
         alwaysSelectable = 1;
@@ -755,11 +643,10 @@ class XtdGearModels {
       class camo {
         alwaysSelectable = 1;
         label="Camouflage";
-        values[]={"std", "desert", "snow", "opfor"};
+        values[]={"std", "desert", "snow"};
         class std {label="Forest";}; 
         class desert {label="Desert";};
         class snow {label="Winter";};
-        class opfor {label="OPFOR";};
       };
       class fold {
         alwaysSelectable = 1;
@@ -784,7 +671,6 @@ class XtdGearInfos {
     BOONIE_GI(std)
     BOONIE_GI(desert)
     BOONIE_GI(snow)
-    BOONIE_GI(opfor)
     
 
     // Patrol caps
@@ -792,7 +678,6 @@ class XtdGearInfos {
     PATROLCAP_GI(std)
     PATROLCAP_GI(desert)
     PATROLCAP_GI(snow)
-    PATROLCAP_GI(opfor)
     
     //-------------------------------------- Helmets 
 
@@ -803,13 +688,11 @@ class XtdGearInfos {
     NEW_UNIFROM_GI(std)
     NEW_UNIFROM_GI(winter)
     NEW_UNIFROM_GI(desert)
-    NEW_UNIFROM_GI(opfor)
     // Utility cover
 
     UTILITYCOVER_GI(std)
     UTILITYCOVER_GI(desert)
     UTILITYCOVER_GI(snow)
-    UTILITYCOVER_GI(opfor)
 
     //-------------------------------------- instructor
     //INSTRUCTOR_UNIFROM_GI

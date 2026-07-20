@@ -219,17 +219,11 @@
   class twelfth_##VARIANT##_##SHIRT##_##arg1##_##CAMO## : TCP_##VARIANT##_CBUU_##SHIRT##_##arg1##_Base {\
       scope=#SCOPEVAL;\
       displayName="[12th] Uniform";\
-      ACE_GForceCoef=0.4;\
       class TCP_equipmentTypes: TCP_equipmentTypes {\
         baseEquipment = QOUTE(twelfth_##VARIANT##_##SHIRT##_##arg1##_##CAMO##); \
       }; \
       class ItemInfo : ItemInfo {\
         uniformClass = QOUTE(TWELFTH_REF_GENERIC_3(VARIANT2,CAMO,SHIRT,arg1));\
-        containerClass="Supply100"; \
-        mass=1;\
-        uniformType = "Neopren";\
-        allowedSlots[]={"701","801","901"};\
-        armor=20;\
       };\
       hiddenSelectionsTextures[] = {\
         QP(uniforms\uniform\##CAMO##\CBUU_##SHIRT##_CO.paa),\
@@ -267,7 +261,6 @@
   class twelfth_##VARIANT##_##SHIRT##_##arg1##_##arg2##_##CAMO## : TCP_##VARIANT##_CBUU_##SHIRT##_##arg1##_##arg2##_Base {\
       scope=#SCOPEVAL;\
       displayName="[12th] Uniform";\
-      ACE_GForceCoef=0.4;\
       class TCP_equipmentTypes: TCP_equipmentTypes {\
         baseEquipment = QOUTE(twelfth_##VARIANT##_##SHIRT##_##arg1##_##arg2##_##CAMO##); \
       }; \
@@ -315,17 +308,11 @@
   class twelfth_##VARIANT##_##SHIRT##_##arg1##_##arg2##_##arg3##_##CAMO## : TCP_##VARIANT##_CBUU_##SHIRT##_##arg1##_##arg2##_##arg3##_Base {\
       scope=#SCOPEVAL;\
       displayName="[12th] Uniform";\
-      ACE_GForceCoef=0.4;\
       class TCP_equipmentTypes: TCP_equipmentTypes {\
         baseEquipment = QOUTE(twelfth_##VARIANT##_##SHIRT##_##arg1##_##arg2##_##arg3##_##CAMO##); \
       }; \
       class ItemInfo : ItemInfo {\
         uniformClass = QOUTE(TWELFTH_REF_GENERIC_5(VARIANT2,CAMO,SHIRT,arg1,arg2,arg3));\
-        containerClass="Supply100"; \
-        mass=1;\
-        uniformType = "Neopren";\
-        allowedSlots[]={"701","801","901"};\
-        armor=20;\
       };\
       hiddenSelectionsTextures[] = {\
         QP(uniforms\uniform\##CAMO##\CBUU_##SHIRT##_CO.paa)\
@@ -363,17 +350,11 @@
   class twelfth_##VARIANT##_##SHIRT##_##arg1##_##arg2##_##arg3##_##arg4##_##CAMO## : TCP_##VARIANT##_CBUU_##SHIRT##_##arg1##_##arg2##_##arg3##_##arg4##_Base {\
       scope=#SCOPEVAL;\
       displayName="[12th] Uniform";\
-      ACE_GForceCoef=0.4;\
       class TCP_equipmentTypes: TCP_equipmentTypes {\
         baseEquipment = QOUTE(twelfth_##VARIANT##_##SHIRT##_##arg1##_##arg2##_##arg3##_##arg4##_##CAMO##); \
       }; \
       class ItemInfo : ItemInfo {\
         uniformClass = QOUTE(TWELFTH_REF_GENERIC_6(VARIANT2,CAMO,SHIRT,arg1,arg2,arg3,arg4));\
-        containerClass="Supply100"; \
-        mass=1;\
-        uniformType = "Neopren";\
-        allowedSlots[]={"701","801","901"};\
-        armor=20;\
       };\
       hiddenSelectionsTextures[] = {\
         QP(uniforms\uniform\##CAMO##\CBUU_##SHIRT##_CO.paa)\
@@ -393,21 +374,16 @@
         };\
       uniformClass = QOUTE(TWELFTH_REF_GENERIC_7(VARIANT2,CAMO,SHIRT,arg1,arg2,arg3,arg4,arg5));\
   };
+
   #define CLASS_GENERIC_7_1(VARIANT,VARIANT2,SCOPEVAL,CAMO,SHIRT,arg1,arg2,arg3,arg4,arg5) \
   class twelfth_##VARIANT##_##SHIRT##_##arg1##_##arg2##_##arg3##_##arg4##_##arg5##_##CAMO## : TCP_##VARIANT##_CBUU_##SHIRT##_##arg1##_##arg2##_##arg3##_##arg4##_##arg5##_Base {\
       scope=#SCOPEVAL;\
       displayName="[12th] Uniform";\
-      ACE_GForceCoef=0.4;\
       class TCP_equipmentTypes: TCP_equipmentTypes {\
         baseEquipment = QOUTE(twelfth_##VARIANT##_##SHIRT##_##arg1##_##arg2##_##arg3##_##arg4##_##arg5##_##CAMO##); \
       }; \
       class ItemInfo : ItemInfo {\
         uniformClass = QOUTE(TWELFTH_REF_GENERIC_7(VARIANT2,CAMO,SHIRT,arg1,arg2,arg3,arg4,arg5));\
-        containerClass="Supply100"; \
-        mass=1;\
-        uniformType = "Neopren";\
-        allowedSlots[]={"701","801","901"};\
-        armor=20;\
       };\
       hiddenSelectionsTextures[] = {\
         QP(uniforms\uniform\##CAMO##\CBUU_##SHIRT##_CO.paa),\
@@ -1364,17 +1340,6 @@
 	};  											\
   class ItemInfo: HeadgearItem {                \
     uniformModel = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_CH43A\h_helmet_CH43A.p3d";   \
-    picture="";                                 \
-    mass=40;                                    \
-    modelSides[]={6};                           \
-    passThrough=0.1;                            \
-    class HitpointsProtectionInfo {             \
-      class Head {                              \
-        hitpointName="HitHead";                 \
-        armor=20;                               \
-        passThrough=0.1;                        \
-      };                                        \
-    };                                          \
     hiddenSelections[]= {"camo","decals"};      \
     hiddenSelectionsTextures[]= {               \
       #HELM_TEX_PATH_CH43A(SUFFIX),				\
@@ -1417,16 +1382,6 @@ class twelfth_helmCH43A_##SUFFIX##_ChinstrapOffset: twelfth_helmCH43A_##SUFFIX##
   class ItemInfo: HeadgearItem {                \
     uniformModel = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_ECH43A\h_helmet_ECH43A_Black.p3d";   \
     picture="";                                 \
-    mass=40;                                    \
-    modelSides[]={6};                           \
-    passThrough=0.1;                            \
-    class HitpointsProtectionInfo {             \
-      class Head {                              \
-        hitpointName="HitHead";                 \
-        armor=20;                               \
-        passThrough=0.1;                        \
-      };                                        \
-    };                                          \
     hiddenSelections[]= {"camo","camo1","decals"};      \
     hiddenSelectionsTextures[]= {               \
       #HELM_TEX_PATH_CH43A(SUFFIX),				\

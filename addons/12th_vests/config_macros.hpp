@@ -117,7 +117,7 @@
 
   // adds class references that are used in our 12th vest reimplementations
   #define GENERATE_VEST_REFERENCE_INSTANCE(ARMOUR) \
-  class TCP_V_M43A_##ARMOUR##_Base;
+  class STB73_V_M43A_##ARMOUR##_Base;
 
   /* generate all vest references */
   #define GENERATE_VEST_REFERENCES \
@@ -174,13 +174,12 @@
   // 1 camo variant, uses only vest_01_co.paa
   // belt off, leg armor off, shoulder armor off
   #define CLASS_VEST_GENERIC_OOO(VARIANT,SCOPEVAL,CAMO,ARMOR,FULLTYPE,PLATOON,ROLE,DISPLAYNAME,arg1) \
-  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: TCP_##VARIANT##_##ARMOR##_##arg1##_Base \
+  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
       author = "Sammy"; \
       displayName = DISPLAYNAME; \
-      ACE_GForceCoef = 0.4; \
       model = MODEL_PATH_01(ARMOR,arg1); \
       hiddenSelections[] = {"decals","camo"}; \
       hiddenSelectionsTextures[] = \
@@ -190,11 +189,6 @@
       }; \
       class ItemInfo: VestItem \
       { \
-        mass = 80; \
-        containerClass="twelfth_vest_supply"; \
-        setMaxLoad=200; \
-        VEST_HITPOINT_INFO \
-        vestType="Rebreather"; \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo"}; \
         hiddenSelectionsTextures[] = \
@@ -208,13 +202,12 @@
 // 2 camo version, uses vest_01_co.paa and vest_03_co.paa
 // belt on, leg armor off, shoulder armor off
 #define CLASS_VEST_GENERIC_BOO(VARIANT,SCOPEVAL,CAMO,ARMOR,FULLTYPE,PLATOON,ROLE,DISPLAYNAME,arg1) \
-  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: TCP_##VARIANT##_##ARMOR##_##arg1##_Base \
+  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
       author = "Sammy"; \
       displayName = DISPLAYNAME; \
-      ACE_GForceCoef = 0.4; \
       model = MODEL_PATH_01(ARMOR,arg1); \
       hiddenSelections[] = {"decals","camo","camo1","collararmored","collarflak"}; \
       hiddenSelectionsTextures[] = \
@@ -225,11 +218,6 @@
       }; \
       class ItemInfo: VestItem \
       { \
-        mass = 80; \
-        containerClass="twelfth_vest_supply"; \
-        setMaxLoad=200; \
-        VEST_HITPOINT_INFO \
-        vestType="Rebreather"; \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","collararmored","collarflak"}; \
         hiddenSelectionsTextures[] = \
@@ -240,13 +228,12 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: TCP_##VARIANT##_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
       author = "Sammy"; \
       displayName = DISPLAYNAME; \
-      ACE_GForceCoef = 0.4; \
       model = MODEL_PATH_01(ARMOR,arg1); \
       hiddenSelections[] = {"decals","camo","camo1","collararmored"}; \
       hiddenSelectionsTextures[] = \
@@ -257,11 +244,6 @@
       }; \
       class ItemInfo: VestItem \
       { \
-        mass = 80; \
-        containerClass="twelfth_vest_supply"; \
-        setMaxLoad=200; \
-        VEST_HITPOINT_INFO \
-        vestType="Rebreather"; \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","collararmored"}; \
         hiddenSelectionsTextures[] = \
@@ -272,13 +254,12 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: TCP_##VARIANT##_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
       author = "Sammy"; \
       displayName = DISPLAYNAME; \
-      ACE_GForceCoef = 0.4; \
       model = MODEL_PATH_01(ARMOR,arg1); \
       hiddenSelections[] = {"decals","camo","camo1","collarflak"}; \
       hiddenSelectionsTextures[] = \
@@ -289,11 +270,6 @@
       }; \
       class ItemInfo: VestItem \
       { \
-        mass = 80; \
-        containerClass="twelfth_vest_supply"; \
-        setMaxLoad=200; \
-        VEST_HITPOINT_INFO \
-        vestType="Rebreather"; \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","collarflak"}; \
         hiddenSelectionsTextures[] = \
@@ -308,13 +284,12 @@
     // 2 camo version, uses vest_01_co.paa and vest_03_co.paa
 // belt on, leg armor on, shoulder armor off
 #define CLASS_VEST_GENERIC_BLO(VARIANT,SCOPEVAL,CAMO,ARMOR,FULLTYPE,PLATOON,ROLE,DISPLAYNAME,arg1) \
-  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: TCP_##VARIANT##_##ARMOR##_##arg1##_Base \
+  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
       author = "Sammy"; \
       displayName = DISPLAYNAME; \
-      ACE_GForceCoef = 0.4; \
       model = MODEL_PATH_01(ARMOR,arg1); \
       hiddenSelections[] = {"decals","camo","camo1","camo2","collararmored","collarflak"}; \
       hiddenSelectionsTextures[] = \
@@ -326,11 +301,6 @@
       }; \
       class ItemInfo: VestItem \
       { \
-        mass = 80; \
-        containerClass="twelfth_vest_supply"; \
-        setMaxLoad=200; \
-        VEST_HITPOINT_INFO \
-        vestType="Rebreather"; \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","camo2","collararmored","collarflak"}; \
         hiddenSelectionsTextures[] = \
@@ -342,13 +312,12 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: TCP_##VARIANT##_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
       author = "Sammy"; \
       displayName = DISPLAYNAME; \
-      ACE_GForceCoef = 0.4; \
       model = MODEL_PATH_01(ARMOR,arg1); \
       hiddenSelections[] = {"decals","camo","camo1","camo2","collararmored"}; \
       hiddenSelectionsTextures[] = \
@@ -360,11 +329,6 @@
       }; \
       class ItemInfo: VestItem \
       { \
-        mass = 80; \
-        containerClass="twelfth_vest_supply"; \
-        setMaxLoad=200; \
-        VEST_HITPOINT_INFO \
-        vestType="Rebreather"; \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","camo2","collararmored"}; \
         hiddenSelectionsTextures[] = \
@@ -376,13 +340,12 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: TCP_##VARIANT##_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
       author = "Sammy"; \
       displayName = DISPLAYNAME; \
-      ACE_GForceCoef = 0.4; \
       model = MODEL_PATH_01(ARMOR,arg1); \
       hiddenSelections[] = {"decals","camo","camo1","camo2","collarflak"}; \
       hiddenSelectionsTextures[] = \
@@ -394,11 +357,6 @@
       }; \
       class ItemInfo: VestItem \
       { \
-        mass = 80; \
-        containerClass="twelfth_vest_supply"; \
-        setMaxLoad=200; \
-        VEST_HITPOINT_INFO \
-        vestType="Rebreather"; \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","camo2","collarflak"}; \
         hiddenSelectionsTextures[] = \
@@ -414,13 +372,12 @@
   // 3 camo variant, uses vest_01_co.paa, vest_02_co.paa and vest_03_co.paa
   // belt on, leg armor off, shoulder armor on
   #define CLASS_VEST_GENERIC_BOS(VARIANT,SCOPEVAL,CAMO,ARMOR,FULLTYPE,PLATOON,ROLE,DISPLAYNAME,arg1) \
-  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: TCP_##VARIANT##_##ARMOR##_##arg1##_Base \
+  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
       author = "Sammy"; \
       displayName = DISPLAYNAME; \
-      ACE_GForceCoef = 0.4; \
       model = MODEL_PATH_01(ARMOR,arg1); \
       hiddenSelections[] = {"decals","camo","camo1","camo2","collararmored","collarflak"}; \
       hiddenSelectionsTextures[] = \
@@ -432,11 +389,6 @@
       }; \
       class ItemInfo: VestItem \
       { \
-        mass = 80; \
-        containerClass="twelfth_vest_supply"; \
-        setMaxLoad=200; \
-        VEST_HITPOINT_INFO \
-        vestType="Rebreather"; \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","camo2","collararmored","collarflak"}; \
         hiddenSelectionsTextures[] = \
@@ -448,13 +400,12 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: TCP_##VARIANT##_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
       author = "Sammy"; \
       displayName = DISPLAYNAME; \
-      ACE_GForceCoef = 0.4; \
       model = MODEL_PATH_01(ARMOR,arg1); \
       hiddenSelections[] = {"decals","camo","camo1","camo2","collararmored"}; \
       hiddenSelectionsTextures[] = \
@@ -466,11 +417,6 @@
       }; \
       class ItemInfo: VestItem \
       { \
-        mass = 80; \
-        containerClass="twelfth_vest_supply"; \
-        setMaxLoad=200; \
-        VEST_HITPOINT_INFO \
-        vestType="Rebreather"; \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","camo2","collararmored"}; \
         hiddenSelectionsTextures[] = \
@@ -482,13 +428,12 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: TCP_##VARIANT##_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
       author = "Sammy"; \
       displayName = DISPLAYNAME; \
-      ACE_GForceCoef = 0.4; \
       model = MODEL_PATH_01(ARMOR,arg1); \
       hiddenSelections[] = {"decals","camo","camo1","camo2","collarflak"}; \
       hiddenSelectionsTextures[] = \
@@ -500,11 +445,6 @@
       }; \
       class ItemInfo: VestItem \
       { \
-        mass = 80; \
-        containerClass="twelfth_vest_supply"; \
-        setMaxLoad=200; \
-        VEST_HITPOINT_INFO \
-        vestType="Rebreather"; \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","camo2","collarflak"}; \
         hiddenSelectionsTextures[] = \
@@ -520,13 +460,12 @@
   // 3 camo variant, uses vest_01_co.paa, dedicated paa for the shoulder and vest_03_co.paa
   // belt on, leg armor on, shoulder armor on
   #define CLASS_VEST_GENERIC_BLS(VARIANT,SCOPEVAL,CAMO,ARMOR,FULLTYPE,PLATOON,ROLE,DISPLAYNAME,arg1) \
-  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: TCP_##VARIANT##_##ARMOR##_##arg1##_Base \
+  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
       author = "Sammy"; \
       displayName = DISPLAYNAME; \
-      ACE_GForceCoef = 0.4; \
       model = MODEL_PATH_01(ARMOR,arg1); \
       hiddenSelections[] = {"decals","camo","camo1","camo2","camo3","collararmored","collarflak"}; \
       hiddenSelectionsTextures[] = \
@@ -539,11 +478,6 @@
       }; \
       class ItemInfo: VestItem \
       { \
-        mass = 80; \
-        containerClass="twelfth_vest_supply"; \
-        setMaxLoad=200; \
-        VEST_HITPOINT_INFO \
-        vestType="Rebreather"; \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","camo2","camo3","collararmored","collarflak"}; \
         hiddenSelectionsTextures[] = \
@@ -556,13 +490,12 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: TCP_##VARIANT##_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
       author = "Sammy"; \
       displayName = DISPLAYNAME; \
-      ACE_GForceCoef = 0.4; \
       model = MODEL_PATH_01(ARMOR,arg1); \
       hiddenSelections[] = {"decals","camo","camo1","camo2","camo3","collararmored"}; \
       hiddenSelectionsTextures[] = \
@@ -575,11 +508,6 @@
       }; \
       class ItemInfo: VestItem \
       { \
-        mass = 80; \
-        containerClass="twelfth_vest_supply"; \
-        setMaxLoad=200; \
-        VEST_HITPOINT_INFO \
-        vestType="Rebreather"; \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","camo2","camo3","collararmored"}; \
         hiddenSelectionsTextures[] = \
@@ -592,13 +520,12 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: TCP_##VARIANT##_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
       author = "Sammy"; \
       displayName = DISPLAYNAME; \
-      ACE_GForceCoef = 0.4; \
       model = MODEL_PATH_01(ARMOR,arg1); \
       hiddenSelections[] = {"decals","camo","camo1","camo2","camo3","collarflak"}; \
       hiddenSelectionsTextures[] = \
@@ -611,11 +538,6 @@
       }; \
       class ItemInfo: VestItem \
       { \
-        mass = 80; \
-        containerClass="twelfth_vest_supply"; \
-        setMaxLoad=200; \
-        VEST_HITPOINT_INFO \
-        vestType="Rebreather"; \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","camo2","camo3","collarflak"}; \
         hiddenSelectionsTextures[] = \
