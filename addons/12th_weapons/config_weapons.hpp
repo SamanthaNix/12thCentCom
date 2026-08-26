@@ -83,197 +83,12 @@ class CfgWeapons
     =============================================================================
   */
 	
-  class mortar_82mm;
-	class NDS_W_M224_mortar: mortar_82mm
-	{
-		magazines[] = 
-		{
-			"NDS_M_6Rnd_60mm_HE",
-			"NDS_M_6Rnd_60mm_HE_0",
-			"NDS_M_6Rnd_60mm_ILLUM",
-			"avm224_M_6Rnd_60mm_ILLUM_IR",
-			"NDS_M_6Rnd_60mm_SMOKE",
-      "twelfth_M_6Rnd_60mm_HUNTIR"
-		};
-	};
-  class avm224_W_M224_mortar_proxy: NDS_W_M224_mortar {
-    magazines[] = 
-		{
-			"NDS_M_6Rnd_60mm_HE",
-			"NDS_M_6Rnd_60mm_HE_0",
-			"NDS_M_6Rnd_60mm_ILLUM",
-			"avm224_M_6Rnd_60mm_ILLUM_IR",
-			"NDS_M_6Rnd_60mm_SMOKE",
-      "twelfth_M_6Rnd_60mm_HUNTIR"
-		};
-	};
-
-  class twelfth_MG_Tripod_Carry: dzn_MG_Tripod_Universal_Carry{
-    displayName = "[12th] MG Tripod";
-    author = "10Dozen, Waylen";
-    scope = 2;
-    scopeArsenal = 2;
-    class WeaponSlotsInfo: WeaponSlotsInfo
-		{
-			allowedSlots[]={};
-			mass=100;
-		};
-		dzn_MG_Tripod_AttachItems[]=
-		{
-			"twelfth_MG_Tripod"
-		};
-  };
-
-  class twelfth_MG_Tripod: dzn_MG_Tripod_Universal{
-    displayName = "[12th] MG Tripod";
-    author = "10Dozen, Waylen";
-    scope = 2;
-    scopeArsenal = 2;
-    class ItemInfo: InventoryUnderItem_Base_F
-		{
-			allowedSlots[]={};
-			deployedPivot="bipod";
-			hasBipod="true";
-			mass=250;
-			soundBipodDeploy[]=
-			{
-				"A3\Sounds_F_Mark\arsenal\sfx\bipods\Bipod_generic_deploy",
-				0.70794576,
-				1,
-				20
-			};
-			soundBipodFold[]=
-			{
-				"A3\Sounds_F_Mark\arsenal\sfx\bipods\Bipod_generic_fold",
-				0.70794576,
-				1,
-				20
-			};
-			soundBipodDown[]=
-			{
-				"A3\Sounds_F_Mark\arsenal\sfx\bipods\Bipod_generic_down",
-				0.70794576,
-				1,
-				20
-			};
-			soundBipodUp[]=
-			{
-				"A3\Sounds_F_Mark\arsenal\sfx\bipods\Bipod_generic_up",
-				0.70794576,
-				1,
-				20
-			};
-		};
-    inertia=2;
-		dzn_MG_Tripod_CarryItem="twelfth_MG_Tripod_Carry";
-		dzn_MG_Tripod_CarryItemUniversal="twelfth_MG_Tripod_Carry";
-  };
-
-  /*
-    =============================================================================
-    MAAWS Config
-    =============================================================================
-  */
-
-    // ACE buddy loading compat
-
-	  class Weapon_launch_MRAWS_green_F
-	  {
-	  	ace_reloadlaunchers_enabled=1;
-	  };
-	  class Weapon_launch_MRAWS_olive_F
-	  {
-	  	ace_reloadlaunchers_enabled=1;
-	  };
-	  class Weapon_launch_MRAWS_sand_F
-	  {
-	  	ace_reloadlaunchers_enabled=1;
-	  };
-
-    // class definitions
-
-    class twelfth_MAAWS_base: launch_MRAWS_base_F
-    {
-	    author = "Waylen";
-	    displayName = "[12th] MAAWS (Green)";
-	    baseWeapon = "twelfth_MAAWS_base";
-	    scope = 2;
-	    hiddenSelectionsTextures[] =
-      {
-        "\A3\Weapons_F_Tank\Launchers\MRAWS\Data\launch_MRAWS_darkgreen_01_F_co",
-        "\A3\Weapons_F_Tank\Launchers\MRAWS\Data\launch_MRAWS_02_F_co"
-      };
-
-      class WeaponSlotsInfo: WeaponSlotsInfo
-      {
-        mass = 65;
-      };
-    };
-
-    class twelfth_MAAWS_olive: twelfth_MAAWS_base {
-	    author = "Waylen";
-	    displayName = "[12th] MAAWS (Olive)";
-	    baseWeapon = "twelfth_MAAWS_olive";
-	    scope = 2;
-	    hiddenSelectionsTextures[] =
-      {
-			  "\A3\Weapons_F_Tank\Launchers\MRAWS\Data\launch_MRAWS_olive_01_F_co",
-			  "\A3\Weapons_F_Tank\Launchers\MRAWS\Data\launch_MRAWS_02_F_co"
-      };
-    };
-
-    class twelfth_MAAWS_sand: twelfth_MAAWS_base {
-	    author = "Waylen";
-	    displayName = "[12th] MAAWS (Sand)";
-	    baseWeapon = "twelfth_MAAWS_sand";
-	    scope = 2;
-	    hiddenSelectionsTextures[] =
-      {
-			  "\A3\Weapons_F_Tank\Launchers\MRAWS\Data\launch_MRAWS_sand_01_F_co",
-			  "\A3\Weapons_F_Tank\Launchers\MRAWS\Data\launch_MRAWS_02_F_co"
-      };
-    };
-
-    class twelfth_M41_SSR_laserfix: OPTRE_M41_SSR {
-      ace_laser_canSelect = 1;
-      ace_laser_showHud = 1;
-      
-      displayName = "[12th] M41 SSR MAV/AW";
-      baseWeapon = "twelfth_M41_SSR_laserfix";
-    };
-
-    class twelfth_M41_SSR_G_laserfix: OPTRE_M41_SSR {
-      ace_laser_canSelect = 1;
-      ace_laser_showHud = 1;
-
-      displayName = "[12th] M41 SSR MAV/AW (Guided)";
-      baseWeapon = "twelfth_M41_SSR_laserfix";
-    };
-
   /*
     =============================================================================
     Aircraft ordenances
     =============================================================================
   */
     
-
-    class weapon_GBU12Launcher;
-    class twelfth_W_GBU_prototype_250_Launcher: weapon_GBU12Launcher {
-      ace_laser_canSelect = 1;
-      ace_laser_showHud = 1;
-      displayName = "GBU-139/P";
-      magazines[] = {"twelfth_W_P_GBU_prototype_250x1","twelfth_W_P_GBU_prototype_250x2","twelfth_W_P_GBU_prototype_250x4"};
-      scope = 2;
-    };
-
-    class twelfth_W_GBU_prototype_500_Launcher: weapon_GBU12Launcher {
-      ace_laser_canSelect = 1;
-      ace_laser_showHud = 1;
-      displayName = "GBU-140/P";
-      magazines[] = {"twelfth_W_P_GBU_prototype_500x1","twelfth_W_P_GBU_prototype_500x2"};
-      scope = 2;
-    };
-
   /*
     =============================================================================
     Sidearms, SMGs, Shotguns, and other small arms
@@ -309,59 +124,21 @@ class CfgWeapons
     baseWeapon = "twelfth_M6G2";
     //magazines[] = COMMON_M6_MAGAZINES;
   };
-  class twelfth_M6C : OPTRE_M6C
-  {
-    scope = 2;
-    scopeArsenal = 2;
-    author = "Weber";
-    displayName = "[12th] M6C";
-    baseWeapon = "twelfth_M6C";
-    magazines[] = COMMON_M6_MAGAZINES;
-  };
 
-  class twelfth_M7_Test : OPTRE_M7
+  class twelfth_M7_Test : OPTRE_M7 
   {
     model = "\TCP\Weapons\SMGs\M7\M7.p3d";
-    author = "Weber";
+    author = "Sammy";
     scope = 2;
     scopeArsenal = 2;
     displayName = "[12th] M7";
-    baseWeapon = "twelfth_M7_Test";
-    picture = "\TCP\Weapons\SMGs\M7\data\ui\icon_SMG_M7_X_ca.paa";
-		pictureWire = "\TCP\Weapons\SMGs\M7\data\ui\icon_SMG_M7_W_ca.paa";
-		hiddenSelections[] = {"camo"};
-		hiddenSelectionsTextures[] = {"\TCP\Weapons\SMGs\M7\data\camo\default\M7_CO.paa"};
-    handAnim[] = {"OFP2_ManSkeleton","\TCP\Weapons\SMGs\M7\data\anim\M7_handAnim.rtm"};
-    magazines[] = COMMON_SMG_MAGAZINES;
-    class WeaponSlotsInfo: WeaponSlotsInfo {
-			class MuzzleSlot: MuzzleSlot {
-			};
-			class CowsSlot: CowsSlot {
-
-      };
-			class PointerSlot: PointerSlot {
-				compatibleitems[] = {COMMON_RAIL_ATTACHMENTS,"TCP_acc_pointer_lam_M7"};
-			};
-			class UnderBarrelSlot: UnderBarrelSlot {
-				compatibleitems[] = {};
-			};
-		};
   };
 
-  class twelfth_M7_Test_Folded : OPTRE_M7_Folded
-  {
-    author = "Weber";
-    scope = 2;
-    scopeArsenal = 2;
-    displayName = "[12th] M7 Folded";
-    baseWeapon = "twelfth_M7_Test_Folded";
-    magazines[] = {};
-  };
 
-  class twelfth_M90 : OPTRE_M90A
+  class twelfth_M45 : OPTRE_M90A 
   {
     model = "\TCP\Weapons\Shotguns\M45\M45.p3d";
-    author = "Weber";
+    author = "Sammy";
     scope = 2;
     scopeArsenal = 2;
     displayName = "[12th] M45";
@@ -395,55 +172,8 @@ class CfgWeapons
 	scopeArsenal = 2;
 	displayName = "[12th] MA5C Assault Rifle";
 	baseWeapon = "twelfth_MA5C";
-	canShootInWater = 1;
-	magazines[] = COMMON_MA5C_MAGAZINES;
-
-		class WeaponSlotsInfo: WeaponSlotsInfo {
-			class MuzzleSlot: MuzzleSlot {
-				compatibleitems[] = { "OPTRE_MA5Suppressor" };
-			};
-			class CowsSlot: CowsSlot {
-        compatibleitems[] = COMMON_SIGHTS;
-      };
-			class PointerSlot: PointerSlot {
-        compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
-			};
-			class UnderBarrelSlot: UnderBarrelSlot {
-				compatibleitems[] = {};
-			};
-		};
 	};
 
-	class twelfth_MA5CGL: OPTRE_MA5CGL {
-		author = "Waylen";
-		scope = 2;
-		scopeArsenal = 2;
-		canShootInWater = 1;
-		displayName = "[12th] MA5CGL Assault Rifle";
-		muzzles[] = { "this", "twelfth_M301UGL" };
-		class twelfth_M301UGL: OPTRE_M301UGL {
-			displayName = "M301 Grenade Launcher";
-			descriptionShort = "M301 GL";
-			magazines[] = COMMON_GL_MAGS;
-		};
-		baseWeapon = "twelfth_MA5CGL";
-		magazines[] = COMMON_MA5C_MAGAZINES;
-
-		class WeaponSlotsInfo: WeaponSlotsInfo {
-			class MuzzleSlot: MuzzleSlot {
-			compatibleitems[] = { "OPTRE_MA5Suppressor" };
-			};
-			class CowsSlot: CowsSlot {
-      compatibleitems[] = COMMON_SIGHTS;
-      };
-			class PointerSlot: PointerSlot {
-			compatibleitems[] = {COMMON_RAIL_ATTACHMENTS};
-			};
-			class UnderBarrelSlot: UnderBarrelSlot {
-			compatibleitems[] = {};
-			};
-		};
-	};
 
   class twelfth_MA37K: OPTRE_MA37K {
     author = "Waylen";

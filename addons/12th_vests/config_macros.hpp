@@ -117,7 +117,7 @@
 
   // adds class references that are used in our 12th vest reimplementations
   #define GENERATE_VEST_REFERENCE_INSTANCE(ARMOUR) \
-  class STB73_V_M43A_##ARMOUR##_Base;
+  class STB73_M43A_##ARMOUR##_Base;
 
   /* generate all vest references */
   #define GENERATE_VEST_REFERENCES \
@@ -171,10 +171,10 @@
 
   /* Generic functions used to generate our 12th vest classes */
 
-  // 1 camo variant, uses only vest_01_co.paa
+  // 1 camo  uses only vest_01_co.paa
   // belt off, leg armor off, shoulder armor off
-  #define CLASS_VEST_GENERIC_OOO(VARIANT,SCOPEVAL,CAMO,ARMOR,FULLTYPE,PLATOON,ROLE,DISPLAYNAME,arg1) \
-  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
+  #define CLASS_VEST_GENERIC_OOO(SCOPEVAL,CAMO,ARMOR,FULLTYPE,PLATOON,ROLE,DISPLAYNAME,arg1) \
+  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -201,8 +201,8 @@
 
 // 2 camo version, uses vest_01_co.paa and vest_03_co.paa
 // belt on, leg armor off, shoulder armor off
-#define CLASS_VEST_GENERIC_BOO(VARIANT,SCOPEVAL,CAMO,ARMOR,FULLTYPE,PLATOON,ROLE,DISPLAYNAME,arg1) \
-  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
+#define CLASS_VEST_GENERIC_BOO(SCOPEVAL,CAMO,ARMOR,FULLTYPE,PLATOON,ROLE,DISPLAYNAME,arg1) \
+  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -228,7 +228,7 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -254,7 +254,7 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -283,8 +283,8 @@
 
     // 2 camo version, uses vest_01_co.paa and vest_03_co.paa
 // belt on, leg armor on, shoulder armor off
-#define CLASS_VEST_GENERIC_BLO(VARIANT,SCOPEVAL,CAMO,ARMOR,FULLTYPE,PLATOON,ROLE,DISPLAYNAME,arg1) \
-  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
+#define CLASS_VEST_GENERIC_BLO(SCOPEVAL,CAMO,ARMOR,FULLTYPE,PLATOON,ROLE,DISPLAYNAME,arg1) \
+  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -312,7 +312,7 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -340,7 +340,7 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -369,10 +369,10 @@
       }; \
     }; 
 
-  // 3 camo variant, uses vest_01_co.paa, vest_02_co.paa and vest_03_co.paa
+  // 3 camo  uses vest_01_co.paa, vest_02_co.paa and vest_03_co.paa
   // belt on, leg armor off, shoulder armor on
-  #define CLASS_VEST_GENERIC_BOS(VARIANT,SCOPEVAL,CAMO,ARMOR,FULLTYPE,PLATOON,ROLE,DISPLAYNAME,arg1) \
-  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
+  #define CLASS_VEST_GENERIC_BOS(SCOPEVAL,CAMO,ARMOR,FULLTYPE,PLATOON,ROLE,DISPLAYNAME,arg1) \
+  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -400,7 +400,7 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -428,7 +428,7 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -457,10 +457,10 @@
       }; \
     }; 
 
-  // 3 camo variant, uses vest_01_co.paa, dedicated paa for the shoulder and vest_03_co.paa
+  // 3 camo  uses vest_01_co.paa, dedicated paa for the shoulder and vest_03_co.paa
   // belt on, leg armor on, shoulder armor on
-  #define CLASS_VEST_GENERIC_BLS(VARIANT,SCOPEVAL,CAMO,ARMOR,FULLTYPE,PLATOON,ROLE,DISPLAYNAME,arg1) \
-  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
+  #define CLASS_VEST_GENERIC_BLS(SCOPEVAL,CAMO,ARMOR,FULLTYPE,PLATOON,ROLE,DISPLAYNAME,arg1) \
+  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -490,7 +490,7 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -520,7 +520,7 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: STB73_##VARIANT##_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -553,160 +553,160 @@
 
 /* Generate all vest classes. Ordering is CAMO > VEST > TYPE > ELEMENT > ROLE */
   #define GENERATE_VEST_CLASSES(CAMO) \
-  CLASS_VEST_GENERIC_OOO(V,2,CAMO,M43A,Light,na,na,"[12th][Inf] Light Armor",Light) \
-  CLASS_VEST_GENERIC_BOO(V,2,CAMO,M43A,Light,na,na,"[12th][Inf] Light Armor",Light_1) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Light,na,na,"[12th][Inf] Light Armor",Light_2) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Light,na,na,"[12th][Inf] Light Armor",Light_3) \
-  CLASS_VEST_GENERIC_OOO(V,2,CAMO,M43A,Light,na,med,"[12th][Inf] Light Armor",Light) \
-  CLASS_VEST_GENERIC_BOO(V,2,CAMO,M43A,Light,na,med,"[12th][Inf] Light Armor",Light_1) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Light,na,med,"[12th][Inf] Light Armor",Light_2) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Light,na,med,"[12th][Inf] Light Armor",Light_3) \
-  CLASS_VEST_GENERIC_OOO(V,2,CAMO,M43A,Light,1pl,na,"[12th][1PL][Inf] Light Armor",Light) \
-  CLASS_VEST_GENERIC_BOO(V,2,CAMO,M43A,Light,1pl,na,"[12th][1PL][Inf] Light Armor",Light_1) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Light,1pl,na,"[12th][1PL][Inf] Light Armor",Light_2) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Light,1pl,na,"[12th][1PL][Inf] Light Armor",Light_3) \
-  CLASS_VEST_GENERIC_OOO(V,2,CAMO,M43A,Light,1pl,med,"[12th][1PL][Inf] Light Armor",Light) \
-  CLASS_VEST_GENERIC_BOO(V,2,CAMO,M43A,Light,1pl,med,"[12th][1PL][Inf] Light Armor",Light_1) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Light,1pl,med,"[12th][1PL][Inf] Light Armor",Light_2) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Light,1pl,med,"[12th][1PL][Inf] Light Armor",Light_3) \
-  CLASS_VEST_GENERIC_OOO(V,2,CAMO,M43A,Light,2pl,na,"[12th][2PL][Inf] Light Armor",Light) \
-  CLASS_VEST_GENERIC_BOO(V,2,CAMO,M43A,Light,2pl,na,"[12th][2PL][Inf] Light Armor",Light_1) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Light,2pl,na,"[12th][2PL][Inf] Light Armor",Light_2) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Light,2pl,na,"[12th][2PL][Inf] Light Armor",Light_3) \
-  CLASS_VEST_GENERIC_OOO(V,2,CAMO,M43A,Light,2pl,med,"[12th][2PL][Inf] Light Armor",Light) \
-  CLASS_VEST_GENERIC_BOO(V,2,CAMO,M43A,Light,2pl,med,"[12th][2PL][Inf] Light Armor",Light_1) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Light,2pl,med,"[12th][2PL][Inf] Light Armor",Light_2) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Light,2pl,med,"[12th][2PL][Inf] Light Armor",Light_3) \
-  CLASS_VEST_GENERIC_OOO(V,2,CAMO,M43A,Light,hq,na,"[12th][HQ][Inf] Light Armor",Light) \
-  CLASS_VEST_GENERIC_BOO(V,2,CAMO,M43A,Light,hq,na,"[12th][HQ][Inf] Light Armor",Light_1) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Light,hq,na,"[12th][HQ][Inf] Light Armor",Light_2) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Light,hq,na,"[12th][HQ][Inf] Light Armor",Light_3) \
-  CLASS_VEST_GENERIC_OOO(V,2,CAMO,M43A,Light,hq,med,"[12th][HQ][Inf] Light Armor",Light) \
-  CLASS_VEST_GENERIC_BOO(V,2,CAMO,M43A,Light,hq,med,"[12th][HQ][Inf] Light Armor",Light_1) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Light,hq,med,"[12th][HQ][Inf] Light Armor",Light_2) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Light,hq,med,"[12th][HQ][Inf] Light Armor",Light_3) \
-  CLASS_VEST_GENERIC_OOO(V,2,CAMO,M43A,Light,lpl,na,"[12th][LOGI][Inf] Light Armor",Light) \
-  CLASS_VEST_GENERIC_BOO(V,2,CAMO,M43A,Light,lpl,na,"[12th][LOGI][Inf] Light Armor",Light_1) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Light,lpl,na,"[12th][LOGI][Inf] Light Armor",Light_2) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Light,lpl,na,"[12th][LOGI][Inf] Light Armor",Light_3) \
-  CLASS_VEST_GENERIC_OOO(V,2,CAMO,M43A,Light,lpl,med,"[12th][LOGI][Inf] Light Armor",Light) \
-  CLASS_VEST_GENERIC_BOO(V,2,CAMO,M43A,Light,lpl,med,"[12th][LOGI][Inf] Light Armor",Light_1) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Light,lpl,med,"[12th][LOGI][Inf] Light Armor",Light_2) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Light,lpl,med,"[12th][LOGI][Inf] Light Armor",Light_3) \
-  CLASS_VEST_GENERIC_BOO(V,2,CAMO,M43A,Pads,1pl,na,"[12th][1PL][Inf] Pads Armor",Pads_1) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Pads,1pl,na,"[12th][1PL][Inf] Pads Armor",Pads_2) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Pads,1pl,na,"[12th][1PL][Inf] Pads Armor",Pads_3) \
-  CLASS_VEST_GENERIC_BOO(V,2,CAMO,M43A,Pads,1pl,med,"[12th][1PL][Inf] Pads Armor",Pads_1) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Pads,1pl,med,"[12th][1PL][Inf] Pads Armor",Pads_2) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Pads,1pl,med,"[12th][1PL][Inf] Pads Armor",Pads_3) \
-  CLASS_VEST_GENERIC_BOO(V,2,CAMO,M43A,Pads,2pl,na,"[12th][2PL][Inf] Pads Armor",Pads_1) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Pads,2pl,na,"[12th][2PL][Inf] Pads Armor",Pads_2) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Pads,2pl,na,"[12th][2PL][Inf] Pads Armor",Pads_3) \
-  CLASS_VEST_GENERIC_BOO(V,2,CAMO,M43A,Pads,2pl,med,"[12th][2PL][Inf] Pads Armor",Pads_1) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Pads,2pl,med,"[12th][2PL][Inf] Pads Armor",Pads_2) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Pads,2pl,med,"[12th][2PL][Inf] Pads Armor",Pads_3) \
-  CLASS_VEST_GENERIC_BOO(V,2,CAMO,M43A,Pads,hq,na,"[12th][HQ][Inf] Pads Armor",Pads_1) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Pads,hq,na,"[12th][HQ][Inf] Pads Armor",Pads_2) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Pads,hq,na,"[12th][HQ][Inf] Pads Armor",Pads_3) \
-  CLASS_VEST_GENERIC_BOO(V,2,CAMO,M43A,Pads,hq,med,"[12th][HQ][Inf] Pads Armor",Pads_1) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Pads,hq,med,"[12th][HQ][Inf] Pads Armor",Pads_2) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Pads,hq,med,"[12th][HQ][Inf] Pads Armor",Pads_3) \
-  CLASS_VEST_GENERIC_BOO(V,2,CAMO,M43A,Pads,lpl,na,"[12th][LOGI][Inf] Pads Armor",Pads_1) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Pads,lpl,na,"[12th][LOGI][Inf] Pads Armor",Pads_2) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Pads,lpl,na,"[12th][LOGI][Inf] Pads Armor",Pads_3) \
-  CLASS_VEST_GENERIC_BOO(V,2,CAMO,M43A,Pads,lpl,med,"[12th][LOGI][Inf] Pads Armor",Pads_1) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Pads,lpl,med,"[12th][LOGI][Inf] Pads Armor",Pads_2) \
-  CLASS_VEST_GENERIC_BLO(V,2,CAMO,M43A,Pads,lpl,med,"[12th][LOGI][Inf] Pads Armor",Pads_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,BaseSecurity,na,na,"[12th][Inf] Base Security Armor",BaseSec_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,BaseSecurity,na,na,"[12th][Inf] Base Security Armor",BaseSec_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,BaseSecurity,na,na,"[12th][Inf] Base Security Armor",BaseSec_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,BaseSecurity,na,med,"[12th][Inf] Base Security Armor",BaseSec_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,BaseSecurity,na,med,"[12th][Inf] Base Security Armor",BaseSec_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,BaseSecurity,na,med,"[12th][Inf] Base Security Armor",BaseSec_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,BaseSecurity,1pl,na,"[12th][1PL][Inf] Base Security Armor",BaseSec_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,BaseSecurity,1pl,na,"[12th][1PL][Inf] Base Security Armor",BaseSec_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,BaseSecurity,1pl,na,"[12th][1PL][Inf] Base Security Armor",BaseSec_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,BaseSecurity,1pl,med,"[12th][1PL][Inf] Base Security Armor",BaseSec_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,BaseSecurity,1pl,med,"[12th][1PL][Inf] Base Security Armor",BaseSec_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,BaseSecurity,1pl,med,"[12th][1PL][Inf] Base Security Armor",BaseSec_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,BaseSecurity,2pl,na,"[12th][2PL][Inf] Base Security Armor",BaseSec_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,BaseSecurity,2pl,na,"[12th][2PL][Inf] Base Security Armor",BaseSec_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,BaseSecurity,2pl,na,"[12th][2PL][Inf] Base Security Armor",BaseSec_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,BaseSecurity,2pl,med,"[12th][2PL][Inf] Base Security Armor",BaseSec_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,BaseSecurity,2pl,med,"[12th][2PL][Inf] Base Security Armor",BaseSec_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,BaseSecurity,2pl,med,"[12th][2PL][Inf] Base Security Armor",BaseSec_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,BaseSecurity,hq,na,"[12th][HQ][Inf] Base Security Armor",BaseSec_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,BaseSecurity,hq,na,"[12th][HQ][Inf] Base Security Armor",BaseSec_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,BaseSecurity,hq,na,"[12th][HQ][Inf] Base Security Armor",BaseSec_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,BaseSecurity,hq,med,"[12th][HQ][Inf] Base Security Armor",BaseSec_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,BaseSecurity,hq,med,"[12th][HQ][Inf] Base Security Armor",BaseSec_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,BaseSecurity,hq,med,"[12th][HQ][Inf] Base Security Armor",BaseSec_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,BaseSecurity,lpl,na,"[12th][LOGI][Inf] Base Security Armor",BaseSec_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,BaseSecurity,lpl,na,"[12th][LOGI][Inf] Base Security Armor",BaseSec_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,BaseSecurity,lpl,na,"[12th][LOGI][Inf] Base Security Armor",BaseSec_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,BaseSecurity,lpl,med,"[12th][LOGI][Inf] Base Security Armor",BaseSec_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,BaseSecurity,lpl,med,"[12th][LOGI][Inf] Base Security Armor",BaseSec_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,BaseSecurity,lpl,med,"[12th][LOGI][Inf] Base Security Armor",BaseSec_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,Gungnir,na,na,"[12th][Inf] Gungnir Armor",GungnirS_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,na,na,"[12th][Inf] Gungnir Armor",GungnirS_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,na,na,"[12th][Inf] Gungnir Armor",GungnirS_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,Gungnir,na,med,"[12th][Inf] Gungnir Armor",GungnirS_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,na,med,"[12th][Inf] Gungnir Armor",GungnirS_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,na,med,"[12th][Inf] Gungnir Armor",GungnirS_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,Gungnir,1pl,na,"[12th][1PL][Inf] Gungnir Armor",GungnirS_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,1pl,na,"[12th][1PL][Inf] Gungnir Armor",GungnirS_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,1pl,na,"[12th][1PL][Inf] Gungnir Armor",GungnirS_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,Gungnir,1pl,med,"[12th][1PL][Inf] Gungnir Armor",GungnirS_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,1pl,med,"[12th][1PL][Inf] Gungnir Armor",GungnirS_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,1pl,med,"[12th][1PL][Inf] Gungnir Armor",GungnirS_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,Gungnir,2pl,na,"[12th][2PL][Inf] Gungnir Armor",GungnirS_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,2pl,na,"[12th][2PL][Inf] Gungnir Armor",GungnirS_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,2pl,na,"[12th][2PL][Inf] Gungnir Armor",GungnirS_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,Gungnir,2pl,med,"[12th][2PL][Inf] Gungnir Armor",GungnirS_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,2pl,med,"[12th][2PL][Inf] Gungnir Armor",GungnirS_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,2pl,med,"[12th][2PL][Inf] Gungnir Armor",GungnirS_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,Gungnir,hq,na,"[12th][HQ][Inf] Gungnir Armor",GungnirS_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,hq,na,"[12th][HQ][Inf] Gungnir Armor",GungnirS_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,hq,na,"[12th][HQ][Inf] Gungnir Armor",GungnirS_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,Gungnir,hq,med,"[12th][HQ][Inf] Gungnir Armor",GungnirS_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,hq,med,"[12th][HQ][Inf] Gungnir Armor",GungnirS_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,hq,med,"[12th][HQ][Inf] Gungnir Armor",GungnirS_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,Gungnir,lpl,na,"[12th][LOGI][Inf] Gungnir Armor",GungnirS_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,lpl,na,"[12th][LOGI][Inf] Gungnir Armor",GungnirS_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,lpl,na,"[12th][LOGI][Inf] Gungnir Armor",GungnirS_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,Gungnir,lpl,med,"[12th][LOGI][Inf] Gungnir Armor",GungnirS_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,lpl,med,"[12th][LOGI][Inf] Gungnir Armor",GungnirS_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,lpl,med,"[12th][LOGI][Inf] Gungnir Armor",GungnirS_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,Gungnir,na,na,"[12th][Inf] Gungnir Large Armor",GungnirL_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,na,na,"[12th][Inf] Gungnir Large Armor",GungnirL_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,na,na,"[12th][Inf] Gungnir Large Armor",GungnirL_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,Gungnir,na,med,"[12th][Inf] Gungnir Large Armor",GungnirL_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,na,med,"[12th][Inf] Gungnir Large Armor",GungnirL_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,na,med,"[12th][Inf] Gungnir Large Armor",GungnirL_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,Gungnir,1pl,na,"[12th][1PL][Inf] Gungnir Large Armor",GungnirL_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,1pl,na,"[12th][1PL][Inf] Gungnir Large Armor",GungnirL_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,1pl,na,"[12th][1PL][Inf] Gungnir Large Armor",GungnirL_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,Gungnir,1pl,med,"[12th][1PL][Inf] Gungnir Large Armor",GungnirL_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,1pl,med,"[12th][1PL][Inf] Gungnir Large Armor",GungnirL_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,1pl,med,"[12th][1PL][Inf] Gungnir Large Armor",GungnirL_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,Gungnir,2pl,na,"[12th][2PL][Inf] Gungnir Large Armor",GungnirL_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,2pl,na,"[12th][2PL][Inf] Gungnir Large Armor",GungnirL_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,2pl,na,"[12th][2PL][Inf] Gungnir Large Armor",GungnirL_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,Gungnir,2pl,med,"[12th][2PL][Inf] Gungnir Large Armor",GungnirL_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,2pl,med,"[12th][2PL][Inf] Gungnir Large Armor",GungnirL_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,2pl,med,"[12th][2PL][Inf] Gungnir Large Armor",GungnirL_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,Gungnir,hq,na,"[12th][HQ][Inf] Gungnir Large Armor",GungnirL_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,hq,na,"[12th][HQ][Inf] Gungnir Large Armor",GungnirL_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,hq,na,"[12th][HQ][Inf] Gungnir Large Armor",GungnirL_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,Gungnir,hq,med,"[12th][HQ][Inf] Gungnir Large Armor",GungnirL_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,hq,med,"[12th][HQ][Inf] Gungnir Large Armor",GungnirL_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,hq,med,"[12th][HQ][Inf] Gungnir Large Armor",GungnirL_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,Gungnir,lpl,na,"[12th][LOGI][Inf] Gungnir Large Armor",GungnirL_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,lpl,na,"[12th][LOGI][Inf] Gungnir Large Armor",GungnirL_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,lpl,na,"[12th][LOGI][Inf] Gungnir Large Armor",GungnirL_3) \
-  CLASS_VEST_GENERIC_BOS(V,2,CAMO,M43A,Gungnir,lpl,med,"[12th][LOGI][Inf] Gungnir Large Armor",GungnirL_1) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,lpl,med,"[12th][LOGI][Inf] Gungnir Large Armor",GungnirL_2) \
-  CLASS_VEST_GENERIC_BLS(V,2,CAMO,M43A,Gungnir,lpl,med,"[12th][LOGI][Inf] Gungnir Large Armor",GungnirL_3)
+  CLASS_VEST_GENERIC_OOO(2,CAMO,M43A,Light,na,na,"[12th][Inf] Light Armor",Light) \
+  CLASS_VEST_GENERIC_BOO(2,CAMO,M43A,Light,na,na,"[12th][Inf] Light Armor",Light_1) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Light,na,na,"[12th][Inf] Light Armor",Light_2) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Light,na,na,"[12th][Inf] Light Armor",Light_3) \
+  CLASS_VEST_GENERIC_OOO(2,CAMO,M43A,Light,na,med,"[12th][Inf] Light Armor",Light) \
+  CLASS_VEST_GENERIC_BOO(2,CAMO,M43A,Light,na,med,"[12th][Inf] Light Armor",Light_1) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Light,na,med,"[12th][Inf] Light Armor",Light_2) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Light,na,med,"[12th][Inf] Light Armor",Light_3) \
+  CLASS_VEST_GENERIC_OOO(2,CAMO,M43A,Light,1pl,na,"[12th][1PL][Inf] Light Armor",Light) \
+  CLASS_VEST_GENERIC_BOO(2,CAMO,M43A,Light,1pl,na,"[12th][1PL][Inf] Light Armor",Light_1) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Light,1pl,na,"[12th][1PL][Inf] Light Armor",Light_2) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Light,1pl,na,"[12th][1PL][Inf] Light Armor",Light_3) \
+  CLASS_VEST_GENERIC_OOO(2,CAMO,M43A,Light,1pl,med,"[12th][1PL][Inf] Light Armor",Light) \
+  CLASS_VEST_GENERIC_BOO(2,CAMO,M43A,Light,1pl,med,"[12th][1PL][Inf] Light Armor",Light_1) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Light,1pl,med,"[12th][1PL][Inf] Light Armor",Light_2) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Light,1pl,med,"[12th][1PL][Inf] Light Armor",Light_3) \
+  CLASS_VEST_GENERIC_OOO(2,CAMO,M43A,Light,2pl,na,"[12th][2PL][Inf] Light Armor",Light) \
+  CLASS_VEST_GENERIC_BOO(2,CAMO,M43A,Light,2pl,na,"[12th][2PL][Inf] Light Armor",Light_1) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Light,2pl,na,"[12th][2PL][Inf] Light Armor",Light_2) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Light,2pl,na,"[12th][2PL][Inf] Light Armor",Light_3) \
+  CLASS_VEST_GENERIC_OOO(2,CAMO,M43A,Light,2pl,med,"[12th][2PL][Inf] Light Armor",Light) \
+  CLASS_VEST_GENERIC_BOO(2,CAMO,M43A,Light,2pl,med,"[12th][2PL][Inf] Light Armor",Light_1) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Light,2pl,med,"[12th][2PL][Inf] Light Armor",Light_2) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Light,2pl,med,"[12th][2PL][Inf] Light Armor",Light_3) \
+  CLASS_VEST_GENERIC_OOO(2,CAMO,M43A,Light,hq,na,"[12th][HQ][Inf] Light Armor",Light) \
+  CLASS_VEST_GENERIC_BOO(2,CAMO,M43A,Light,hq,na,"[12th][HQ][Inf] Light Armor",Light_1) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Light,hq,na,"[12th][HQ][Inf] Light Armor",Light_2) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Light,hq,na,"[12th][HQ][Inf] Light Armor",Light_3) \
+  CLASS_VEST_GENERIC_OOO(2,CAMO,M43A,Light,hq,med,"[12th][HQ][Inf] Light Armor",Light) \
+  CLASS_VEST_GENERIC_BOO(2,CAMO,M43A,Light,hq,med,"[12th][HQ][Inf] Light Armor",Light_1) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Light,hq,med,"[12th][HQ][Inf] Light Armor",Light_2) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Light,hq,med,"[12th][HQ][Inf] Light Armor",Light_3) \
+  CLASS_VEST_GENERIC_OOO(2,CAMO,M43A,Light,lpl,na,"[12th][LOGI][Inf] Light Armor",Light) \
+  CLASS_VEST_GENERIC_BOO(2,CAMO,M43A,Light,lpl,na,"[12th][LOGI][Inf] Light Armor",Light_1) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Light,lpl,na,"[12th][LOGI][Inf] Light Armor",Light_2) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Light,lpl,na,"[12th][LOGI][Inf] Light Armor",Light_3) \
+  CLASS_VEST_GENERIC_OOO(2,CAMO,M43A,Light,lpl,med,"[12th][LOGI][Inf] Light Armor",Light) \
+  CLASS_VEST_GENERIC_BOO(2,CAMO,M43A,Light,lpl,med,"[12th][LOGI][Inf] Light Armor",Light_1) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Light,lpl,med,"[12th][LOGI][Inf] Light Armor",Light_2) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Light,lpl,med,"[12th][LOGI][Inf] Light Armor",Light_3) \
+  CLASS_VEST_GENERIC_BOO(2,CAMO,M43A,Pads,1pl,na,"[12th][1PL][Inf] Pads Armor",Pads_1) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Pads,1pl,na,"[12th][1PL][Inf] Pads Armor",Pads_2) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Pads,1pl,na,"[12th][1PL][Inf] Pads Armor",Pads_3) \
+  CLASS_VEST_GENERIC_BOO(2,CAMO,M43A,Pads,1pl,med,"[12th][1PL][Inf] Pads Armor",Pads_1) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Pads,1pl,med,"[12th][1PL][Inf] Pads Armor",Pads_2) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Pads,1pl,med,"[12th][1PL][Inf] Pads Armor",Pads_3) \
+  CLASS_VEST_GENERIC_BOO(2,CAMO,M43A,Pads,2pl,na,"[12th][2PL][Inf] Pads Armor",Pads_1) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Pads,2pl,na,"[12th][2PL][Inf] Pads Armor",Pads_2) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Pads,2pl,na,"[12th][2PL][Inf] Pads Armor",Pads_3) \
+  CLASS_VEST_GENERIC_BOO(2,CAMO,M43A,Pads,2pl,med,"[12th][2PL][Inf] Pads Armor",Pads_1) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Pads,2pl,med,"[12th][2PL][Inf] Pads Armor",Pads_2) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Pads,2pl,med,"[12th][2PL][Inf] Pads Armor",Pads_3) \
+  CLASS_VEST_GENERIC_BOO(2,CAMO,M43A,Pads,hq,na,"[12th][HQ][Inf] Pads Armor",Pads_1) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Pads,hq,na,"[12th][HQ][Inf] Pads Armor",Pads_2) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Pads,hq,na,"[12th][HQ][Inf] Pads Armor",Pads_3) \
+  CLASS_VEST_GENERIC_BOO(2,CAMO,M43A,Pads,hq,med,"[12th][HQ][Inf] Pads Armor",Pads_1) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Pads,hq,med,"[12th][HQ][Inf] Pads Armor",Pads_2) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Pads,hq,med,"[12th][HQ][Inf] Pads Armor",Pads_3) \
+  CLASS_VEST_GENERIC_BOO(2,CAMO,M43A,Pads,lpl,na,"[12th][LOGI][Inf] Pads Armor",Pads_1) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Pads,lpl,na,"[12th][LOGI][Inf] Pads Armor",Pads_2) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Pads,lpl,na,"[12th][LOGI][Inf] Pads Armor",Pads_3) \
+  CLASS_VEST_GENERIC_BOO(2,CAMO,M43A,Pads,lpl,med,"[12th][LOGI][Inf] Pads Armor",Pads_1) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Pads,lpl,med,"[12th][LOGI][Inf] Pads Armor",Pads_2) \
+  CLASS_VEST_GENERIC_BLO(2,CAMO,M43A,Pads,lpl,med,"[12th][LOGI][Inf] Pads Armor",Pads_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,BaseSecurity,na,na,"[12th][Inf] Base Security Armor",BaseSec_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,na,na,"[12th][Inf] Base Security Armor",BaseSec_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,na,na,"[12th][Inf] Base Security Armor",BaseSec_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,BaseSecurity,na,med,"[12th][Inf] Base Security Armor",BaseSec_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,na,med,"[12th][Inf] Base Security Armor",BaseSec_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,na,med,"[12th][Inf] Base Security Armor",BaseSec_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,BaseSecurity,1pl,na,"[12th][1PL][Inf] Base Security Armor",BaseSec_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,1pl,na,"[12th][1PL][Inf] Base Security Armor",BaseSec_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,1pl,na,"[12th][1PL][Inf] Base Security Armor",BaseSec_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,BaseSecurity,1pl,med,"[12th][1PL][Inf] Base Security Armor",BaseSec_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,1pl,med,"[12th][1PL][Inf] Base Security Armor",BaseSec_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,1pl,med,"[12th][1PL][Inf] Base Security Armor",BaseSec_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,BaseSecurity,2pl,na,"[12th][2PL][Inf] Base Security Armor",BaseSec_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,2pl,na,"[12th][2PL][Inf] Base Security Armor",BaseSec_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,2pl,na,"[12th][2PL][Inf] Base Security Armor",BaseSec_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,BaseSecurity,2pl,med,"[12th][2PL][Inf] Base Security Armor",BaseSec_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,2pl,med,"[12th][2PL][Inf] Base Security Armor",BaseSec_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,2pl,med,"[12th][2PL][Inf] Base Security Armor",BaseSec_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,BaseSecurity,hq,na,"[12th][HQ][Inf] Base Security Armor",BaseSec_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,hq,na,"[12th][HQ][Inf] Base Security Armor",BaseSec_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,hq,na,"[12th][HQ][Inf] Base Security Armor",BaseSec_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,BaseSecurity,hq,med,"[12th][HQ][Inf] Base Security Armor",BaseSec_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,hq,med,"[12th][HQ][Inf] Base Security Armor",BaseSec_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,hq,med,"[12th][HQ][Inf] Base Security Armor",BaseSec_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,BaseSecurity,lpl,na,"[12th][LOGI][Inf] Base Security Armor",BaseSec_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,lpl,na,"[12th][LOGI][Inf] Base Security Armor",BaseSec_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,lpl,na,"[12th][LOGI][Inf] Base Security Armor",BaseSec_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,BaseSecurity,lpl,med,"[12th][LOGI][Inf] Base Security Armor",BaseSec_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,lpl,med,"[12th][LOGI][Inf] Base Security Armor",BaseSec_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,lpl,med,"[12th][LOGI][Inf] Base Security Armor",BaseSec_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,Gungnir,na,na,"[12th][Inf] Gungnir Armor",GungnirS_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,na,na,"[12th][Inf] Gungnir Armor",GungnirS_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,na,na,"[12th][Inf] Gungnir Armor",GungnirS_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,Gungnir,na,med,"[12th][Inf] Gungnir Armor",GungnirS_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,na,med,"[12th][Inf] Gungnir Armor",GungnirS_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,na,med,"[12th][Inf] Gungnir Armor",GungnirS_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,Gungnir,1pl,na,"[12th][1PL][Inf] Gungnir Armor",GungnirS_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,1pl,na,"[12th][1PL][Inf] Gungnir Armor",GungnirS_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,1pl,na,"[12th][1PL][Inf] Gungnir Armor",GungnirS_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,Gungnir,1pl,med,"[12th][1PL][Inf] Gungnir Armor",GungnirS_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,1pl,med,"[12th][1PL][Inf] Gungnir Armor",GungnirS_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,1pl,med,"[12th][1PL][Inf] Gungnir Armor",GungnirS_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,Gungnir,2pl,na,"[12th][2PL][Inf] Gungnir Armor",GungnirS_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,2pl,na,"[12th][2PL][Inf] Gungnir Armor",GungnirS_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,2pl,na,"[12th][2PL][Inf] Gungnir Armor",GungnirS_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,Gungnir,2pl,med,"[12th][2PL][Inf] Gungnir Armor",GungnirS_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,2pl,med,"[12th][2PL][Inf] Gungnir Armor",GungnirS_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,2pl,med,"[12th][2PL][Inf] Gungnir Armor",GungnirS_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,Gungnir,hq,na,"[12th][HQ][Inf] Gungnir Armor",GungnirS_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,hq,na,"[12th][HQ][Inf] Gungnir Armor",GungnirS_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,hq,na,"[12th][HQ][Inf] Gungnir Armor",GungnirS_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,Gungnir,hq,med,"[12th][HQ][Inf] Gungnir Armor",GungnirS_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,hq,med,"[12th][HQ][Inf] Gungnir Armor",GungnirS_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,hq,med,"[12th][HQ][Inf] Gungnir Armor",GungnirS_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,Gungnir,lpl,na,"[12th][LOGI][Inf] Gungnir Armor",GungnirS_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,lpl,na,"[12th][LOGI][Inf] Gungnir Armor",GungnirS_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,lpl,na,"[12th][LOGI][Inf] Gungnir Armor",GungnirS_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,Gungnir,lpl,med,"[12th][LOGI][Inf] Gungnir Armor",GungnirS_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,lpl,med,"[12th][LOGI][Inf] Gungnir Armor",GungnirS_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,lpl,med,"[12th][LOGI][Inf] Gungnir Armor",GungnirS_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,Gungnir,na,na,"[12th][Inf] Gungnir Large Armor",GungnirL_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,na,na,"[12th][Inf] Gungnir Large Armor",GungnirL_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,na,na,"[12th][Inf] Gungnir Large Armor",GungnirL_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,Gungnir,na,med,"[12th][Inf] Gungnir Large Armor",GungnirL_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,na,med,"[12th][Inf] Gungnir Large Armor",GungnirL_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,na,med,"[12th][Inf] Gungnir Large Armor",GungnirL_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,Gungnir,1pl,na,"[12th][1PL][Inf] Gungnir Large Armor",GungnirL_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,1pl,na,"[12th][1PL][Inf] Gungnir Large Armor",GungnirL_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,1pl,na,"[12th][1PL][Inf] Gungnir Large Armor",GungnirL_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,Gungnir,1pl,med,"[12th][1PL][Inf] Gungnir Large Armor",GungnirL_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,1pl,med,"[12th][1PL][Inf] Gungnir Large Armor",GungnirL_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,1pl,med,"[12th][1PL][Inf] Gungnir Large Armor",GungnirL_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,Gungnir,2pl,na,"[12th][2PL][Inf] Gungnir Large Armor",GungnirL_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,2pl,na,"[12th][2PL][Inf] Gungnir Large Armor",GungnirL_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,2pl,na,"[12th][2PL][Inf] Gungnir Large Armor",GungnirL_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,Gungnir,2pl,med,"[12th][2PL][Inf] Gungnir Large Armor",GungnirL_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,2pl,med,"[12th][2PL][Inf] Gungnir Large Armor",GungnirL_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,2pl,med,"[12th][2PL][Inf] Gungnir Large Armor",GungnirL_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,Gungnir,hq,na,"[12th][HQ][Inf] Gungnir Large Armor",GungnirL_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,hq,na,"[12th][HQ][Inf] Gungnir Large Armor",GungnirL_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,hq,na,"[12th][HQ][Inf] Gungnir Large Armor",GungnirL_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,Gungnir,hq,med,"[12th][HQ][Inf] Gungnir Large Armor",GungnirL_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,hq,med,"[12th][HQ][Inf] Gungnir Large Armor",GungnirL_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,hq,med,"[12th][HQ][Inf] Gungnir Large Armor",GungnirL_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,Gungnir,lpl,na,"[12th][LOGI][Inf] Gungnir Large Armor",GungnirL_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,lpl,na,"[12th][LOGI][Inf] Gungnir Large Armor",GungnirL_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,lpl,na,"[12th][LOGI][Inf] Gungnir Large Armor",GungnirL_3) \
+  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,Gungnir,lpl,med,"[12th][LOGI][Inf] Gungnir Large Armor",GungnirL_1) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,lpl,med,"[12th][LOGI][Inf] Gungnir Large Armor",GungnirL_2) \
+  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,Gungnir,lpl,med,"[12th][LOGI][Inf] Gungnir Large Armor",GungnirL_3)
 
 
   // VEST XTD Gear Info functions

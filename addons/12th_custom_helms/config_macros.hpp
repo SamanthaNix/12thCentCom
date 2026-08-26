@@ -72,16 +72,6 @@ class twelfth_helmCH43A_std_##SUFFIX##: twelfth_helmCH43A_base {  \
   class ItemInfo: HeadgearItem {                \
     uniformModel = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_CH43A\h_helmet_CH43A.p3d";   \
     picture="\x\12thMEU\addons\12th_ui\data\logo.paa";                                 \
-    mass=40;                                    \
-    modelSides[]={6};                           \
-    passThrough=0.1;                            \
-    class HitpointsProtectionInfo {             \
-      class Head {                              \
-        hitpointName="HitHead";                 \
-        armor=20;                               \
-        passThrough=0.1;                        \
-      };                                        \
-    };                                          \
     hiddenSelections[]= {"camo","decals"};      \
     hiddenSelectionsTextures[]= {               \
       #HELMTEXPATH(SUFFIX),				\
@@ -111,16 +101,6 @@ class twelfth_helmECH43A_std_##SUFFIX##_clsd: twelfth_helmECH43A_base { \
   class ItemInfo: HeadgearItem {                \
     uniformModel = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_ECH43A\h_helmet_ECH43A_Black.p3d";   \
     picture="\x\12thMEU\addons\12th_ui\data\logo.paa";                                 \
-    mass=40;                                    \
-    modelSides[]={6};                           \
-    passThrough=0.1;                            \
-    class HitpointsProtectionInfo {             \
-      class Head {                              \
-        hitpointName="HitHead";                 \
-        armor=20;                               \
-        passThrough=0.1;                        \
-      };                                        \
-    };                                          \
     hiddenSelections[]= {"camo","camo1","decals"};      \
     hiddenSelectionsTextures[]= {               \
       #HELMTEXPATH(SUFFIX),				\

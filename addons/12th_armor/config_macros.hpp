@@ -266,11 +266,6 @@
       }; \
       class ItemInfo : ItemInfo {\
         uniformClass = QOUTE(TWELFTH_REF_GENERIC_4(VARIANT2,CAMO,SHIRT,arg1,arg2));\
-        containerClass="Supply100"; \
-        mass=1;\
-        uniformType = "Neopren";\
-        allowedSlots[]={"701","801","901"};\
-        armor=20;\
       };\
       hiddenSelectionsTextures[] = {\
         QP(uniforms\uniform\##CAMO##\CBUU_##SHIRT##_CO.paa),\

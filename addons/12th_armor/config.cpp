@@ -293,17 +293,7 @@ class CfgWeapons {
     };
 	  model = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_CH43A\h_helmet_CH43A.p3d";
     class ItemInfo: HeadgearItem {
-	  uniformModel = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_CH43A\h_helmet_CH43A.p3d";
-      mass=40;
-      modelSides[]={6};
-      passThrough=0.1;
-      class HitpointsProtectionInfo {
-        class Head {
-          hitpointName="HitHead";
-          armor=20;
-          passThrough=0.1;
-        };
-      };
+	    uniformModel = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_CH43A\h_helmet_CH43A.p3d";
     };
   };
 
