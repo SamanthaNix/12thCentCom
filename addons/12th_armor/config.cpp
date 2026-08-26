@@ -106,12 +106,13 @@ class CfgWeapons {
   class OPTRE_UNSC_Dress_Uniform_gray;
   class U_B_CombatUniform_mcam_tshirt;
   class TCP_H_UtilityCover_Base;
-  class TCP_H_Helmet_CH43A_Base;
+  class STB73_Helmet_CH43A_Base;
+  class STB73_Helmet_ECH55D_Base;
   class TCP_V_M43A_BaseSec_1_Base;
-  class TCP_H_Helmet_ECH43A_Base_DP;
+  class STB73_Helmet_ECH43A_Base_DP;
   class OPTRE_UNSC_CH252A_Helmet_Base;
   class OPTRE_UNSC_CH252A_Helmet_dp;  // Base uniform item for new-gen armor
-  class TCP_H_Helmet_ECH43A_Base;
+  class STB73_Helmet_ECH43A_Base;
   class TCP_H_boonieHat_Base;
   class TCP_H_boonieHat_Folded_Base;
   class TCP_H_boonieHat_Folded_Left_Base;
@@ -179,9 +180,6 @@ class CfgWeapons {
     model="\OPTRE_UNSC_Units\Army\aa_helmet.p3d";
     optreHUDStyle = "ODST_1";
     class ItemInfo: HeadgearItem{
-      mass=40;
-      modelSides[]={6};
-      passThrough=0.1;
       uniformModel="\OPTRE_UNSC_Units\Army\aa_helmet.p3d";
       hiddenSelections[]={ "camo" };
       hiddenSelectionsTextures[]={
@@ -210,7 +208,7 @@ class CfgWeapons {
     displayName="[12th][CH252AA] Helmet DP";
     ace_hearing_protection=1;
     ace_hearing_lowerVolume=0.30000001;
-         model="\OPTRE_UNSC_Units\Army\aa_helmet_dp.p3d";
+    model="\OPTRE_UNSC_Units\Army\aa_helmet_dp.p3d";
     optreHUDStyle = "ODST_1";
     class ItemInfo: HeadgearItem{
       mass=40;
@@ -279,14 +277,12 @@ class CfgWeapons {
   };*/
 
   // Helmet_CH43A
-  class twelfth_helmCH43A_base: TCP_H_Helmet_CH43A_Base {
+  class twelfth_helmCH43A_base: STB73_Helmet_CH43A_Base {
     scope=0;
     author="Sammy";
     scopeArsenal=0;
     picture="x\12thMEU\addons\12th_ui\data\logo.paa";
     displayName="[12th] Helmet Base (DON'T USE)";
-    ace_hearing_protection=1;
-    ace_hearing_lowerVolume=0;
     class TCP_uniformDecals
     {
       selectionName = "nameCH43A";
@@ -297,7 +293,7 @@ class CfgWeapons {
     };
   };
 
-  class twelfth_helmECH43A_base: TCP_H_Helmet_ECH43A_Base {
+  class twelfth_helmECH43A_base: STB73_Helmet_ECH43A_Base {
     scope=0;
     author="Sammy";
     scopeArsenal=0;
@@ -315,7 +311,7 @@ class CfgWeapons {
 	  uniformModel = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_ECH43A\h_helmet_ECH43A_Black.p3d";
     };
   };
-    class twelfth_helmECH43A_base_DP: TCP_H_Helmet_ECH43A_Base_DP {
+    class twelfth_helmECH43A_base_DP: STB73_Helmet_ECH43A_Base_DP {
     scope=0;
     author="Sammy";
     scopeArsenal=0;
@@ -350,13 +346,11 @@ class CfgWeapons {
   };
 
   // ODST
-   class twelfth_odst_helmet: TCP_H_Helmet_CH43A_Base {
+   class twelfth_odst_helmet: STB73_Helmet_ECH55D_Base {
     scope=2;
     author="Rex";
     scopeArsenal=2;
     displayName="[12th] ODST";
-    ace_hearing_protection=1;
-    ace_hearing_lowerVolume=0;
 	  model = "\TCP\Characters\BLUFOR\UNSC\Marines\Headgear\helmet_ECH55D\h_helmet_ECH55D_Blue.p3d";
     class ItemInfo: HeadgearItem {
 	  uniformModel = "\TCP\Characters\BLUFOR\UNSC\Marines\Headgear\helmet_ECH55D\h_helmet_ECH55D_Blue.p3d";
@@ -364,14 +358,12 @@ class CfgWeapons {
   };
 
   // Army
-  class twelfth_army_helmet: TCP_H_Helmet_CH43A_Base {
+  class twelfth_army_helmet: STB73_Helmet_ECH43A_Base {
     scope=2;
     author="Rex";
     scopeArsenal=2;
     picture="x\12thMEU\addons\12th_ui\data\logo.paa";
     displayName="[12th] Army";
-    ace_hearing_protection=1;
-    ace_hearing_lowerVolume=0;
     hiddenSelections[] = { "camo","decals" };  
     hiddenSelectionsTextures[] = {    
       "\x\12thMeu\addons\12th_armor\helmets\army\Helm_CO.paa",   
