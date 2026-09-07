@@ -128,12 +128,6 @@ class CfgPatches {
 };
 
 class CfgWeapons {
-  /*
-    Base classes & references:
-    - H_HelmetB: Standard ArmA 3 base helmet
-    - HeadgearItem: For item-specific config (weight, armor, etc.)
-  */
-  class H_HelmetB;
   class ItemInfo;
   class HeadgearItem;
   class twelfth_helmCH43A_base;
@@ -224,7 +218,7 @@ class CfgWeapons {
   CUSTOM_PILOT_HELM(penquite, "[12th][Pilot][Customs] Penquite",penquite)
   CUSTOM_PILOT_HELM(Moss, "[12th][Pilot][Customs] Moss",moss)
   CUSTOM_PILOT_HELM(tomb, "[12th][Pilot][Customs] Tomb",tomb)
-  CUSTOM_PILOT_HELM(kurita, "[12th][Pilot][Customs] Kurita",kurita)
+  //CUSTOM_PILOT_HELM(kurita, "[12th][Pilot][Customs] Kurita",kurita)
 
 };
 

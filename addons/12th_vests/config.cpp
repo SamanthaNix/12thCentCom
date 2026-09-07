@@ -50,25 +50,13 @@ class CfgVehicles {
 // -----------------------------------------------------------------------------
 class CfgWeapons
 {
-  class ItemCore;
-  class VestItem;
-  class OPTRE_UNSC_M52A_Armor2_MAR;
-  class mgsr_poncho_wet_vest;
-  class mgsr_poncho_dry_vest;
-
-  // ---------------------------------------------------------------------------
-  //  Invisible Vest
-  // ---------------------------------------------------------------------------
-
-
-  
-  
+  class ItemInfo;
 
   // Base uniform item for new-gen armor
   //-New Armour-----------------------------------------------------
-  GENERATE_VEST_REFERENCES
+  class CC_M43_Base;
   GENERATE_VEST_CLASSES(std)
-    // Army
+
 };
 
 

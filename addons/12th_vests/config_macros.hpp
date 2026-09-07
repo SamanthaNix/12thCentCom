@@ -61,112 +61,7 @@
 #define BASESEC_PATH(CAMO,FILE) #P(data\vest\##CAMO##\##FILE##.paa)
 */
 
-// Standard vest attributes
-#define VEST_MASS 80      // The vest’s "mass" for ACE/Arma calculations
-#define VEST_MAXLOAD 200  // The vest’s carrying capacity (in “inventory units”)
 
-// Macro for the hitpoint data applied to vests
-#define VEST_HITPOINT_INFO \
-  class HitpointsProtectionInfo { \
-    class Neck { \
-      hitpointName="HitNeck"; \
-      armor=20; \
-      passThrough=0.30000001; \
-    }; \
-    class Arms { \
-      hitpointName="HitArms"; \
-      armor=10; \
-      passThrough=0.60000002; \
-    }; \
-    class Chest { \
-      hitpointName="HitChest"; \
-      armor=20; \
-      passThrough=0.30000001; \
-    }; \
-    class Diaphragm { \
-      hitpointName="HitDiaphragm"; \
-      armor=20; \
-      passThrough=0.30000001; \
-    }; \
-    class Abdomen { \
-      hitpointName="HitAbdomen"; \
-      armor=20; \
-      passThrough=0.30000001; \
-    }; \
-    class Body { \
-      hitpointName="HitBody"; \
-      passThrough=0.30000001; \
-      armor=20; \
-    }; \
-    class Legs { \
-      hitpointName="HitLegs"; \
-      armor=10; \
-      passThrough=0.60000002; \
-    }; \
-  };
-
-// Macro for the invisible vest’s item info
-#define INVIS_VEST_ITEM_INFO \
-  class ItemInfo: VestItem { \
-    vestType="Rebreather"; \
-    uniformModel = "x\12thMEU\addons\12th_backpacks\backpack\null.p3d"; \
-    containerClass="twelfth_vest_supply"; \
-    mass=80; \
-    VEST_HITPOINT_INFO \
-  };
-
-  // adds class references that are used in our 12th vest reimplementations
-  #define GENERATE_VEST_REFERENCE_INSTANCE(ARMOUR) \
-  class STB73_M43A_##ARMOUR##_Base;
-
-  /* generate all vest references */
-  #define GENERATE_VEST_REFERENCES \
-	GENERATE_VEST_REFERENCE_INSTANCE(BaseSec_1) \
-  GENERATE_VEST_REFERENCE_INSTANCE(BaseSec_1_1) \
-  GENERATE_VEST_REFERENCE_INSTANCE(BaseSec_1_2) \
-	GENERATE_VEST_REFERENCE_INSTANCE(BaseSec_2) \
-  GENERATE_VEST_REFERENCE_INSTANCE(BaseSec_2_1) \
-  GENERATE_VEST_REFERENCE_INSTANCE(BaseSec_2_2) \
-	GENERATE_VEST_REFERENCE_INSTANCE(BaseSec_3) \
-  GENERATE_VEST_REFERENCE_INSTANCE(BaseSec_3_1) \
-  GENERATE_VEST_REFERENCE_INSTANCE(BaseSec_3_2) \
-	GENERATE_VEST_REFERENCE_INSTANCE(GungnirS_1) \
-  GENERATE_VEST_REFERENCE_INSTANCE(GungnirS_1_1) \
-  GENERATE_VEST_REFERENCE_INSTANCE(GungnirS_1_2) \
-	GENERATE_VEST_REFERENCE_INSTANCE(GungnirS_2) \
-  GENERATE_VEST_REFERENCE_INSTANCE(GungnirS_2_1) \
-  GENERATE_VEST_REFERENCE_INSTANCE(GungnirS_2_2) \
-	GENERATE_VEST_REFERENCE_INSTANCE(GungnirS_3) \
-  GENERATE_VEST_REFERENCE_INSTANCE(GungnirS_3_1) \
-  GENERATE_VEST_REFERENCE_INSTANCE(GungnirS_3_2) \
-	GENERATE_VEST_REFERENCE_INSTANCE(GungnirL_1) \
-  GENERATE_VEST_REFERENCE_INSTANCE(GungnirL_1_1) \
-  GENERATE_VEST_REFERENCE_INSTANCE(GungnirL_1_2) \
-	GENERATE_VEST_REFERENCE_INSTANCE(GungnirL_2) \
-  GENERATE_VEST_REFERENCE_INSTANCE(GungnirL_2_1) \
-  GENERATE_VEST_REFERENCE_INSTANCE(GungnirL_2_2) \
-	GENERATE_VEST_REFERENCE_INSTANCE(GungnirL_3) \
-  GENERATE_VEST_REFERENCE_INSTANCE(GungnirL_3_1) \
-  GENERATE_VEST_REFERENCE_INSTANCE(GungnirL_3_2) \
-	GENERATE_VEST_REFERENCE_INSTANCE(Light) \
-  GENERATE_VEST_REFERENCE_INSTANCE(Light_1) \
-  GENERATE_VEST_REFERENCE_INSTANCE(Light_1_1) \
-  GENERATE_VEST_REFERENCE_INSTANCE(Light_1_2) \
-  GENERATE_VEST_REFERENCE_INSTANCE(Light_2) \
-  GENERATE_VEST_REFERENCE_INSTANCE(Light_2_1) \
-  GENERATE_VEST_REFERENCE_INSTANCE(Light_2_2) \
-  GENERATE_VEST_REFERENCE_INSTANCE(Light_3) \
-  GENERATE_VEST_REFERENCE_INSTANCE(Light_3_1) \
-  GENERATE_VEST_REFERENCE_INSTANCE(Light_3_2) \
-  GENERATE_VEST_REFERENCE_INSTANCE(Pads_1) \
-  GENERATE_VEST_REFERENCE_INSTANCE(Pads_1_1) \
-  GENERATE_VEST_REFERENCE_INSTANCE(Pads_1_2) \
-  GENERATE_VEST_REFERENCE_INSTANCE(Pads_2) \
-  GENERATE_VEST_REFERENCE_INSTANCE(Pads_2_1) \
-  GENERATE_VEST_REFERENCE_INSTANCE(Pads_2_2) \
-  GENERATE_VEST_REFERENCE_INSTANCE(Pads_3) \
-  GENERATE_VEST_REFERENCE_INSTANCE(Pads_3_1) \
-  GENERATE_VEST_REFERENCE_INSTANCE(Pads_3_2) 
 
 
   /* Generic functions used to generate our 12th vest classes */
@@ -174,7 +69,7 @@
   // 1 camo  uses only vest_01_co.paa
   // belt off, leg armor off, shoulder armor off
   #define CLASS_VEST_GENERIC_OOO(SCOPEVAL,CAMO,ARMOR,FULLTYPE,PLATOON,ROLE,DISPLAYNAME,arg1) \
-  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
+  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: CC_M43_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -187,7 +82,7 @@
         HELM_DEC_PATH, \
         VEST_PATH_01(CAMO) \
       }; \
-      class ItemInfo: VestItem \
+      class ItemInfo: ItemInfo \
       { \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo"}; \
@@ -202,7 +97,7 @@
 // 2 camo version, uses vest_01_co.paa and vest_03_co.paa
 // belt on, leg armor off, shoulder armor off
 #define CLASS_VEST_GENERIC_BOO(SCOPEVAL,CAMO,ARMOR,FULLTYPE,PLATOON,ROLE,DISPLAYNAME,arg1) \
-  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
+  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: CC_M43_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -216,7 +111,7 @@
         VEST_PATH_01(CAMO), \
         VEST_PATH_03(CAMO) \
       }; \
-      class ItemInfo: VestItem \
+      class ItemInfo: ItemInfo \
       { \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","collararmored","collarflak"}; \
@@ -228,7 +123,7 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: CC_M43_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -242,7 +137,7 @@
         VEST_PATH_01(CAMO), \
         VEST_PATH_03(CAMO) \
       }; \
-      class ItemInfo: VestItem \
+      class ItemInfo: ItemInfo \
       { \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","collararmored"}; \
@@ -254,7 +149,7 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: CC_M43_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -268,7 +163,7 @@
         VEST_PATH_01(CAMO), \
         VEST_PATH_03(CAMO) \
       }; \
-      class ItemInfo: VestItem \
+      class ItemInfo: ItemInfo \
       { \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","collarflak"}; \
@@ -284,7 +179,7 @@
     // 2 camo version, uses vest_01_co.paa and vest_03_co.paa
 // belt on, leg armor on, shoulder armor off
 #define CLASS_VEST_GENERIC_BLO(SCOPEVAL,CAMO,ARMOR,FULLTYPE,PLATOON,ROLE,DISPLAYNAME,arg1) \
-  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
+  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: CC_M43_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -299,7 +194,7 @@
         VEST_PATH_02(CAMO), \
         VEST_PATH_03(CAMO) \
       }; \
-      class ItemInfo: VestItem \
+      class ItemInfo: ItemInfo \
       { \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","camo2","collararmored","collarflak"}; \
@@ -312,7 +207,7 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: CC_M43_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -327,7 +222,7 @@
         VEST_PATH_02(CAMO), \
         VEST_PATH_03(CAMO) \
       }; \
-      class ItemInfo: VestItem \
+      class ItemInfo: ItemInfo \
       { \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","camo2","collararmored"}; \
@@ -340,7 +235,7 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: CC_M43_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -355,7 +250,7 @@
         VEST_PATH_02(CAMO), \
         VEST_PATH_03(CAMO) \
       }; \
-      class ItemInfo: VestItem \
+      class ItemInfo: ItemInfo \
       { \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","camo2","collarflak"}; \
@@ -372,7 +267,7 @@
   // 3 camo  uses vest_01_co.paa, vest_02_co.paa and vest_03_co.paa
   // belt on, leg armor off, shoulder armor on
   #define CLASS_VEST_GENERIC_BOS(SCOPEVAL,CAMO,ARMOR,FULLTYPE,PLATOON,ROLE,DISPLAYNAME,arg1) \
-  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
+  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: CC_M43_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -387,7 +282,7 @@
         VEST_PATH_SHOULDER_01(CAMO,PLATOON,ROLE,FULLTYPE), \
         VEST_PATH_03(CAMO) \
       }; \
-      class ItemInfo: VestItem \
+      class ItemInfo: ItemInfo \
       { \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","camo2","collararmored","collarflak"}; \
@@ -400,7 +295,7 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: CC_M43_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -415,7 +310,7 @@
         VEST_PATH_SHOULDER_01(CAMO,PLATOON,ROLE,FULLTYPE), \
         VEST_PATH_03(CAMO) \
       }; \
-      class ItemInfo: VestItem \
+      class ItemInfo: ItemInfo \
       { \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","camo2","collararmored"}; \
@@ -428,7 +323,7 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: CC_M43_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -443,7 +338,7 @@
         VEST_PATH_SHOULDER_01(CAMO,PLATOON,ROLE,FULLTYPE), \
         VEST_PATH_03(CAMO) \
       }; \
-      class ItemInfo: VestItem \
+      class ItemInfo: ItemInfo \
       { \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","camo2","collarflak"}; \
@@ -460,7 +355,7 @@
   // 3 camo  uses vest_01_co.paa, dedicated paa for the shoulder and vest_03_co.paa
   // belt on, leg armor on, shoulder armor on
   #define CLASS_VEST_GENERIC_BLS(SCOPEVAL,CAMO,ARMOR,FULLTYPE,PLATOON,ROLE,DISPLAYNAME,arg1) \
-  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
+  class twelfth_##ARMOR##_##arg1##_##CAMO##_##PLATOON##_##ROLE##: CC_M43_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -476,7 +371,7 @@
         VEST_PATH_02(CAMO), \
         VEST_PATH_03(CAMO) \
       }; \
-      class ItemInfo: VestItem \
+      class ItemInfo: ItemInfo \
       { \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","camo2","camo3","collararmored","collarflak"}; \
@@ -490,7 +385,7 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_1_##CAMO##_##PLATOON##_##ROLE##: CC_M43_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -506,7 +401,7 @@
         VEST_PATH_02(CAMO), \
         VEST_PATH_03(CAMO) \
       }; \
-      class ItemInfo: VestItem \
+      class ItemInfo: ItemInfo \
       { \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","camo2","camo3","collararmored"}; \
@@ -520,7 +415,7 @@
         }; \
       }; \
     }; \
-    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: STB73_##ARMOR##_##arg1##_Base \
+    class twelfth_##ARMOR##_##arg1##_2_##CAMO##_##PLATOON##_##ROLE##: CC_M43_Base \
     { \
       scope = #SCOPEVAL; \
       scopeArsenal = #SCOPEVAL; \
@@ -536,7 +431,7 @@
         VEST_PATH_02(CAMO), \
         VEST_PATH_03(CAMO) \
       }; \
-      class ItemInfo: VestItem \
+      class ItemInfo: ItemInfo \
       { \
         uniformModel = MODEL_PATH_01(ARMOR,arg1); \
         hiddenSelections[] = {"decals","camo","camo1","camo2","camo3","collarflak"}; \

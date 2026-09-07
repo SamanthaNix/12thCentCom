@@ -28,26 +28,14 @@ class CfgPatches
     units[] = {}; // If you add a placeable object/vehicle that belongs to this mod,
                   // you should list that class name here.
     weapons[] = {
-                 "twelfth_M7_Test", "twelfth_MA5B",
-                 "twelfth_br55", "twelfth_br55_HB",
-                 "twelfth_M392", "twelfth_MA37K", "twelfth_Commando",
-                 "twelfth_M73H", "twelfth_M247", "twelfth_M319",
-                 "twelfth_M319N", "twelfth_MA5C", "twelfth_MA5K", 
-				         "twelfth_MA6_K","twelfth_MA6","twelfth_MA6_D","twelfth_MA6_A_BOX","twelfth_MA6_A_DRUM","twelfth_M6C2","twelfth_M6G2","twelfth_MA6_AL",
+				         "twelfth_MA6_K","twelfth_MA6","twelfth_MA6_D","twelfth_MA6_A_BOX","twelfth_MA6_A_DRUM","twelfth_MA6_AL",
                  }; // Ensure any newly created weapon class is listed above.
-    ammo[] = {"twelfth_20g_bb", "twelfth_95x40_UW", "twelfth_5x23mm_UW", "twelfth_40mmG_HEAT",
-              "twelfth_W_B250","twelfth_W_B500",
-              "F_HuntIR_mortar"}; // Please add your new ammo types to this list
-    magazines[] = {"twelfth_20g_mag", "twelfth_95x40_100rnd", "twelfth_762x51_200rnd",
-                   "twelfth_762x51_200rnd_T", "twelfth_br_36Rnd_UW", "twelfth_m7_60rnd_UW",
-                   "twelfth_m7_48rnd_UW", "twelfth_40mm_heat","twelfth_100Rnd_95x40_Box_T","twelfth_56Rnd_95x40_Mag","twelfth_56Rnd_95x40_Mag_T",
-                   "twelfth_W_P_GBU_prototype_250x1","twelfth_W_P_GBU_prototype_250x2","twelfth_W_P_GBU_prototype_250x4",
-                   "twelfth_W_P_GBU_prototype_500x1","twelfth_W_P_GBU_prototype_500x2",
-                   "twelfth_M_1Rnd_60mm_HUNTIR_csw", "twelfth_M_6Rnd_60mm_HUNTIR"}; // Add new magazines here.
+    ammo[] = {}; // Please add your new ammo types to this list
+    magazines[] = {}; // Add new magazines here.
     requiredVersion = 0.1;
     requiredAddons[] = { "OPTRE_Weapons",
                         "A3_Weapons_F", "A3_Weapons_F_Exp", 
-                        "ace_missileguidance","ace_common", "a3_weapons_f_tank", "ace_reloadlaunchers","NDS_M224_mortar","avm224_mortar","ace_csw","ace_apl","ace_huntir"
+                        "ace_missileguidance","ace_common", "a3_weapons_f_tank", "ace_reloadlaunchers","ace_csw","ace_apl","ace_huntir"
                         }; 
         /*
         IMPORTANT: If you rely on additional external mods,
@@ -66,9 +54,7 @@ class CfgPatches
 	};
 };
 
-class CfgMovesBasic {
-	class default;
-};
+class CfgMovesBasic;
 class CfgMovesMaleSdr: CfgMovesBasic {
 	skeletonName = "OFP2_ManSkeleton";
 	gestures = "CfgGesturesMale";

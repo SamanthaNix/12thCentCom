@@ -54,14 +54,6 @@ class CfgPatches {
 // -----------------------------------------------------------------------------
 class CfgVehicles {
 // Base classes from Arma or third-party mods
-  class B_Soldier_base_F;
-  class B_CTRG_Soldier_2_F;
-  class OPTRE_UNSC_Army_Soldier_WDL;
-  class OPTRE_UNSC_Army_Soldier_R_WDL;
-  class OPTRE_UNSC_Army_Soldier_S_WDL;
-  class OPTRE_UNSC_Army_Soldier_DressGray;
-  class OPTRE_UNSC_CH252A_Helmet_Base;
-  class OPTRE_UNSC_CH252A_Helmet_dp;
  
   //TCP UNIFORM vehicle definitions
   
@@ -97,18 +89,11 @@ class CfgWeapons {
   class UniformItem;
   class ItemInfo;
   class Uniform_Base;
-  class H_HelmetB;
   class H_PilotHelmetHeli_B;
   class HeadgearItem;
-  class OPTRE_UNSC_Army_Uniform_WDL;
-  class OPTRE_UNSC_Army_Uniform_R_WDL;
-  class OPTRE_UNSC_Army_Uniform_S_WDL;
-  class OPTRE_UNSC_Dress_Uniform_gray;
-  class U_B_CombatUniform_mcam_tshirt;
   class TCP_H_UtilityCover_Base;
   class STB73_Helmet_CH43A_Base;
   class STB73_Helmet_ECH55D_Base;
-  class TCP_V_M43A_BaseSec_1_Base;
   class STB73_Helmet_ECH43A_Base_DP;
   class OPTRE_UNSC_CH252A_Helmet_Base;
   class OPTRE_UNSC_CH252A_Helmet_dp;  // Base uniform item for new-gen armor
@@ -245,36 +230,6 @@ class CfgWeapons {
   UTILITYCOVER_WEP(snow)
   //-HELMETS----------------------------------------------------------
 
-  /*class twelfth_odst_helm: H_HelmetB {
-    scope=2;
-    scopeArsenal=2;
-    author="Waylen";
-    displayName="[12th][ODST] Helmet";
-    ace_hearing_protection=1;
-    ace_hearing_lowerVolume=0.30000001;
-    model="Foundries\ODST\ODST_helm_F.p3d";
-    hiddenSelections[]= { "camo" };
-    hiddenSelectionsTextures[]= {
-      "\x\12thMEU\addons\12th_armor\helmets\odst\odst_helm.paa"
-    };
-    class ItemInfo: HeadgearItem {
-      mass=40;
-      modelSides[]={6};
-      passThrough=0.1;
-      class HitpointsProtectionInfo {
-        class Head {
-          hitpointName="HitHead";
-          armor=20;
-          passThrough=0.1;
-        };
-      };
-      uniformModel="Foundries\ODST\ODST_helm_F.p3d";
-      hiddenSelections[]={"camo"};
-      hiddenSelectionsTextures[]= {
-        "\x\12thMEU\addons\12th_armor\helmets\odst\odst_helm.paa"
-      };
-    };
-  };*/
 
   // Helmet_CH43A
   class twelfth_helmCH43A_base: STB73_Helmet_CH43A_Base {
