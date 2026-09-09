@@ -50,11 +50,11 @@ class CfgVehicles {
 // -----------------------------------------------------------------------------
 class CfgWeapons
 {
-  class ItemInfo;
-
   // Base uniform item for new-gen armor
   //-New Armour-----------------------------------------------------
-  class CC_M43_Base;
+  class CC_M43_Base{
+    class itemInfo;
+  };
   GENERATE_VEST_CLASSES(std)
 
 };

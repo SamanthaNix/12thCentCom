@@ -515,9 +515,6 @@
   CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,BaseSecurity,na,na,"[12th][Inf] Base Security Armor",BaseSec_1) \
   CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,na,na,"[12th][Inf] Base Security Armor",BaseSec_2) \
   CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,na,na,"[12th][Inf] Base Security Armor",BaseSec_3) \
-  CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,BaseSecurity,na,med,"[12th][Inf] Base Security Armor",BaseSec_1) \
-  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,na,med,"[12th][Inf] Base Security Armor",BaseSec_2) \
-  CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,na,med,"[12th][Inf] Base Security Armor",BaseSec_3) \
   CLASS_VEST_GENERIC_BOS(2,CAMO,M43A,BaseSecurity,1pl,na,"[12th][1PL][Inf] Base Security Armor",BaseSec_1) \
   CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,1pl,na,"[12th][1PL][Inf] Base Security Armor",BaseSec_2) \
   CLASS_VEST_GENERIC_BLS(2,CAMO,M43A,BaseSecurity,1pl,na,"[12th][1PL][Inf] Base Security Armor",BaseSec_3) \

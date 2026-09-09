@@ -34,9 +34,7 @@ class CfgPatches {
     */
     units[]= {};
     weapons[]= {
-      "twelfth_odst_uniform_wep",
-      "twelfth_uni_ng_base_wep",
-      "twelfth_aa_helm",
+      "twelfth_uni_ng_base_wep"
     };
     requiredAddons[]= {
       "A3_Armor_F_Beta",
@@ -85,19 +83,15 @@ class CfgVehicles {
 // -----------------------------------------------------------------------------
 class CfgWeapons {
   class TCP_equipmentTypes;
-  class H_Cap_oli;
   class UniformItem;
-  class ItemInfo;
+  class itemInfo;
   class Uniform_Base;
   class H_PilotHelmetHeli_B;
   class HeadgearItem;
   class TCP_H_UtilityCover_Base;
-  class STB73_Helmet_CH43A_Base;
-  class STB73_Helmet_ECH55D_Base;
-  class STB73_Helmet_ECH43A_Base_DP;
-  class OPTRE_UNSC_CH252A_Helmet_Base;
-  class OPTRE_UNSC_CH252A_Helmet_dp;  // Base uniform item for new-gen armor
-  class STB73_Helmet_ECH43A_Base;
+  class CC_H_CH43A_Black;
+  class CC_H_ECH43A_Black_DP;
+  class CC_H_ECH43A_Black;
   class TCP_H_boonieHat_Base;
   class TCP_H_boonieHat_Folded_Base;
   class TCP_H_boonieHat_Folded_Left_Base;
@@ -135,91 +129,6 @@ class CfgWeapons {
   BOONIE(desert)
   BOONIE(snow)
 
-  // Example ODST uniform item referencing twelfth_odst_uniform_veh
-  class twelfth_odst_uniform_wep: Uniform_Base {
-    scope=2;
-    scopeArsenal=2;
-    author="Waylen";
-    model="\A3\Characters_F\Common\Suitpacks\suitpack_blufor_diver";
-    displayName="[12th][ODST] Armor";
-    ACE_GForceCoef = 0.4;
-    class ItemInfo: UniformItem {
-      uniformModel="-";
-      uniformClass="twelfth_odst_uniform_veh";
-      containerClass="Supply100";
-      mass=1;
-      uniformType = "Neopren";
-      allowedSlots[]={"701","801","901"};
-      armor=20;
-    };
-  };
-  // Army Aviator helmet example: CH252AA
-  class twelfth_aa_helm: OPTRE_UNSC_CH252A_Helmet_Base {
-    scope=2;
-    scopeArsenal=2;
-    author="Waylen & A2S";
-    picture="";
-    displayName="[12th][CH252AA] Helmet";
-    ace_hearing_protection=1;
-    ace_hearing_lowerVolume=0;
-    model="\OPTRE_UNSC_Units\Army\aa_helmet.p3d";
-    optreHUDStyle = "ODST_1";
-    class ItemInfo: HeadgearItem{
-      uniformModel="\OPTRE_UNSC_Units\Army\aa_helmet.p3d";
-      hiddenSelections[]={ "camo" };
-      hiddenSelectionsTextures[]={
-        "\x\12thMEU\addons\12th_armor\helmets\aa\AA_Helmet_12th_CO.paa"
-      };
-      class HitpointsProtectionInfo{
-        class Head {
-          hitpointName="HitHead";
-          armor=20;
-          passThrough=0.1;
-        };
-      };
-    };
-    hiddenSelections[]={ "camo" };
-    hiddenSelectionsTextures[]={
-      "\x\12thMEU\addons\12th_armor\helmets\aa\AA_Helmet_12th_CO.paa"
-    };
-  };
-
-  // Depolarized variant of the AA helmet
-  class twelfth_aa_helm_dp: OPTRE_UNSC_CH252A_Helmet_dp {
-    scope=2;
-    scopeArsenal=0;
-    author="Waylen & A2S";
-    picture="";
-    displayName="[12th][CH252AA] Helmet DP";
-    ace_hearing_protection=1;
-    ace_hearing_lowerVolume=0.30000001;
-    model="\OPTRE_UNSC_Units\Army\aa_helmet_dp.p3d";
-    optreHUDStyle = "ODST_1";
-    class ItemInfo: HeadgearItem{
-      mass=40;
-      modelSides[]={6};
-      passThrough=0.1;
-      uniformModel="\OPTRE_UNSC_Units\Army\aa_helmet_dp.p3d";
-      hiddenSelections[]={ "camo" };
-      hiddenSelectionsTextures[]={
-        "\x\12thMEU\addons\12th_armor\helmets\aa\AA_Helmet_12th_CO.paa"
-      };
-      class HitpointsProtectionInfo{
-        class Head {
-          hitpointName="HitHead";
-          armor=20;
-          passThrough=0.1;
-        };
-      };
-    };
-    hiddenSelections[]={ "camo" };
-    hiddenSelectionsTextures[]={
-      "\x\12thMEU\addons\12th_armor\helmets\aa\AA_Helmet_12th_CO.paa"
-    };
-  };
-
-
-
 
   PATROLCAP_WEP(std)
   PATROLCAP_WEP(desert)
@@ -232,7 +141,7 @@ class CfgWeapons {
 
 
   // Helmet_CH43A
-  class twelfth_helmCH43A_base: STB73_Helmet_CH43A_Base {
+  class twelfth_helmCH43A_base: CC_H_CH43A_Black {
     scope=0;
     author="Sammy";
     scopeArsenal=0;
@@ -248,7 +157,7 @@ class CfgWeapons {
     };
   };
 
-  class twelfth_helmECH43A_base: STB73_Helmet_ECH43A_Base {
+  class twelfth_helmECH43A_base: CC_H_ECH43A_Black {
     scope=0;
     author="Sammy";
     scopeArsenal=0;
@@ -266,7 +175,7 @@ class CfgWeapons {
 	  uniformModel = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_ECH43A\h_helmet_ECH43A_Black.p3d";
     };
   };
-    class twelfth_helmECH43A_base_DP: STB73_Helmet_ECH43A_Base_DP {
+    class twelfth_helmECH43A_base_DP: CC_H_ECH43A_Black_DP {
     scope=0;
     author="Sammy";
     scopeArsenal=0;
@@ -300,20 +209,9 @@ class CfgWeapons {
     };     
   };
 
-  // ODST
-   class twelfth_odst_helmet: STB73_Helmet_ECH55D_Base {
-    scope=2;
-    author="Rex";
-    scopeArsenal=2;
-    displayName="[12th] ODST";
-	  model = "\TCP\Characters\BLUFOR\UNSC\Marines\Headgear\helmet_ECH55D\h_helmet_ECH55D_Blue.p3d";
-    class ItemInfo: HeadgearItem {
-	  uniformModel = "\TCP\Characters\BLUFOR\UNSC\Marines\Headgear\helmet_ECH55D\h_helmet_ECH55D_Blue.p3d";
-    };
-  };
 
   // Army
-  class twelfth_army_helmet: STB73_Helmet_ECH43A_Base {
+  class twelfth_army_helmet: CC_Helmet_ECH43A_Base {
     scope=2;
     author="Rex";
     scopeArsenal=2;
