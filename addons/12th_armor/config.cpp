@@ -33,9 +33,7 @@ class CfgPatches {
       weapons[]: The “weapon” (i.e., uniform item) classes.  
     */
     units[]= {};
-    weapons[]= {
-      "twelfth_uni_ng_base_wep"
-    };
+    weapons[]= {};
     requiredAddons[]= {
       "A3_Armor_F_Beta",
       "A3_Soft_F",
@@ -83,37 +81,17 @@ class CfgVehicles {
 // -----------------------------------------------------------------------------
 class CfgWeapons {
   class TCP_equipmentTypes;
-  class UniformItem;
   class itemInfo;
-  class Uniform_Base;
   class H_PilotHelmetHeli_B;
-  class HeadgearItem;
   class TCP_H_UtilityCover_Base;
-  class CC_H_CH43A_Black;
-  class CC_H_ECH43A_Black_DP;
-  class CC_H_ECH43A_Black;
+  class CC_H_CH43A_Black{class ItemInfo;};
+  class CC_H_ECH43A_Black_DP{class ItemInfo;};
+  class CC_H_ECH43A_Black_Black{class ItemInfo;};
   class TCP_H_boonieHat_Base;
   class TCP_H_boonieHat_Folded_Base;
   class TCP_H_boonieHat_Folded_Left_Base;
   class TCP_H_boonieHat_Folded_Right_Base;
   class TCP_H_PatrolCap_Base;
-  class twelfth_uni_ng_base_wep: Uniform_Base {
-    author="Waylen";
-    scope=0;
-    scopeArsenal=0;
-    displayName="[12th] Armor Base Weapon (DON'T USE)";
-    model="\A3\Characters_F\Common\Suitpacks\suitpack_blufor_diver";
-    ACE_GForceCoef=0.4;
-    class ItemInfo: UniformItem {
-      uniformModel="-";
-      uniformClass="twelfth_uni_ng_base_veh";
-      containerClass="Supply100";
-      mass=1;
-      uniformType = "Neopren";
-      allowedSlots[]={"701","801","901"};
-      armor=20;
-    };
-  };
 
 
 
@@ -152,18 +130,16 @@ class CfgWeapons {
       selectionName = "nameCH43A";
     };
 	  model = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_CH43A\h_helmet_CH43A.p3d";
-    class ItemInfo: HeadgearItem {
+    class ItemInfo: ItemInfo {
 	    uniformModel = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_CH43A\h_helmet_CH43A.p3d";
     };
   };
 
-  class twelfth_helmECH43A_base: CC_H_ECH43A_Black {
+  class twelfth_helmECH43A_base: CC_H_ECH43A_Black_Black {
     scope=0;
     author="Sammy";
     scopeArsenal=0;
     displayName="[12th] Helmet Closed Base (DON'T USE)";
-    ace_hearing_protection=1;
-    ace_hearing_lowerVolume=0;
     TCP_visrClasses[] = {"twelfth_helmECH43A_base","twelfth_helmECH43A_base_DP"};
     picture="\x\12thMEU\addons\12th_ui\data\logo.paa";
     class TCP_uniformDecals
@@ -171,7 +147,7 @@ class CfgWeapons {
       selectionName = "nameCH43A";
     };
 	  model = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_ECH43A\h_helmet_ECH43A_Black.p3d";
-    class ItemInfo: HeadgearItem {
+    class ItemInfo: ItemInfo {
 	  uniformModel = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_ECH43A\h_helmet_ECH43A_Black.p3d";
     };
   };
@@ -180,8 +156,6 @@ class CfgWeapons {
     author="Sammy";
     scopeArsenal=0;
     displayName="[12th] Helmet Closed Base (DON'T USE)";
-    ace_hearing_protection=1;
-    ace_hearing_lowerVolume=0;
     TCP_visrClasses[] = {"twelfth_helmECH43A_base","twelfth_helmECH43A_base_DP"};
     picture="\x\12thMEU\addons\12th_ui\data\logo.paa";
     class TCP_uniformDecals
@@ -189,7 +163,7 @@ class CfgWeapons {
       selectionName = "nameCH43A";
     };
 	  model = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_ECH43A\h_helmet_ECH43A_DP.p3d";
-    class ItemInfo: HeadgearItem {
+    class ItemInfo: ItemInfo {
 	  uniformModel = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_ECH43A\h_helmet_ECH43A_DP.p3d";
     };
   };
@@ -211,7 +185,7 @@ class CfgWeapons {
 
 
   // Army
-  class twelfth_army_helmet: CC_Helmet_ECH43A_Base {
+  class twelfth_army_helmet: CC_H_CH43A_Black {
     scope=2;
     author="Rex";
     scopeArsenal=2;
@@ -227,7 +201,7 @@ class CfgWeapons {
       selectionName = "black";
     };
 	  model = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_CH43A\h_helmet_CH43A.p3d";
-    class ItemInfo: HeadgearItem {
+    class ItemInfo: ItemInfo {
 	  uniformModel = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_CH43A\h_helmet_CH43A.p3d";
       hiddenSelections[] = { "camo","decals" };  
       hiddenSelectionsTextures[] = { 

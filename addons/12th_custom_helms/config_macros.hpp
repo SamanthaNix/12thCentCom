@@ -69,7 +69,7 @@ class twelfth_helmCH43A_std_##SUFFIX##: twelfth_helmCH43A_base {  \
 		{\
       baseEquipment = QOUTE(twelfth_helmCH43A_std_##SUFFIX##);\
     };\
-  class ItemInfo: HeadgearItem {                \
+  class ItemInfo: ItemInfo {                \
     uniformModel = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_CH43A\h_helmet_CH43A.p3d";   \
     picture="\x\12thMEU\addons\12th_ui\data\logo.paa";                                 \
     hiddenSelections[]= {"camo","decals"};      \
@@ -98,7 +98,7 @@ class twelfth_helmECH43A_std_##SUFFIX##_clsd: twelfth_helmECH43A_base { \
   {												\
     decalColor = "white";						\
   };  											\
-  class ItemInfo: HeadgearItem {                \
+  class ItemInfo: ItemInfo {                \
     uniformModel = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_ECH43A\h_helmet_ECH43A_Black.p3d";   \
     picture="\x\12thMEU\addons\12th_ui\data\logo.paa";                                 \
     hiddenSelections[]= {"camo","camo1","decals"};      \

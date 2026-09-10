@@ -1333,7 +1333,7 @@
 	{												\
 		decalColor = "white";						\
 	};  											\
-  class ItemInfo: HeadgearItem {                \
+  class ItemInfo: ItemInfo {                \
     uniformModel = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_CH43A\h_helmet_CH43A.p3d";   \
     hiddenSelections[]= {"camo","decals"};      \
     hiddenSelectionsTextures[]= {               \
@@ -1374,7 +1374,7 @@ class twelfth_helmCH43A_##SUFFIX##_ChinstrapOffset: twelfth_helmCH43A_##SUFFIX##
 	{												\
 		decalColor = "white";						\
 	};  											\
-  class ItemInfo: HeadgearItem {                \
+  class ItemInfo: ItemInfo {                \
     uniformModel = "\TCP\Characters\BLUFOR\UNSC\Army\Headgear\helmet_ECH43A\h_helmet_ECH43A_Black.p3d";   \
     picture="";                                 \
     hiddenSelections[]= {"camo","camo1","decals"};      \

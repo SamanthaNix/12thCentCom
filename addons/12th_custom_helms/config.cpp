@@ -129,7 +129,6 @@ class CfgPatches {
 
 class CfgWeapons {
   class ItemInfo;
-  class HeadgearItem;
   class twelfth_helmCH43A_base;
   class twelfth_helmECH43A_base;
   class TCP_uniformDecals;
