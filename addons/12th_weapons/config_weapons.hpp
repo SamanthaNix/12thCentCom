@@ -136,6 +136,7 @@ class CfgWeapons
     mass = 160;
 		displayName = "[12th] MA6-A Box";
 		baseWeapon = "twelfth_MA6_A_BOX";
+		ace_overheating_closedBolt = 0; 
 		class WeaponSlotsInfo: WeaponSlotsInfo {
 			class MuzzleSlot: MuzzleSlot {
 				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
@@ -161,6 +162,7 @@ class CfgWeapons
     	mass = 160;
 		displayName = "[12th] MA6-A Drum";
 		baseWeapon = "twelfth_MA6_A_DRUM";
+		ace_overheating_closedBolt = 0; 
 		class WeaponSlotsInfo: WeaponSlotsInfo {
 			class MuzzleSlot: MuzzleSlot {
 				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
