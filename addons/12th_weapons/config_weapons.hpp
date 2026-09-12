@@ -33,7 +33,9 @@ class CfgWeapons
   class CC_M731;
   class ACE_optic_Hamr_2D;
   class optic_DMS;
-
+  class TCP_optic_M43RCO;
+  class TCP_OpticsMode_Base_Irons;
+  class InventoryOpticsItem_Base_F;
 	//Base MA6
 	class twelfth_MA6: CC_MA40 {
 		model="x\12thMEU\addons\12th_weapons\data\MA6\MA6.p3d";
@@ -260,4 +262,103 @@ class CfgWeapons
 		descriptionShort = "MA6 Smartlink";
 		model = "x\12thMEU\addons\12th_weapons\data\MA6_Smartlink\MA6_SmartLink.p3d";
 	};
+	class twelfth_m43rco : TCP_optic_M43RCO{
+		author = "rex";
+		displayName = "[12th] M43 RCO";
+		class ItemInfo: InventoryOpticsItem_Base_F{
+			mass = 10;
+			modelOptics = "\A3\Weapons_F\empty";
+			optics = 1;
+			opticType = 2;
+			class OpticsModes
+			{
+				class Irons: TCP_OpticsMode_Base_Irons{};
+				class EVOSD
+				{
+					opticsID = 1;
+					useModelOptics = 1;
+					opticsPPEffects[] = {"OpticsCHAbera1","OpticsBlur1"};
+					opticsZoomMin = 0.083333336;
+					opticsZoomMax = 0.25;
+					opticsZoomInit = 0.25;
+					discreteDistance[] = {100,200,300,400,500,600,700,800,900,1000};
+					discreteDistanceInitIndex = 1;
+					distanceZoomMin = 100;
+					distanceZoomMax = 1000;
+					discreteFOV[] = {0.25,0.125,0.083333336};
+					discreteInitIndex = 0;
+					modelOptics[] = {"\TCP\Weapons_ins\Acc\Optic\M43RCO\reticle_M43RCO_1x.p3d","\TCP\Weapons_ins\Acc\Optic\M43RCO\reticle_M43RCO_2x.p3d","\TCP\Weapons_ins\Acc\Optic\M43RCO\reticle_M43RCO_3x.p3d"};
+					memoryPointCamera = "opticView";
+					visionMode[] = {};
+					opticsFlare = 1;
+					opticsDisablePeripherialVision = 1;
+					cameraDir = "";
+				};
+			};
+		};
+	};
+	class twelfth_m43rco_crs : twelfth_m43rco {
+		author = "rex";
+		displayName = "[12th] M43 RCO (CRS)";
+		picture = "\TCP\Weapons_ins\Acc\Optic\M43RCO\data\ui\icon_optic_M43RCO_CRS_CA.paa";
+		model = "\TCP\Weapons_ins\Acc\Optic\M43RCO\acco_M43RCO_CRS.p3d";
+	};
+	class twelfth_m43rco_crs_cup : twelfth_m43rco {
+		author = "rex";
+		displayName = "[12th] M43 RCO (CRS, Eyecup)";
+		picture = "\TCP\Weapons_ins\Acc\Optic\M43RCO\data\ui\icon_optic_M43RCO_CRS_CUP_CA.paa";
+		model = "\TCP\Weapons_ins\Acc\Optic\M43RCO\acco_M43RCO_CRS_CUP.p3d";
+	};
+	class twelfth_m43rco_cup : twelfth_m43rco {
+		author = "rex";
+		displayName = "[12th] M43 RCO (Eyecup)";
+		picture = "\TCP\Weapons_ins\Acc\Optic\M43RCO\data\ui\icon_optic_M43RCO_CUP_CA.paa";
+		model = "\TCP\Weapons_ins\Acc\Optic\M43RCO\acco_M43RCO_CUP.p3d";
+	};
+};
+
+class CfgMagazines {
+	class CC_95x40_36Rnd_Mag;
+  	class CC_95x40_36Rnd_Mag_Tracer;
+
+	//56 round 9.5 magazine
+   class twelfth_56Rnd_95x40_Mag: CC_95x40_36Rnd_Mag{
+    scope = 2;
+    author = "Rex";
+    displayName = "56rnd 9.5x40mm Box";
+    count = 56;
+    mass = 28;
+  };
+
+  class twelfth_56Rnd_95x40_Mag_T: CC_95x40_36Rnd_Mag_Tracer{
+    scope = 2;
+    author = "Rex";
+    displayName = "56rnd 9.5x40mm Box (T)";
+    count = 56;
+    mass = 28; 
+  };
+   class avm224_M_6Rnd_60mm_ILLUM_IR;
+  class twelfth_M_6Rnd_60mm_HUNTIR: avm224_M_6Rnd_60mm_ILLUM_IR {
+    displayName = "M770 6Rnd 60mm HuntIR";
+		displayNameShort = "6Rnd M770 HuntIR";
+    author = "Hen gizzard and Turnip wizard";
+    picture = "\x\12thMEU\addons\12th_weapons\data\m224\ammo_mag_huntir.paa";
+    hiddenSelections[] = { "box_1" };
+    hiddenSelectionsMaterials[] = { "x\12thMEU\addons\12th_weapons\data\m224\M224_mag_huntir.rvmat" };
+    ammo = "F_HuntIR_mortar";
+    mass = 60;
+  };
+  class twelfth_M_1Rnd_60mm_HUNTIR_csw: twelfth_M_6Rnd_60mm_HUNTIR {
+    displayName = "[CSW] M770 1Rnd 60mm HuntIR";
+		displayNameShort = "M770 HuntIR x1";
+    author = "Hen gizzard and Turnip wizard";
+    picture = "\x\12thMEU\addons\12th_weapons\data\m224\ammo_mag_huntir.paa";
+    model = "\z\ace\addons\mk6mortar\data\l16_ammo_illum.p3d";
+    hiddenSelections[] = {};
+    hiddenSelectionsMaterials[] = {};
+    type = 256;
+    count = 1;
+    ACE_isBelt = 1;
+    mass = 6;
+  };
 };
