@@ -123,6 +123,7 @@ class CfgWeapons {
     scope=0;
     author="Sammy";
     scopeArsenal=0;
+    ace_hearing_lowerVolume=0;
     picture="x\12thMEU\addons\12th_ui\data\logo.paa";
     displayName="[12th] Helmet Base (DON'T USE)";
     class TCP_uniformDecals
@@ -139,6 +140,7 @@ class CfgWeapons {
     scope=0;
     author="Sammy";
     scopeArsenal=0;
+    ace_hearing_lowerVolume=0;
     displayName="[12th] Helmet Closed Base (DON'T USE)";
     TCP_visrClasses[] = {"twelfth_helmECH43A_base","twelfth_helmECH43A_base_DP"};
     picture="\x\12thMEU\addons\12th_ui\data\logo.paa";
@@ -155,6 +157,7 @@ class CfgWeapons {
     scope=0;
     author="Sammy";
     scopeArsenal=0;
+    ace_hearing_lowerVolume=0;
     displayName="[12th] Helmet Closed Base (DON'T USE)";
     TCP_visrClasses[] = {"twelfth_helmECH43A_base","twelfth_helmECH43A_base_DP"};
     picture="\x\12thMEU\addons\12th_ui\data\logo.paa";
