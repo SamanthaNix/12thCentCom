@@ -19,6 +19,7 @@
   ==============================================================================
 */
 #include "config_macros.hpp"
+#include "config_magazineGroups.hpp"
 #include "config_weapons.hpp"
 #include "model.cfg"
 class CfgPatches
@@ -35,7 +36,7 @@ class CfgPatches
     requiredVersion = 0.1;
     requiredAddons[] = { "OPTRE_Weapons",
                         "A3_Weapons_F", "A3_Weapons_F_Exp", 
-                        "ace_missileguidance","ace_common", "a3_weapons_f_tank", "ace_reloadlaunchers","ace_csw","ace_apl","ace_huntir","NDS_M224_mortar","avm224_mortar"
+                        "ace_missileguidance","ace_common", "a3_weapons_f_tank", "ace_reloadlaunchers","NDS_M224_mortar","avm224_mortar","ace_csw","ace_apl","ace_huntir",
                         }; 
         /*
         IMPORTANT: If you rely on additional external mods,
