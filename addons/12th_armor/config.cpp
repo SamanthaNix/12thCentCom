@@ -93,7 +93,8 @@ class CfgWeapons {
   class TCP_H_boonieHat_Folded_Right_Base;
   class TCP_H_PatrolCap_Base;
 
-
+  //Recon cloaks, duh
+  #include "reconCloaks.hpp"
 
   //TCP UNIFORM Weapon definitions
   TCP_WEP_CLASS_DEF
