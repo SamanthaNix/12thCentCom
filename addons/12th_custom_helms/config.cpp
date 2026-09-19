@@ -128,7 +128,13 @@ class CfgPatches {
 };
 
 class CfgWeapons {
+  /*
+    Base classes & references:
+    - H_HelmetB: Standard ArmA 3 base helmet
+    - HeadgearItem: For item-specific config (weight, armor, etc.)
+  */
   class ItemInfo;
+  class HeadgearItem;
   class twelfth_helmCH43A_base;
   class twelfth_helmECH43A_base;
   class TCP_uniformDecals;
@@ -160,13 +166,16 @@ class CfgWeapons {
   CUSTOM_HELM_S_AV(Don)
   CUSTOM_HELM_S_AV(Duckworth)
   CUSTOM_HELM_S_AV(Felix)
+  CUSTOM_HELM_S_AV(Fenty)
   CUSTOM_HELM_S_AV(Geoff)
   CUSTOM_HELM_S_AV(Germain)
   CUSTOM_HELM_S_AV(Grant)
   CUSTOM_HELM_S_AV(Hathaway)
   CUSTOM_HELM_S_AV(Jekyll)
   CUSTOM_HELM_S_AV(Kiens)
+  CUSTOM_HELM_S_AV(Kovac)
   CUSTOM_HELM_S_AV(LeDoux)
+  CUSTOM_HELM_S_AV(Link)
   CUSTOM_HELM_S_AV(Luerssen)
   CUSTOM_HELM_S_AV(Luke)
   CUSTOM_HELM_S_AV(Marley)
@@ -218,6 +227,7 @@ class CfgWeapons {
   CUSTOM_PILOT_HELM(Moss, "[12th][Pilot][Customs] Moss",moss)
   CUSTOM_PILOT_HELM(tomb, "[12th][Pilot][Customs] Tomb",tomb)
   //CUSTOM_PILOT_HELM(kurita, "[12th][Pilot][Customs] Kurita",kurita)
+  CUSTOM_PILOT_HELM(rich, "[12th][Pilot][Customs] Rich",rich)
 
 };
 
@@ -264,6 +274,7 @@ class XtdGearModels {
           "Dras",
           "Duckworth",
           "Felix",
+          "Fenty",
           "Gallegos",
           "Galvin",
           "Geoff",
@@ -272,6 +283,7 @@ class XtdGearModels {
           "Hathaway",
           "Jekyll",
           "Kiens",
+          "Kovac",
           "LeDoux",
           "Link",
           "Luerssen",
@@ -340,6 +352,7 @@ class XtdGearInfos {
     CH_HELM_S_GI(Duckworth)
     CH_HELM_S_GI(Dixie)
     CH_HELM_S_GI(Felix)
+    CH_HELM_S_GI(Fenty)
     CH_HELM_S_GI(Gallegos)
     CH_HELM_S_GI(Galvin)
     CH_HELM_S_GI(Geoff)
@@ -348,6 +361,7 @@ class XtdGearInfos {
     CH_HELM_S_GI(Hathaway)
     CH_HELM_S_GI(Jekyll)
     CH_HELM_S_GI(Kiens)
+    CH_HELM_S_GI(Kovac)
     CH_HELM_S_GI(LeDoux)
     CH_HELM_S_GI(Link)
     CH_HELM_S_GI(Luerssen)
