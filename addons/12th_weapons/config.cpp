@@ -19,6 +19,7 @@
   ==============================================================================
 */
 #include "config_macros.hpp"
+#include "config_magazineGroups.hpp"
 #include "config_weapons.hpp"
 #include "model.cfg"
 class CfgPatches
@@ -28,14 +29,14 @@ class CfgPatches
     units[] = {}; // If you add a placeable object/vehicle that belongs to this mod,
                   // you should list that class name here.
     weapons[] = {
-				         "twelfth_MA6_K","twelfth_MA6","twelfth_MA6_D","twelfth_MA6_A_BOX","twelfth_MA6_A_DRUM","twelfth_MA6_AL",
+				         "twelfth_MA6_K","twelfth_MA6","twelfth_MA6_D","twelfth_MA6_A_BOX","twelfth_MA6_A_DRUM","twelfth_MA6_AL","avm224_W_M224_mortar_proxy","NDS_W_M224_mortar"
                  }; // Ensure any newly created weapon class is listed above.
-    ammo[] = {}; // Please add your new ammo types to this list
-    magazines[] = {}; // Add new magazines here.
+    ammo[] = {"F_HuntIR_mortar"}; // Please add your new ammo types to this list
+    magazines[] = {"twelfth_M_1Rnd_60mm_HUNTIR_csw", "twelfth_M_6Rnd_60mm_HUNTIR"}; // Add new magazines here.
     requiredVersion = 0.1;
     requiredAddons[] = { "OPTRE_Weapons",
                         "A3_Weapons_F", "A3_Weapons_F_Exp", 
-                        "ace_missileguidance","ace_common", "a3_weapons_f_tank", "ace_reloadlaunchers","ace_csw","ace_apl","ace_huntir"
+                        "ace_missileguidance","ace_common", "a3_weapons_f_tank", "ace_reloadlaunchers","NDS_M224_mortar","avm224_mortar","ace_csw","ace_apl","ace_huntir",
                         }; 
         /*
         IMPORTANT: If you rely on additional external mods,

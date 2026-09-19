@@ -317,6 +317,45 @@ class CfgWeapons
 		picture = "\TCP\Weapons_ins\Acc\Optic\M43RCO\data\ui\icon_optic_M43RCO_CUP_CA.paa";
 		model = "\TCP\Weapons_ins\Acc\Optic\M43RCO\acco_M43RCO_CUP.p3d";
 	};
+
+	class mortar_82mm;
+	class NDS_W_M224_mortar: mortar_82mm
+	{
+		magazines[] = 
+		{
+			"NDS_M_6Rnd_60mm_HE",
+			"NDS_M_6Rnd_60mm_HE_0",
+			"NDS_M_6Rnd_60mm_ILLUM",
+			"avm224_M_6Rnd_60mm_ILLUM_IR",
+			"NDS_M_6Rnd_60mm_SMOKE",
+      "twelfth_M_6Rnd_60mm_HUNTIR"
+		};
+	};
+  class avm224_W_M224_mortar_proxy: NDS_W_M224_mortar {
+    magazines[] = 
+		{
+			"NDS_M_6Rnd_60mm_HE",
+			"NDS_M_6Rnd_60mm_HE_0",
+			"NDS_M_6Rnd_60mm_ILLUM",
+			"avm224_M_6Rnd_60mm_ILLUM_IR",
+			"NDS_M_6Rnd_60mm_SMOKE",
+      "twelfth_M_6Rnd_60mm_HUNTIR"
+		};
+	};
+};
+
+class CfgAmmo {
+	class FlareBase;
+  class F_HuntIR: FlareBase {
+    class Eventhandlers;
+  };
+  class F_HuntIR_mortar : F_HuntIR {
+    author = "Hen gizzard and Turnip wizard";
+    timeToLive = 15;
+    class Eventhandlers {
+      fired = "[gunner (_this#0), _this#1, _this#2, _this#3, _this#4, _this#5, _this#6] call ACE_huntir_fnc_handleFired;";
+    };
+  };
 };
 
 class CfgMagazines {
