@@ -18,6 +18,7 @@
 
   ==============================================================================
 */
+#include "config_ammo.hpp"
 #include "config_macros.hpp"
 #include "config_magazineGroups.hpp"
 #include "config_weapons.hpp"
