@@ -108,7 +108,7 @@ class CfgWeapons
 		displayName = "[12th] MA6-D Marksman Rifle";
 		baseWeapon = "twelfth_MA6_D";
 		canShootInWater = 1;
-		magazines[] = COMMON_MA5C_MAGAZINES;
+		magazines[] = {"CC_32Rnd_762x51_Mag","CC_32Rnd_762x51_Mag_Dual","CC_32Rnd_762x51_Mag_Tracer","CC_32Rnd_762x51_Mag_Tracer_IR","CC_32Rnd_762x51_Mag_Tracer_Yellow"};
 		handAnim[] = {"OFP2_ManSkeleton","x\12thMEU\addons\12th_weapons\data\MA6\animations\MA6.rtm"};
 		class WeaponSlotsInfo: WeaponSlotsInfo {
 			class MuzzleSlot: MuzzleSlot {
