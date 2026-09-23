@@ -81,7 +81,7 @@ class CfgVehicles {
 // -----------------------------------------------------------------------------
 class CfgWeapons {
   class TCP_equipmentTypes;
-  class itemInfo;
+  class ItemInfo;
   class H_PilotHelmetHeli_B;
   class TCP_H_UtilityCover_Base;
   class CC_H_CH43A_Black{class ItemInfo;};

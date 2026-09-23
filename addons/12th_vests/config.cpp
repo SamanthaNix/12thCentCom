@@ -53,7 +53,7 @@ class CfgWeapons
   // Base uniform item for new-gen armor
   //-New Armour-----------------------------------------------------
   class CC_M43_Base{
-    class itemInfo;
+    class ItemInfo;
   };
   GENERATE_VEST_CLASSES(std)
 
