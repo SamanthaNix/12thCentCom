@@ -458,7 +458,27 @@ class XtdGearModels {
         class noblouse {label="No blouse"; actionLabel = "Unblouse Pants";};
       };
     };
-
+        //Recon Hoods Down
+    class twelfth_reconhoods_down {
+      label="12th Recon Hoods";
+      options[] = {"camo", "type"};
+      class camo {
+        alwaysSelectable = 1;
+        label="Camouflage";
+        values[]={"forest","winter","desert","black"};
+        class forest {label="Forest"; image=XTP(forest);};
+        class winter {label="Winter"; /* image=XTP(winter); */};
+        class desert {label="Desert"; image=XTP(desert);};
+        class black {label="Black";/* image=XTP(desert);*/};
+      };
+      class type {
+        alwaysSelectable = 1;
+        label="NVG type";
+        values[]={"WHOT","RHOT"};
+        class WHOT  {label="WHOT";};
+        class RHOT  {label="RHOT";};
+      };
+    };
     //Boonies
     class twelfth_boonies {
       label="12th Boonies";
@@ -548,14 +568,6 @@ class XtdGearInfos {
 
     //-------------------------------------- Hoods
     //Recon Hoods
-    RECONHOODS_GI(forest,Hood)
-    RECONHOODS_GI(winter,Hood)
-    RECONHOODS_GI(desert,Hood)
-    RECONHOODS_GI(black,Hood)
-    RECONHOODS_GI(forest,SniperHood)
-    RECONHOODS_GI(winter,SniperHood)
-    RECONHOODS_GI(desert,SniperHood)
-
 
     RECONHOODS_DOWN_GI(forest)
     RECONHOODS_DOWN_GI(winter)
