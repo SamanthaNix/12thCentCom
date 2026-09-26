@@ -366,6 +366,7 @@ class XtdGearInfos {
     CH_HELM_S_GI(Germain)
     CH_HELM_S_GI(Grant)
     CH_HELM_S_GI(Hathaway)
+    CH_HELM_S_GI(Hensworth)
     CH_HELM_S_GI(Jekyll)
     CH_HELM_S_GI(Kiens)
     CH_HELM_S_GI(Kovac)
