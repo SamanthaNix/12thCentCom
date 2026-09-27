@@ -56,7 +56,7 @@ class CfgWeapons
 		class WeaponSlotsInfo: WeaponSlotsInfo {
 			class MuzzleSlot: MuzzleSlot {
 				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
-				compatibleitems[] = { "OPTRE_MA5Suppressor" };
+				compatibleitems[] = { "OPTRE_MA5Suppressor","TCP_muzzle_snds_762_01" };
 			};
 			class CowsSlot: CowsSlot {
 				linkProxy = "\A3\data_f\proxies\weapon_slots\TOP";
@@ -97,7 +97,7 @@ class CfgWeapons
 		class WeaponSlotsInfo: WeaponSlotsInfo {
 			class MuzzleSlot: MuzzleSlot {
 				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
-				compatibleitems[] = { "OPTRE_MA5Suppressor" };
+				compatibleitems[] = { "OPTRE_MA5Suppressor","TCP_muzzle_snds_762_01" };
 			};
 			class CowsSlot: CowsSlot {
 				linkProxy = "\A3\data_f\proxies\weapon_slots\TOP";
@@ -128,7 +128,7 @@ class CfgWeapons
 		class WeaponSlotsInfo: WeaponSlotsInfo {
 			class MuzzleSlot: MuzzleSlot {
 				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
-				compatibleitems[] = { "OPTRE_MA5Suppressor" };
+				compatibleitems[] = { "OPTRE_MA5Suppressor","TCP_muzzle_snds_762_01" };
 			};
 			class CowsSlot: CowsSlot {
 				linkProxy = "\A3\data_f\proxies\weapon_slots\TOP";
@@ -156,7 +156,7 @@ class CfgWeapons
 		class WeaponSlotsInfo: WeaponSlotsInfo {
 			class MuzzleSlot: MuzzleSlot {
 				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
-				compatibleitems[] = { "OPTRE_MA5Suppressor" };
+				compatibleitems[] = { "OPTRE_MA5Suppressor","TCP_muzzle_snds_762_01" };
 			};
 			class CowsSlot: CowsSlot {
 				linkProxy = "\A3\data_f\proxies\weapon_slots\TOP";
@@ -182,7 +182,7 @@ class CfgWeapons
 		class WeaponSlotsInfo: WeaponSlotsInfo {
 			class MuzzleSlot: MuzzleSlot {
 				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
-				compatibleitems[] = { "OPTRE_MA5Suppressor" };
+				compatibleitems[] = { "OPTRE_MA5Suppressor","TCP_muzzle_snds_762_01" };
 			};
 			class CowsSlot: CowsSlot {
 				linkProxy = "\A3\data_f\proxies\weapon_slots\TOP";
@@ -215,7 +215,7 @@ class CfgWeapons
 		class WeaponSlotsInfo: WeaponSlotsInfo {
 			class MuzzleSlot: MuzzleSlot {
 				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
-				compatibleitems[] = { "OPTRE_MA5Suppressor" };
+				compatibleitems[] = { "OPTRE_MA5Suppressor","TCP_muzzle_snds_762_01" };
 			};
 			class CowsSlot: CowsSlot {
 				linkProxy = "\A3\data_f\proxies\weapon_slots\TOP";
@@ -247,7 +247,7 @@ class CfgWeapons
 		class WeaponSlotsInfo: WeaponSlotsInfo {
 			class MuzzleSlot: MuzzleSlot {
 				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
-				compatibleitems[] = { "OPTRE_MA5Suppressor" };
+				compatibleitems[] = { "OPTRE_MA5Suppressor","TCP_muzzle_snds_762_01" };
 			};
 			class CowsSlot: CowsSlot {
 				linkProxy = "\A3\data_f\proxies\weapon_slots\TOP";
