@@ -31,6 +31,7 @@ class CfgWeapons
   class CC_BR55;
   class CC_MA5B;
   class CC_M731;
+  class UGL_F;
   class ACE_optic_Hamr_2D;
   class optic_DMS;
   class TCP_optic_M43RCO;
@@ -84,18 +85,50 @@ class CfgWeapons
 		"x\12thMEU\addons\12th_weapons\data\MA6\green\MA6_co.paa",
 		};
 	};
+	  //UGL
+	class twelfth_MA6_UGL:twelfth_MA6{
+		baseWeapon = "twelfth_MA6_UGL";
+		displayName = "[12th] MA-6 (GL)";
+		model="x\12thMEU\addons\12th_weapons\data\MA6\MA6_UGL.p3d";
+		handAnim[] = {"OFP2_ManSkeleton","x\12thMEU\addons\12th_weapons\data\MA6_UGL\Ma_6_UGL.rtm"};
+		muzzles[] = {"this", "MA6_UGL"};
+		class WeaponSlotsInfo:WeaponSlotsInfo{
+			class UnderBarrelSlot{};
+		};
+		class MA6_UGL: UGL_F /// Some grenade launcher to have some more fun
+		{
+			displayName = "MA-6 Grenade Launcher";
+			descriptionShort = "MA-6-GL";
+			useModelOptics = "false";
+			useExternalOptic = "false"; /// Doesn't use optics from the attachment, has it's own
+			magazines[] = {"1Rnd_HE_Grenade_shell"};
+			cameraDir = "OP_look";
+			discreteDistance[] = {100, 200, 300, 400};
+			discreteDistanceCameraPoint[] = {"OP_eye", "OP_eye2", "OP_eye3", "OP_eye4"}; /// the angle of gun changes with zeroing
+			discreteDistanceInitIndex = 1; /// 200 is the default zero
+		};
+	};
+	class twelfth_MA6_UGL_Green:twelfth_MA6_UGL{
+		displayName = "[12th] MA-6 Assault Rifle (GL) (Green)";
+			baseWeapon = "twelfth_MA6_UGL_green";
+		hiddenSelections[] = {"camo1"};
+		hiddenSelectionsTextures[]=// List of textures, in the same order as the hiddenSelections definition
+		{
+		"x\12thMEU\addons\12th_weapons\data\MA6\green\MA6_co.paa"
+		};
+	};
 	//Carbine
 	class twelfth_MA6_K: CC_MA37K {
 		model="x\12thMEU\addons\12th_weapons\data\MA6_K\MA6_K.p3d";
 		author = "Sammy";
 		scope = 2;
 		scopeArsenal = 2;
-		displayName = "[12th] MA-6K Carbine";
+		displayName = "[12th] MA-6K";
 		picture="x\12thMEU\addons\12th_weapons\data\MA6_K\Ma6-k-preview.paa";
 		baseWeapon = "twelfth_MA6_K";
 		canShootInWater = 1;
 		magazines[] = COMMON_MA5C_MAGAZINES;
-		handAnim[] = {"OFP2_ManSkeleton","x\12thMEU\addons\12th_weapons\data\MA6_K\animations\MA6_K.rtm"};
+		handAnim[] = {"OFP2_ManSkeleton","x\12thMEU\addons\12th_weapons\data\MA6\animations\MA6.rtm"};
 		class WeaponSlotsInfo: WeaponSlotsInfo {
 			class MuzzleSlot: MuzzleSlot {
 				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
@@ -117,12 +150,44 @@ class CfgWeapons
 	};
 	class twelfth_MA6_K_Green: twelfth_MA6_K {
 		author = "Sammy";
-		displayName = "[12th] MA-6K Carbine (Green)";
+		displayName = "[12th] MA-6K (Green)";
 		baseWeapon = "twelfth_MA6_K_green";
 		hiddenSelections[] = {"camo1"};
 		hiddenSelectionsTextures[]=// List of textures, in the same order as the hiddenSelections definition
 		{
 		"x\12thMEU\addons\12th_weapons\data\MA6_k\green\MA6_k_co.paa",
+		};
+	};
+	class twelfth_MA6_K_UGL: twelfth_MA6_K {
+    	model="x\12thMEU\addons\12th_weapons\data\MA6_K\MA6_K_UGL.p3d";
+		author = "Sammy";
+    	baseWeapon = "twelfth_MA6_K_UGL";
+		displayName = "[12th] MA-6K (GL)";
+   	 	handAnim[] = {"OFP2_ManSkeleton","x\12thMEU\addons\12th_weapons\data\MA6_UGL\Ma_6_UGL.rtm"};
+    	muzzles[] = {"this", "MA6_UGL"};
+    class WeaponSlotsInfo:WeaponSlotsInfo{
+      class UnderBarrelSlot{};
+    };
+    class MA6_UGL: UGL_F /// Some grenade launcher to have some more fun
+		{
+			displayName = "MA-6 Grenade Launcher";
+			descriptionShort = "MA-6-GL";
+			useModelOptics = "false";
+			useExternalOptic = "false"; /// Doesn't use optics from the attachment, has it's own
+			magazines[] = {"1Rnd_HE_Grenade_shell"};
+			cameraDir = "OP_look";
+			discreteDistance[] = {100, 200, 300, 400};
+			discreteDistanceCameraPoint[] = {"OP_eye", "OP_eye2", "OP_eye3", "OP_eye4"}; /// the angle of gun changes with zeroing
+			discreteDistanceInitIndex = 1; /// 200 is the default zero
+		};
+	};
+	class twelfth_MA6_K_UGL_Green:twelfth_MA6_K_UGL{
+		displayName = "[12th] MA-6K (GL) (Green)";
+		baseWeapon = "twelfth_MA6_K_UGL_green";
+		hiddenSelections[] = {"camo1"};
+		hiddenSelectionsTextures[]=// List of textures, in the same order as the hiddenSelections definition
+		{
+		"x\12thMEU\addons\12th_weapons\data\MA6_k\green\MA6_k_co.paa"
 		};
 	};
 	//DM Rifle
