@@ -41,6 +41,7 @@ class CfgPatches {
       "twelfth_helmCH43A_std_Bert",
       "twelfth_helmCH43A_std_Bobby",
       "twelfth_helmCH43A_std_Bunge",
+      "twelfth_helmCH43A_std_Butcher",
       "twelfth_helmCH43A_std_Clarke",
       "twelfth_helmCH43A_std_Coady",
       "twelfth_helmCH43A_std_Deacon",
@@ -81,6 +82,7 @@ class CfgPatches {
       "twelfth_helmECH43A_std_Bert_clsd",
       "twelfth_helmECH43A_std_Bobby_clsd",
       "twelfth_helmECH43A_std_Bunge_clsd",
+      "twelfth_helmECH43A_std_Butcher_clsd",
       "twelfth_helmECH43A_std_Clarke_clsd",
       "twelfth_helmECH43A_std_Coady_clsd",
       "twelfth_helmECH43A_std_Deacon_clsd",
@@ -161,6 +163,7 @@ class CfgWeapons {
   CUSTOM_HELM_S_AV(Bert)
   CUSTOM_HELM_S_AV(Bobby)
   CUSTOM_HELM_S_AV(Bunge)
+  CUSTOM_HELM_S_AV(Butcher)
   CUSTOM_HELM_S_AV(Clarke)
   CUSTOM_HELM_S_AV(Coady)
   CUSTOM_HELM_S_AV(Deacon)
@@ -267,17 +270,15 @@ class XtdGearModels {
         values[]={
           "Bateman",
           "Bert",
-          "Bob",
           "Bobby",
-          "Broad",
           "Bunge",
+          "Butcher",
           "Clarke",
           "Coady",
           "Deacon",
           "Dennis",
           "Dixie",
           "Don",
-          "Dras",
           "Duckworth",
           "Felix",
           "Fenty",
@@ -345,15 +346,13 @@ class XtdGearInfos {
   class CfgWeapons {
     CH_HELM_S_GI(Bateman)
     CH_HELM_S_GI(Bert)
-    CH_HELM_S_GI(Bob)
     CH_HELM_S_GI(Bobby)
-    CH_HELM_S_GI(Broad)
     CH_HELM_S_GI(Bunge)
+    CH_HELM_S_GI(Butcher)
     CH_HELM_S_GI(Clarke)
     CH_HELM_S_GI(Coady)
     CH_HELM_S_GI(Deacon)
     CH_HELM_S_GI(Dennis)
-    CH_HELM_S_GI(Stokes)
     CH_HELM_S_GI(Don)
     CH_HELM_S_GI(Dras)
     CH_HELM_S_GI(Duckworth)
@@ -399,6 +398,7 @@ class XtdGearInfos {
     CH_HELM_S_GI(Smitty)
     CH_HELM_S_GI(Stacker)
     CH_HELM_S_GI(Stale)
+    CH_HELM_S_GI(Stokes)
     CH_HELM_S_GI(Taji)
     CH_HELM_S_GI(Tomb)
     CH_HELM_S_GI(Thomson)
