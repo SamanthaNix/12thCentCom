@@ -228,6 +228,7 @@ class CfgWeapons
 		scopeArsenal = 2;
 		displayName = "[12th] MA-6D Marksman Rifle";
 		baseWeapon = "twelfth_MA6_D";
+		picture="x\12thMEU\addons\12th_weapons\data\MA6_d\Ma6-d-preview.paa";
 		hiddenSelections[] = {"camo1"};
 		hiddenSelectionsTextures[]=// List of textures, in the same order as the hiddenSelections definition
 		{
