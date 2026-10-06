@@ -27,10 +27,10 @@ class CfgWeapons
   // Base classes from external mods or vanilla A3
   class CC_MA37K;
   class CC_MA40;
-  class CC_M392;
+  class CC_M392_DMR;
   class CC_BR55;
   class CC_MA5B;
-  class CC_M731;
+  class CC_LMG_M731;
   class UGL_F;
   class ACE_optic_Hamr_2D;
   class optic_DMS;
@@ -85,7 +85,18 @@ class CfgWeapons
 		"x\12thMEU\addons\12th_weapons\data\MA6\green\MA6_co.paa",
 		};
 	};
-	  //UGL
+	class twelfth_MA6_Desert: twelfth_MA6 {
+		model="x\12thMEU\addons\12th_weapons\data\MA6\MA6.p3d";
+		author = "Sammy";
+    	baseWeapon = "twelfth_MA6_Desert";
+		displayName = "[12th] MA-6 (Desert)";
+		hiddenSelections[] = {"camo1"};
+		hiddenSelectionsTextures[]=// List of textures, in the same order as the hiddenSelections definition
+		{
+		"x\12thMEU\addons\12th_weapons\data\MA6\desert\MA6_co.paa",
+		};
+	};
+	//UGL
 	class twelfth_MA6_UGL:twelfth_MA6{
 		baseWeapon = "twelfth_MA6_UGL";
 		displayName = "[12th] MA-6 (GL)";
@@ -158,6 +169,16 @@ class CfgWeapons
 		"x\12thMEU\addons\12th_weapons\data\MA6_k\green\MA6_k_co.paa",
 		};
 	};
+	class twelfth_MA6_K_Desert: twelfth_MA6_K {
+		author = "Sammy";
+		displayName = "[12th] MA-6K (Desert)";
+		baseWeapon = "twelfth_MA6_K_Desert";
+		hiddenSelections[] = {"camo1"};
+		hiddenSelectionsTextures[]=// List of textures, in the same order as the hiddenSelections definition
+		{
+		"x\12thMEU\addons\12th_weapons\data\MA6_k\desert\MA6_k_co.paa",
+		};
+	};
 	class twelfth_MA6_K_UGL: twelfth_MA6_K {
     	model="x\12thMEU\addons\12th_weapons\data\MA6_K\MA6_K_UGL.p3d";
 		author = "Sammy";
@@ -190,14 +211,28 @@ class CfgWeapons
 		"x\12thMEU\addons\12th_weapons\data\MA6_k\green\MA6_k_co.paa"
 		};
 	};
+	class twelfth_MA6_K_UGL_Desert:twelfth_MA6_K_UGL{
+		displayName = "[12th] MA-6K (GL) (Desert)";
+		baseWeapon = "twelfth_MA6_K_UGL_Desert";
+		hiddenSelections[] = {"camo1"};
+		hiddenSelectionsTextures[]=// List of textures, in the same order as the hiddenSelections definition
+		{
+		"x\12thMEU\addons\12th_weapons\data\MA6_k\Desert\MA6_k_co.paa"
+		};
+	};
 	//DM Rifle
-	class twelfth_MA6_D: CC_M392 {
+	class twelfth_MA6_D: CC_M392_DMR {
 		model="x\12thMEU\addons\12th_weapons\data\MA6_D\MA6_D.p3d";
 		author = "Sammy";
 		scope = 2;
 		scopeArsenal = 2;
 		displayName = "[12th] MA-6D Marksman Rifle";
 		baseWeapon = "twelfth_MA6_D";
+		hiddenSelections[] = {"camo1"};
+		hiddenSelectionsTextures[]=// List of textures, in the same order as the hiddenSelections definition
+		{
+		"x\12thMEU\addons\12th_weapons\data\MA6_d\MA6_d_co.paa"
+		};
 		canShootInWater = 1;
 		magazines[] = {"CC_32Rnd_762x51_Mag","CC_32Rnd_762x51_Mag_Dual","CC_32Rnd_762x51_Mag_Tracer","CC_32Rnd_762x51_Mag_Tracer_IR","CC_32Rnd_762x51_Mag_Tracer_Yellow"};
 		handAnim[] = {"OFP2_ManSkeleton","x\12thMEU\addons\12th_weapons\data\MA6\animations\MA6.rtm"};
@@ -220,12 +255,31 @@ class CfgWeapons
 			};
 		};
 	};
-
+	class twelfth_MA6_D_Desert: twelfth_MA6_D {
+		author = "Sammy";
+		displayName = "[12th] MA-6D (Desert)";
+		baseWeapon = "twelfth_MA6_D_Desert";
+		hiddenSelections[] = {"camo1"};
+		hiddenSelectionsTextures[]=// List of textures, in the same order as the hiddenSelections definition
+		{
+		"x\12thMEU\addons\12th_weapons\data\MA6_D\desert\MA6_D_co.paa",
+		};
+	};
+	class twelfth_MA6_D_Green: twelfth_MA6_D {
+		author = "Sammy";
+		displayName = "[12th] MA-6D (Green)";
+		baseWeapon = "twelfth_MA6_D_Green";
+		hiddenSelections[] = {"camo1"};
+		hiddenSelectionsTextures[]=// List of textures, in the same order as the hiddenSelections definition
+		{
+		"x\12thMEU\addons\12th_weapons\data\MA6_D\green\MA6_D_co.paa",
+		};
+	};
 	// AR Rifle
-	class twelfth_MA6_A_BOX: CC_M731{
+	class twelfth_MA6_A_BOX: CC_LMG_M731{
 		model="x\12thMEU\addons\12th_weapons\data\MA6_A\MA6_A_BOX.p3d";
 		author = "Sammy";
-    mass = 160;
+    	mass = 160;
 		displayName = "[12th] MA-6A Box";
 		baseWeapon = "twelfth_MA6_A_BOX";
 		ace_overheating_closedBolt = 0; 
@@ -248,13 +302,13 @@ class CfgWeapons
 			};
 		};
 	};
-	class twelfth_MA6_A_DRUM: CC_M731{
+	class twelfth_MA6_A_DRUM: CC_LMG_M731{
 		model="x\12thMEU\addons\12th_weapons\data\MA6_A\MA6_A_DRUM.p3d";
 		author = "Sammy";
     	mass = 160;
 		displayName = "[12th] MA-6A Drum";
 		baseWeapon = "twelfth_MA6_A_DRUM";
-		ace_overheating_closedBolt = 0; 
+		ace_overheating_closedBolt = 0;
 		class WeaponSlotsInfo: WeaponSlotsInfo {
 			class MuzzleSlot: MuzzleSlot {
 				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
@@ -283,11 +337,10 @@ class CfgWeapons
 		scopeArsenal = 2;
 		displayName = "[12th] MA-6B IAR";
 		baseWeapon = "twelfth_MA6_B";
-		hiddenSelections[] = {"camo"};
-		hiddenSelectionsTextures[] = {"addons\12th_weapons\data\MA6_B\MA6_B_CO.paa"};
 		canShootInWater = 1;
 		magazines[] = {"OPTRE_60Rnd_762x51_Mag", "twelfth_60Rnd_762x51_Mag_T", "OPTRE_32Rnd_762x51_Mag", "OPTRE_32Rnd_762x51_Mag_Tracer", "OPTRE_32Rnd_762x51_Mag_UW" };
 		handAnim[] = {"OFP2_ManSkeleton","x\12thMEU\addons\12th_weapons\data\MA6\animations\MA6.rtm"};
+		hiddenSelections[] = {};
 		class WeaponSlotsInfo: WeaponSlotsInfo {
 			class MuzzleSlot: MuzzleSlot {
 				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
@@ -316,10 +369,10 @@ class CfgWeapons
 		scopeArsenal = 2;
 		displayName = "[12th] MA-6B H-IAR";
 		baseWeapon = "twelfth_MA6_AL";
-    	texture[] = {"addons\12th_weapons\data\MA6_B\MA6_B_CO.paa"};
 		canShootInWater = 1;
 		magazines[] = {"twelfth_56Rnd_95x40_Mag", "twelfth_56Rnd_95x40_Mag_T", "twelfth_br_36Rnd", "twelfth_br_36Rnd_T","twelfth_br_36Rnd_UW" };
 		handAnim[] = {"OFP2_ManSkeleton","x\12thMEU\addons\12th_weapons\data\MA6\animations\MA6.rtm"};
+		hiddenSelections[] = {};
 		class WeaponSlotsInfo: WeaponSlotsInfo {
 			class MuzzleSlot: MuzzleSlot {
 				linkProxy = "\A3\data_f\proxies\weapon_slots\MUZZLE";
