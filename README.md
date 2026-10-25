@@ -1,4 +1,6 @@
-# 12th Marine Expeditionary Unit Assets
+# 12th Marine Expeditionary CentCom AUX
+
+## Archived
 
 ## About
 
